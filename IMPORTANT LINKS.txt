@@ -1,3 +1,5 @@
+ASW EC2 Server Address:
 http://35.162.28.65/phpmyadmin
 
+Project Schema:
 https://docs.google.com/spreadsheets/d/1kgxUNfrdiis3pdSBjmP4eTR7DrfE9e0DUfhff5uPrFA/edit#gid=0
