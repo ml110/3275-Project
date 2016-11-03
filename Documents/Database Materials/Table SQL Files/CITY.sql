@@ -1,0 +1,18 @@
+insert into CITY (city_id, city_name) values (1, 'Vancouver');
+insert into CITY (city_id, city_name) values (2, 'Port Coquitlam');
+insert into CITY (city_id, city_name) values (3, 'Coquitlam');
+insert into CITY (city_id, city_name) values (4, 'New Westminister');
+insert into CITY (city_id, city_name) values (5, 'Surrey');
+insert into CITY (city_id, city_name) values (6, 'Pitt Meadows');
+insert into CITY (city_id, city_name) values (7, 'Maple Ridge');
+insert into CITY (city_id, city_name) values (8, 'White Rock');
+insert into CITY (city_id, city_name) values (9, 'Delta');
+insert into CITY (city_id, city_name) values (10, 'Port Moody');
+insert into CITY (city_id, city_name) values (11, 'Hope');
+insert into CITY (city_id, city_name) values (12, 'Abbotsford');
+insert into CITY (city_id, city_name) values (13, 'Richmond');
+insert into CITY (city_id, city_name) values (14, 'Chilliwack');
+insert into CITY (city_id, city_name) values (15, 'Burnaby');
+insert into CITY (city_id, city_name) values (16, 'West Vancouver');
+insert into CITY (city_id, city_name) values (17, 'North Vancouver');
+insert into CITY (city_id, city_name) values (18, 'Langley');

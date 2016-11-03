@@ -1,0 +1,10 @@
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (1, 'Nanite Systems');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (2, 'ACME');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (3, 'AZEUS');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (4, 'MegaSoft');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (5, 'Orange Inc.');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (6, 'Moon Macrosystems');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (7, 'Pressman Manufacturing');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (8, 'Maxim Ltd.');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (9, 'Arabica');
+insert into MANUFACTURER (manufacturer_id, manufacturer_name) values (10, 'IDK Manufacturing');
