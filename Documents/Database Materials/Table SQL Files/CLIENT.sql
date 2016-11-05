@@ -1,7 +1,7 @@
-insert into CLIENT (client_id, client_name, client_contact, client_email) values (1, 'Wolf, Block and Ledner', 'Samuel Porter', 'sporter0@symantec.com');
-insert into CLIENT (client_id, client_name, client_contact, client_email) values (2, 'Friesen Inc', 'Gerald Cook', 'gcook1@bluehost.com');
-insert into CLIENT (client_id, client_name, client_contact, client_email) values (3, 'Franecki Group', 'Howard Turner', 'hturner2@arstechnica.com');
-insert into CLIENT (client_id, client_name, client_contact, client_email) values (4, 'Hirthe, Cartwright and Brown', 'Evelyn Reyes', 'ereyes3@reddit.com');
-insert into CLIENT (client_id, client_name, client_contact, client_email) values (5, 'Becker, Schmeler and Kihn', 'Dorothy James', 'djames4@taobao.com');
-insert into CLIENT (client_id, client_name, client_contact, client_email) values (6, 'Lueilwitz and Sons', 'Brenda Dixon', 'bdixon5@vimeo.com');
-insert into CLIENT (client_id, client_name, client_contact, client_email) values (7, 'Boyer-Bergnaum', 'Fred Alexander', 'falexander6@utexas.edu');
+insert into client (client_id, client_name, client_rep, client_email, phone_id) values (1, 'Rath-Frami', 'Helen King', 'hking0@gmpg.org', 43);
+insert into client (client_id, client_name, client_rep, client_email, phone_id) values (2, 'Batz LLC', 'Louis Powell', 'lpowell1@rambler.ru', 32);
+insert into client (client_id, client_name, client_rep, client_email, phone_id) values (3, 'Turner Inc', 'Gary Russell', 'grussell2@squidoo.com', 33);
+insert into client (client_id, client_name, client_rep, client_email, phone_id) values (4, 'Stroman-O''Reilly', 'Bonnie Graham', 'bgraham3@geocities.jp', 46);
+insert into client (client_id, client_name, client_rep, client_email, phone_id) values (5, 'Roob-Pfannerstill', 'Jennifer Campbell', 'jcampbell4@yandex.ru', 28);
+insert into client (client_id, client_name, client_rep, client_email, phone_id) values (6, 'Hayes-Reynolds', 'Kathy Cole', 'kcole5@elegantthemes.com', 44);
+insert into client (client_id, client_name, client_rep, client_email, phone_id) values (7, 'Berge-Auer', 'Lori Roberts', 'lroberts6@upenn.edu', 40);
