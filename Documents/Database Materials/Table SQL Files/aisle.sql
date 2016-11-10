@@ -1,0 +1,43 @@
+insert into aisle (aisle_id, aisle_number, section_id) values (1, 101, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (2, 102, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (3, 103, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (4, 104, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (5, 105, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (6, 106, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (7, 107, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (8, 108, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (9, 109, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (10, 110, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (11, 111, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (12, 112, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (13, 113, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (14, 114, 1);
+insert into aisle (aisle_id, aisle_number, section_id) values (15, 115, 1);
+
+insert into aisle (aisle_id, aisle_number, section_id) values (16, 201, 2);
+insert into aisle (aisle_id, aisle_number, section_id) values (17, 202, 2);
+insert into aisle (aisle_id, aisle_number, section_id) values (18, 203, 2);
+insert into aisle (aisle_id, aisle_number, section_id) values (19, 204, 2);
+insert into aisle (aisle_id, aisle_number, section_id) values (20, 205, 2);
+
+insert into aisle (aisle_id, aisle_number, section_id) values (21, 301, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (22, 302, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (23, 303, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (24, 304, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (25, 305, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (26, 306, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (27, 307, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (28, 308, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (29, 309, 3);
+insert into aisle (aisle_id, aisle_number, section_id) values (30, 310, 3);
+
+insert into aisle (aisle_id, aisle_number, section_id) values (31, 401, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (32, 402, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (33, 403, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (34, 404, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (35, 405, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (36, 406, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (37, 407, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (38, 408, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (39, 409, 4);
+insert into aisle (aisle_id, aisle_number, section_id) values (40, 410, 4);

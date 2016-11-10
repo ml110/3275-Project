@@ -1,0 +1,10 @@
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (1, 'Towne-Auer', 'Debra Bryant', 'dbryant0@furl.net', 16, 36);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (2, 'Stoltenberg, Bernier and Blick', 'Clarence Rivera', 'crivera1@alibaba.com', 46, 13);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (3, 'Collier, Quigley and Weber', 'Edward Davis', 'edavis2@studiopress.com', 12, 6);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (4, 'Ortiz-Kub', 'Alice Thomas', 'athomas3@virginia.edu', 1, 24);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (5, 'Bednar, Purdy and Rempel', 'Kevin Willis', 'kwillis4@csmonitor.com', 34, 11);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (6, 'Rau-Daniel', 'Paul Diaz', 'pdiaz5@wordpress.com', 31, 39);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (7, 'Mueller Group', 'Betty White', 'bwhite6@gmpg.org', 19, 34);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (8, 'Shanahan and Sons', 'Shawn Sims', 'ssims7@abc.net.au', 48, 9);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (9, 'Stamm Group', 'Debra Adams', 'dadams8@myspace.com', 12, 47);
+insert into supplier (supplier_id, supplier_name, supplier_rep, supplier_email, address_id, phone_id) values (10, 'Hermann LLC', 'Justin Rogers', 'jrogers9@360.cn', 14, 29);
