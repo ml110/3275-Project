@@ -32,24 +32,23 @@
 			this.dgvInvDisplay = new System.Windows.Forms.DataGridView();
 			this.menInventory = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.orderByToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.filterByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.staInventory = new System.Windows.Forms.StatusStrip();
-			this.tslServerStatus = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tslLoggedUser = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tslServerStatus = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tooInventory = new System.Windows.Forms.ToolStrip();
 			this.tscTxtSearch = new System.Windows.Forms.ToolStripTextBox();
-			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.tscCboSearchOpt = new System.Windows.Forms.ToolStripComboBox();
 			this.tscBtnSearch = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.dgvInvDisplay)).BeginInit();
 			this.menInventory.SuspendLayout();
@@ -62,7 +61,7 @@
 			this.dgvInvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvInvDisplay.Location = new System.Drawing.Point(12, 52);
 			this.dgvInvDisplay.Name = "dgvInvDisplay";
-			this.dgvInvDisplay.Size = new System.Drawing.Size(920, 343);
+			this.dgvInvDisplay.Size = new System.Drawing.Size(920, 424);
 			this.dgvInvDisplay.TabIndex = 0;
 			// 
 			// menInventory
@@ -88,59 +87,73 @@
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
 			// 
-			// orderByToolStripMenuItem
-			// 
-			this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.orderByToolStripMenuItem1,
-            this.filterByToolStripMenuItem});
-			this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
-			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-			this.orderByToolStripMenuItem.Text = "Tools";
-			// 
 			// serverToolStripMenuItem
 			// 
 			this.serverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
 			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-			this.serverToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.serverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.serverToolStripMenuItem.Text = "Server";
 			// 
 			// connectToolStripMenuItem
 			// 
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-			this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+			this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.connectToolStripMenuItem.Text = "Connect";
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
 			// 
 			// importToolStripMenuItem
 			// 
 			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-			this.importToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.importToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.importToolStripMenuItem.Text = "Import...";
 			// 
 			// exportToolStripMenuItem
 			// 
 			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-			this.exportToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.exportToolStripMenuItem.Text = "Export...";
+			// 
+			// orderByToolStripMenuItem
+			// 
+			this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.orderByToolStripMenuItem1,
+            this.filterByToolStripMenuItem});
+			this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
+			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+			this.orderByToolStripMenuItem.Text = "Tools";
 			// 
 			// orderByToolStripMenuItem1
 			// 
 			this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
-			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.orderByToolStripMenuItem1.Text = "Order By";
 			// 
 			// filterByToolStripMenuItem
 			// 
 			this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
-			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.filterByToolStripMenuItem.Text = "Filter By";
+			// 
+			// usersToolStripMenuItem
+			// 
+			this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+			this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+			this.usersToolStripMenuItem.Text = "Users";
+			// 
+			// logOutToolStripMenuItem
+			// 
+			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.logOutToolStripMenuItem.Text = "Log Out";
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -153,7 +166,7 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			// 
 			// staInventory
@@ -167,22 +180,21 @@
 			this.staInventory.TabIndex = 2;
 			this.staInventory.Text = "statusStrip1";
 			// 
-			// tslServerStatus
-			// 
-			this.tslServerStatus.Name = "tslServerStatus";
-			this.tslServerStatus.Size = new System.Drawing.Size(39, 17);
-			this.tslServerStatus.Text = "Status";
-			// 
 			// tslLoggedUser
 			// 
 			this.tslLoggedUser.Name = "tslLoggedUser";
 			this.tslLoggedUser.Size = new System.Drawing.Size(62, 17);
 			this.tslLoggedUser.Text = "UserName";
 			// 
+			// tslServerStatus
+			// 
+			this.tslServerStatus.Name = "tslServerStatus";
+			this.tslServerStatus.Size = new System.Drawing.Size(39, 17);
+			this.tslServerStatus.Text = "Status";
+			// 
 			// tooInventory
 			// 
 			this.tooInventory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tscCboSearchOpt,
             this.tscTxtSearch,
             this.tscBtnSearch});
 			this.tooInventory.Location = new System.Drawing.Point(0, 24);
@@ -195,25 +207,6 @@
 			// 
 			this.tscTxtSearch.Name = "tscTxtSearch";
 			this.tscTxtSearch.Size = new System.Drawing.Size(200, 25);
-			// 
-			// usersToolStripMenuItem
-			// 
-			this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logOutToolStripMenuItem});
-			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-			this.usersToolStripMenuItem.Text = "Users";
-			// 
-			// logOutToolStripMenuItem
-			// 
-			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-			this.logOutToolStripMenuItem.Text = "Log Out";
-			// 
-			// tscCboSearchOpt
-			// 
-			this.tscCboSearchOpt.Name = "tscCboSearchOpt";
-			this.tscCboSearchOpt.Size = new System.Drawing.Size(121, 25);
 			// 
 			// tscBtnSearch
 			// 
@@ -271,6 +264,5 @@
 		private System.Windows.Forms.ToolStripButton tscBtnSearch;
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-		private System.Windows.Forms.ToolStripComboBox tscCboSearchOpt;
 	}
 }
