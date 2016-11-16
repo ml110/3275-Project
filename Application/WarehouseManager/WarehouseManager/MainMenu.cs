@@ -16,5 +16,11 @@ namespace WarehouseManager
 		{
 			InitializeComponent();
 		}
+
+        private void btnRec_Click(object sender, EventArgs e)
+        {
+            Receiving recForm = new Receiving();
+            recForm.Visible = true;
+        }
 	}
 }

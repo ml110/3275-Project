@@ -48,13 +48,14 @@
             this.labOrderID = new System.Windows.Forms.Label();
             this.txtOrderID = new System.Windows.Forms.TextBox();
             this.btnLookup = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLookup = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.labOrderInfo = new System.Windows.Forms.Label();
             this.staReceiving.SuspendLayout();
             this.menReceiving.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLookup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,14 +215,17 @@
             this.btnLookup.TabIndex = 12;
             this.btnLookup.Text = "Order Lookup";
             this.btnLookup.UseVisualStyleBackColor = true;
+            this.btnLookup.Click += new System.EventHandler(this.btnLookup_Click);
             // 
-            // dataGridView1
+            // dgvLookup
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(276, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(656, 204);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvLookup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLookup.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvLookup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLookup.Location = new System.Drawing.Point(276, 27);
+            this.dgvLookup.Name = "dgvLookup";
+            this.dgvLookup.Size = new System.Drawing.Size(656, 204);
+            this.dgvLookup.TabIndex = 9;
             // 
             // dataGridView2
             // 
@@ -251,18 +255,28 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
+            // labOrderInfo
+            // 
+            this.labOrderInfo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labOrderInfo.Location = new System.Drawing.Point(0, 94);
+            this.labOrderInfo.Name = "labOrderInfo";
+            this.labOrderInfo.Size = new System.Drawing.Size(270, 105);
+            this.labOrderInfo.TabIndex = 17;
+            this.labOrderInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Receiving
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.labOrderInfo);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnLookup);
             this.Controls.Add(this.txtOrderID);
             this.Controls.Add(this.labOrderID);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLookup);
             this.Controls.Add(this.menReceiving);
             this.Controls.Add(this.staReceiving);
             this.Name = "Receiving";
@@ -271,7 +285,7 @@
             this.staReceiving.PerformLayout();
             this.menReceiving.ResumeLayout(false);
             this.menReceiving.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLookup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -299,9 +313,10 @@
 		private System.Windows.Forms.Label labOrderID;
 		private System.Windows.Forms.TextBox txtOrderID;
 		private System.Windows.Forms.Button btnLookup;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgvLookup;
 		private System.Windows.Forms.DataGridView dataGridView2;
 		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label labOrderInfo;
 	}
 }
