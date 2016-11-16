@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 16, 2016 at 01:00 AM
--- Server version: 5.5.53-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.20
+-- Host: 127.0.0.1
+-- Generation Time: Nov 16, 2016 at 08:31 AM
+-- Server version: 5.7.9
+-- PHP Version: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `hi-tec`
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `address`
 --
 
+DROP TABLE IF EXISTS `address`;
 CREATE TABLE IF NOT EXISTS `address` (
   `address_id` int(11) NOT NULL,
   `address_unit_number` varchar(35) NOT NULL,
@@ -99,6 +100,7 @@ INSERT INTO `address` (`address_id`, `address_unit_number`, `address_street_numb
 -- Table structure for table `aisle`
 --
 
+DROP TABLE IF EXISTS `aisle`;
 CREATE TABLE IF NOT EXISTS `aisle` (
   `aisle_id` int(11) NOT NULL,
   `aisle_number` int(3) NOT NULL,
@@ -159,6 +161,7 @@ INSERT INTO `aisle` (`aisle_id`, `aisle_number`, `section_id`) VALUES
 -- Table structure for table `category`
 --
 
+DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(45) NOT NULL,
@@ -188,6 +191,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 -- Table structure for table `city`
 --
 
+DROP TABLE IF EXISTS `city`;
 CREATE TABLE IF NOT EXISTS `city` (
   `city_id` int(11) NOT NULL,
   `city_name` varchar(45) NOT NULL,
@@ -224,6 +228,7 @@ INSERT INTO `city` (`city_id`, `city_name`) VALUES
 -- Table structure for table `client`
 --
 
+DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
   `client_id` int(11) NOT NULL,
   `client_name` varchar(45) NOT NULL COMMENT 'The name of the business we do business with.',
@@ -253,6 +258,7 @@ INSERT INTO `client` (`client_id`, `client_name`, `client_rep`, `client_email`, 
 -- Table structure for table `client_location`
 --
 
+DROP TABLE IF EXISTS `client_location`;
 CREATE TABLE IF NOT EXISTS `client_location` (
   `client_id` int(11) NOT NULL,
   `location_id` int(11) NOT NULL,
@@ -266,6 +272,7 @@ CREATE TABLE IF NOT EXISTS `client_location` (
 -- Table structure for table `employee`
 --
 
+DROP TABLE IF EXISTS `employee`;
 CREATE TABLE IF NOT EXISTS `employee` (
   `employee_id` int(11) NOT NULL,
   `employee_fname` varchar(45) NOT NULL,
@@ -306,6 +313,7 @@ INSERT INTO `employee` (`employee_id`, `employee_fname`, `employee_lname`, `empl
 -- Table structure for table `employee_creds`
 --
 
+DROP TABLE IF EXISTS `employee_creds`;
 CREATE TABLE IF NOT EXISTS `employee_creds` (
   `employee_id` int(11) NOT NULL,
   `employee_password` varchar(45) NOT NULL,
@@ -346,6 +354,7 @@ INSERT INTO `employee_creds` (`employee_id`, `employee_password`, `permission_id
 -- Table structure for table `employee_phone`
 --
 
+DROP TABLE IF EXISTS `employee_phone`;
 CREATE TABLE IF NOT EXISTS `employee_phone` (
   `employee_id` int(11) NOT NULL,
   `phone_id` int(11) NOT NULL,
@@ -405,6 +414,7 @@ INSERT INTO `employee_phone` (`employee_id`, `phone_id`) VALUES
 -- Table structure for table `location`
 --
 
+DROP TABLE IF EXISTS `location`;
 CREATE TABLE IF NOT EXISTS `location` (
   `location_id` int(11) NOT NULL,
   `location_name` varchar(45) NOT NULL,
@@ -450,6 +460,7 @@ INSERT INTO `location` (`location_id`, `location_name`, `location_rep`, `address
 -- Table structure for table `manufacturer`
 --
 
+DROP TABLE IF EXISTS `manufacturer`;
 CREATE TABLE IF NOT EXISTS `manufacturer` (
   `manufacturer_id` int(11) NOT NULL,
   `manufacturer_name` varchar(45) NOT NULL,
@@ -478,6 +489,7 @@ INSERT INTO `manufacturer` (`manufacturer_id`, `manufacturer_name`) VALUES
 -- Table structure for table `order`
 --
 
+DROP TABLE IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order` (
   `order_id` int(11) NOT NULL,
   `supplier_id` int(11) NOT NULL,
@@ -518,10 +530,12 @@ INSERT INTO `order` (`order_id`, `supplier_id`, `order_date`) VALUES
 -- Table structure for table `order_product`
 --
 
+DROP TABLE IF EXISTS `order_product`;
 CREATE TABLE IF NOT EXISTS `order_product` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
+  `isDamaged` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`order_id`,`product_id`),
   KEY `orderProduct_fk_02_idx` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -530,85 +544,85 @@ CREATE TABLE IF NOT EXISTS `order_product` (
 -- Dumping data for table `order_product`
 --
 
-INSERT INTO `order_product` (`order_id`, `product_id`, `quantity`) VALUES
-(1, 2, 397),
-(1, 9, 437),
-(1, 15, 224),
-(1, 16, 423),
-(1, 18, 370),
-(1, 21, 204),
-(1, 26, 217),
-(1, 30, 316),
-(2, 30, 262),
-(3, 1, 200),
-(3, 10, 319),
-(3, 13, 146),
-(3, 16, 175),
-(4, 5, 197),
-(4, 7, 412),
-(4, 18, 470),
-(4, 26, 427),
-(5, 18, 188),
-(5, 19, 236),
-(5, 29, 372),
-(6, 3, 279),
-(6, 16, 283),
-(6, 18, 381),
-(6, 19, 351),
-(6, 28, 220),
-(6, 29, 460),
-(7, 5, 259),
-(7, 8, 493),
-(7, 9, 432),
-(7, 15, 121),
-(7, 16, 79),
-(7, 17, 400),
-(7, 24, 388),
-(8, 2, 174),
-(8, 9, 498),
-(8, 12, 376),
-(8, 28, 244),
-(9, 10, 317),
-(9, 16, 85),
-(9, 25, 345),
-(10, 18, 433),
-(10, 24, 142),
-(10, 25, 268),
-(11, 8, 177),
-(11, 13, 410),
-(11, 16, 98),
-(11, 23, 170),
-(12, 2, 108),
-(12, 15, 216),
-(12, 16, 77),
-(12, 18, 130),
-(12, 24, 264),
-(13, 11, 349),
-(13, 27, 248),
-(14, 10, 432),
-(14, 17, 142),
-(14, 21, 421),
-(15, 1, 328),
-(15, 13, 163),
-(15, 20, 117),
-(16, 2, 369),
-(16, 9, 175),
-(16, 10, 100),
-(16, 12, 489),
-(17, 12, 142),
-(17, 14, 243),
-(17, 26, 415),
-(17, 29, 157),
-(18, 2, 402),
-(18, 4, 135),
-(18, 12, 220),
-(18, 28, 377),
-(19, 1, 107),
-(19, 2, 130),
-(19, 7, 234),
-(19, 13, 500),
-(19, 14, 123),
-(20, 23, 327);
+INSERT INTO `order_product` (`order_id`, `product_id`, `quantity`, `isDamaged`) VALUES
+(1, 2, 397, 0),
+(1, 9, 437, 0),
+(1, 15, 224, 0),
+(1, 16, 423, 0),
+(1, 18, 370, 0),
+(1, 21, 204, 0),
+(1, 26, 217, 0),
+(1, 30, 316, 0),
+(2, 30, 262, 0),
+(3, 1, 200, 0),
+(3, 10, 319, 0),
+(3, 13, 146, 0),
+(3, 16, 175, 0),
+(4, 5, 197, 0),
+(4, 7, 412, 0),
+(4, 18, 470, 0),
+(4, 26, 427, 0),
+(5, 18, 188, 0),
+(5, 19, 236, 0),
+(5, 29, 372, 0),
+(6, 3, 279, 0),
+(6, 16, 283, 0),
+(6, 18, 381, 0),
+(6, 19, 351, 0),
+(6, 28, 220, 0),
+(6, 29, 460, 0),
+(7, 5, 259, 0),
+(7, 8, 493, 0),
+(7, 9, 432, 0),
+(7, 15, 121, 0),
+(7, 16, 79, 0),
+(7, 17, 400, 0),
+(7, 24, 388, 0),
+(8, 2, 174, 0),
+(8, 9, 498, 0),
+(8, 12, 376, 0),
+(8, 28, 244, 0),
+(9, 10, 317, 0),
+(9, 16, 85, 0),
+(9, 25, 345, 0),
+(10, 18, 433, 0),
+(10, 24, 142, 0),
+(10, 25, 268, 0),
+(11, 8, 177, 0),
+(11, 13, 410, 0),
+(11, 16, 98, 0),
+(11, 23, 170, 0),
+(12, 2, 108, 0),
+(12, 15, 216, 0),
+(12, 16, 77, 0),
+(12, 18, 130, 0),
+(12, 24, 264, 0),
+(13, 11, 349, 0),
+(13, 27, 248, 0),
+(14, 10, 432, 0),
+(14, 17, 142, 0),
+(14, 21, 421, 0),
+(15, 1, 328, 0),
+(15, 13, 163, 0),
+(15, 20, 117, 0),
+(16, 2, 369, 0),
+(16, 9, 175, 0),
+(16, 10, 100, 0),
+(16, 12, 489, 0),
+(17, 12, 142, 0),
+(17, 14, 243, 0),
+(17, 26, 415, 0),
+(17, 29, 157, 0),
+(18, 2, 402, 0),
+(18, 4, 135, 0),
+(18, 12, 220, 0),
+(18, 28, 377, 0),
+(19, 1, 107, 0),
+(19, 2, 130, 0),
+(19, 7, 234, 0),
+(19, 13, 500, 0),
+(19, 14, 123, 0),
+(20, 23, 327, 0);
 
 -- --------------------------------------------------------
 
@@ -616,6 +630,7 @@ INSERT INTO `order_product` (`order_id`, `product_id`, `quantity`) VALUES
 -- Table structure for table `permission_group`
 --
 
+DROP TABLE IF EXISTS `permission_group`;
 CREATE TABLE IF NOT EXISTS `permission_group` (
   `permission_id` int(11) NOT NULL,
   `permission_group_name` varchar(45) NOT NULL,
@@ -640,6 +655,7 @@ INSERT INTO `permission_group` (`permission_id`, `permission_group_name`) VALUES
 -- Table structure for table `phone`
 --
 
+DROP TABLE IF EXISTS `phone`;
 CREATE TABLE IF NOT EXISTS `phone` (
   `phone_id` int(11) NOT NULL,
   `phone_number` tinytext NOT NULL,
@@ -708,11 +724,13 @@ INSERT INTO `phone` (`phone_id`, `phone_number`) VALUES
 -- Table structure for table `product`
 --
 
+DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `product_id` int(11) NOT NULL,
   `product_name` varchar(45) NOT NULL,
   `product_price` double NOT NULL,
   `product_img_path` text NOT NULL,
+  `product_stock` int(11) NOT NULL DEFAULT '100',
   `category_id` int(11) NOT NULL,
   `manufacturer_id` int(11) NOT NULL,
   `shelf_id` int(11) NOT NULL,
@@ -728,40 +746,40 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_img_path`, `category_id`, `manufacturer_id`, `shelf_id`, `supplier_id`) VALUES
-(1, '2x4GB DDR3 Nature Valley', 23.97, 'ram.jpg', 1, 2, 161, 5),
-(2, '2x8GB DDR3 KitKat', 31.36, 'ram.jpg', 1, 1, 199, 3),
-(3, '2x8GB DDR4 Coffee Crisp', 42.54, 'ram.jpg', 1, 10, 64, 3),
-(4, 'Enterprise 4-Slot', 83.29, 'motherboard.jpg', 2, 4, 163, 8),
-(5, 'Nimitz 4-Slot', 133.45, 'motherboard.jpg', 2, 9, 129, 8),
-(6, 'Kitty Hawk 2-Slot', 51.15, 'motherboard.jpg', 2, 5, 85, 3),
-(7, 'ATD Senna ', 522.41, 'gpu.jpg', 3, 6, 1, 6),
-(8, 'GTZi Vettel', 823.43, 'gpu.jpg', 3, 7, 172, 4),
-(9, 'GTZ Clarkson', 781.09, 'gpu.jpg', 3, 8, 41, 3),
-(10, 'Quad-core 4.0GHz Socrates', 691.23, 'cpu.jpg', 4, 2, 238, 1),
-(11, 'Quad-core 3.5GHz Plato', 472.3, 'cpu.jpg', 4, 2, 74, 2),
-(12, 'Quad-core 4.0GHz Nietzsche', 763.88, 'cpu.jpg', 4, 9, 185, 6),
-(13, 'Hummingbird 120GB SSD', 51.16, 'storage.jpg', 5, 6, 6, 6),
-(14, 'Pelican 2TB HDD', 82.23, 'storage.jpg', 5, 1, 146, 4),
-(15, 'Falcon 500GB SSD', 201.66, 'storage.jpg', 5, 7, 19, 7),
-(16, 'Franklin 650W', 83.2, 'psu.jpg', 6, 9, 225, 5),
-(17, 'Faraday 450W', 41.24, 'psu.jpg', 6, 4, 211, 6),
-(18, 'Tesla 650W', 100.94, 'psu.jpg', 6, 1, 170, 5),
-(19, 'Redeemer 24" 1920x1080', 333.42, 'display.jpg', 7, 3, 183, 4),
-(20, 'Liberty 27" 2560x1440', 403.88, 'display.jpg', 7, 2, 173, 6),
-(21, 'Rushmore 24" 1920x1080', 343.1, 'display.jpg', 7, 4, 115, 5),
-(22, 'Changdao Cherry MX Red', 110.27, 'keyboard.jpg', 8, 1, 150, 10),
-(23, 'Claymore Cherry MX Brown', 150.58, 'keyboard.jpg', 8, 7, 73, 7),
-(24, 'Scimitar Cherry MX Red', 131.9, 'keyboard.jpg', 8, 10, 221, 1),
-(25, 'Rhino Optical Wired', 60.61, 'mouse.jpg', 9, 8, 159, 4),
-(26, 'Stag Optical Wired', 21.32, 'mouse.jpg', 9, 7, 206, 10),
-(27, 'Hercules Optical Wireless', 51.97, 'mouse.jpg', 9, 8, 4, 5),
-(28, 'XenoWare Gaming PC', 2501.53, 'desktop.jpg', 10, 2, 53, 8),
-(29, 'AZUZ Workstation PC', 1402, 'desktop.jpg', 10, 3, 133, 9),
-(30, 'Pewlett Hackard Tower PC', 1503.13, 'desktop.jpg', 10, 10, 216, 7),
-(31, 'Blasterman Speakers', 32.61, 'accessory.jpg', 11, 6, 45, 1),
-(32, 'Big Brother Webcam', 23.21, 'accessory.jpg', 11, 8, 56, 1),
-(33, 'NSA Headphones', 52.29, 'accessory.jpg', 11, 7, 98, 4);
+INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_img_path`, `product_stock`, `category_id`, `manufacturer_id`, `shelf_id`, `supplier_id`) VALUES
+(1, '2x4GB Nature Valley DDR3 RAM', 23.97, 'ram.jpg', 100, 1, 2, 161, 5),
+(2, '2x8GB KitKat DDR3 RAM', 31.36, 'ram.jpg', 100, 1, 1, 199, 3),
+(3, '2x8GB Coffee Crisp DDR4 RAM', 42.54, 'ram.jpg', 100, 1, 10, 64, 3),
+(4, 'Enterprise 4-Slot Motherboard', 83.29, 'motherboard.jpg', 100, 2, 4, 163, 8),
+(5, 'Nimitz 4-Slot Motherboard', 133.45, 'motherboard.jpg', 100, 2, 9, 129, 8),
+(6, 'Kitty Hawk 2-Slot Motherboard', 51.15, 'motherboard.jpg', 100, 2, 5, 85, 3),
+(7, 'ATD Senna 6GB Video Card', 522.41, 'gpu.jpg', 100, 3, 6, 1, 6),
+(8, 'GTZi Vettel 8GB Video Card', 823.43, 'gpu.jpg', 100, 3, 7, 172, 4),
+(9, 'GTZ Clarkson 8GB Video Card', 781.09, 'gpu.jpg', 100, 3, 8, 41, 3),
+(10, 'Quad-core 4.0GHz Socrates Processor', 691.23, 'cpu.jpg', 100, 4, 2, 238, 1),
+(11, 'Quad-core 3.5GHz Plato Processor', 472.3, 'cpu.jpg', 100, 4, 2, 74, 2),
+(12, 'Quad-core 4.0GHz Nietzsche Processor', 763.88, 'cpu.jpg', 100, 4, 9, 185, 6),
+(13, 'Hummingbird 120GB SSD', 51.16, 'storage.jpg', 100, 5, 6, 6, 6),
+(14, 'Pelican 2TB HDD', 82.23, 'storage.jpg', 100, 5, 1, 146, 4),
+(15, 'Falcon 500GB SSD', 201.66, 'storage.jpg', 100, 5, 7, 19, 7),
+(16, 'Franklin 650W PSU', 83.2, 'psu.jpg', 100, 6, 9, 225, 5),
+(17, 'Faraday 450W PSU', 41.24, 'psu.jpg', 100, 6, 4, 211, 6),
+(18, 'Tesla 650W PSU', 100.94, 'psu.jpg', 100, 6, 1, 170, 5),
+(19, 'Redeemer 24" 1920x1080 Monitor', 333.42, 'display.jpg', 100, 7, 3, 183, 4),
+(20, 'Liberty 27" 2560x1440 Monitor', 403.88, 'display.jpg', 100, 7, 2, 173, 6),
+(21, 'Rushmore 24" 1920x1080 Monitor', 343.1, 'display.jpg', 100, 7, 4, 115, 5),
+(22, 'Changdao Cherry MX Red Keyboard', 110.27, 'keyboard.jpg', 100, 8, 1, 150, 10),
+(23, 'Claymore Cherry MX Brown Keyboard', 150.58, 'keyboard.jpg', 100, 8, 7, 73, 7),
+(24, 'Scimitar Cherry MX Red Keyboard', 131.9, 'keyboard.jpg', 100, 8, 10, 221, 1),
+(25, 'Rhino Optical Wired Mouse', 60.61, 'mouse.jpg', 100, 9, 8, 159, 4),
+(26, 'Stag Optical Wired Mouse', 21.32, 'mouse.jpg', 100, 9, 7, 206, 10),
+(27, 'Hercules Optical Wireless Mouse', 51.97, 'mouse.jpg', 100, 9, 8, 4, 5),
+(28, 'XenoWare Gaming PC', 2501.53, 'desktop.jpg', 100, 10, 2, 53, 8),
+(29, 'AZUZ Workstation PC', 1402, 'desktop.jpg', 100, 10, 3, 133, 9),
+(30, 'Pewlett Hackard Tower PC', 1503.13, 'desktop.jpg', 100, 10, 10, 216, 7),
+(31, 'Blasterman Speakers', 32.61, 'accessory.jpg', 100, 11, 6, 45, 1),
+(32, 'Big Brother Webcam', 23.21, 'accessory.jpg', 100, 11, 8, 56, 1),
+(33, 'NSA Headphones', 52.29, 'accessory.jpg', 100, 11, 7, 98, 4);
 
 -- --------------------------------------------------------
 
@@ -769,6 +787,7 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_i
 -- Table structure for table `section`
 --
 
+DROP TABLE IF EXISTS `section`;
 CREATE TABLE IF NOT EXISTS `section` (
   `section_id` int(11) NOT NULL,
   `section_name` varchar(35) NOT NULL,
@@ -791,6 +810,7 @@ INSERT INTO `section` (`section_id`, `section_name`) VALUES
 -- Table structure for table `shelf`
 --
 
+DROP TABLE IF EXISTS `shelf`;
 CREATE TABLE IF NOT EXISTS `shelf` (
   `shelf_id` int(11) NOT NULL,
   `shelf_number` int(3) NOT NULL,
@@ -1051,6 +1071,7 @@ INSERT INTO `shelf` (`shelf_id`, `shelf_number`, `aisle_id`) VALUES
 -- Table structure for table `shipment`
 --
 
+DROP TABLE IF EXISTS `shipment`;
 CREATE TABLE IF NOT EXISTS `shipment` (
   `shipment_id` int(11) NOT NULL,
   `location_id` int(11) NOT NULL,
@@ -1097,6 +1118,7 @@ INSERT INTO `shipment` (`shipment_id`, `location_id`, `shipment_date`, `hasShipp
 -- Table structure for table `shipment_product`
 --
 
+DROP TABLE IF EXISTS `shipment_product`;
 CREATE TABLE IF NOT EXISTS `shipment_product` (
   `shipment_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -1213,6 +1235,7 @@ INSERT INTO `shipment_product` (`shipment_id`, `product_id`, `quantity`) VALUES
 -- Table structure for table `supplier`
 --
 
+DROP TABLE IF EXISTS `supplier`;
 CREATE TABLE IF NOT EXISTS `supplier` (
   `supplier_id` int(11) NOT NULL,
   `supplier_name` varchar(45) NOT NULL,

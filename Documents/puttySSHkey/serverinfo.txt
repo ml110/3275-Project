@@ -1,0 +1,8 @@
+router
+192.168.1.254
+dw6tm2df
+
+
+website
+173.180.133.176:8080/ EXTERNAL
+192.168.1.78:8080 LOCAL
