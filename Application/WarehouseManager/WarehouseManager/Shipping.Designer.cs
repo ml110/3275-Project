@@ -38,9 +38,6 @@
 			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.orderByToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.filterByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,17 +49,18 @@
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.dgvPendingShipment = new System.Windows.Forms.DataGridView();
 			this.panShipDetail = new System.Windows.Forms.Panel();
+			this.btnCreate = new System.Windows.Forms.Button();
 			this.labDate = new System.Windows.Forms.Label();
 			this.btnRemoveProduct = new System.Windows.Forms.Button();
 			this.btnAddProduct = new System.Windows.Forms.Button();
-			this.listView1 = new System.Windows.Forms.ListView();
+			this.lstShipProducts = new System.Windows.Forms.ListView();
 			this.labQuantity = new System.Windows.Forms.Label();
 			this.txtProductQuantity = new System.Windows.Forms.TextBox();
 			this.cboProductID = new System.Windows.Forms.ComboBox();
 			this.labProductID = new System.Windows.Forms.Label();
 			this.labShipID_Display = new System.Windows.Forms.Label();
 			this.btnLoadShipment = new System.Windows.Forms.Button();
-			this.btnCreate = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.staShipping.SuspendLayout();
 			this.menShipping.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPendingShipment)).BeginInit();
@@ -96,7 +94,6 @@
 			// 
 			this.menShipping.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.orderByToolStripMenuItem,
             this.usersToolStripMenuItem,
             this.helpToolStripMenuItem});
 			this.menShipping.Location = new System.Drawing.Point(0, 0);
@@ -146,28 +143,7 @@
 			// 
 			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
 			this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.exportToolStripMenuItem.Text = "Export...";
-			// 
-			// orderByToolStripMenuItem
-			// 
-			this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.orderByToolStripMenuItem1,
-            this.filterByToolStripMenuItem});
-			this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
-			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-			this.orderByToolStripMenuItem.Text = "Tools";
-			// 
-			// orderByToolStripMenuItem1
-			// 
-			this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
-			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-			this.orderByToolStripMenuItem1.Text = "Order By";
-			// 
-			// filterByToolStripMenuItem
-			// 
-			this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
-			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.filterByToolStripMenuItem.Text = "Filter By";
+			this.exportToolStripMenuItem.Text = "Print";
 			// 
 			// usersToolStripMenuItem
 			// 
@@ -196,11 +172,12 @@
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// btnNewShipment
 			// 
 			this.btnNewShipment.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnNewShipment.Location = new System.Drawing.Point(11, 201);
+			this.btnNewShipment.Location = new System.Drawing.Point(473, 26);
 			this.btnNewShipment.Name = "btnNewShipment";
 			this.btnNewShipment.Size = new System.Drawing.Size(121, 29);
 			this.btnNewShipment.TabIndex = 20;
@@ -211,7 +188,7 @@
 			// 
 			this.txtProductSKU.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.txtProductSKU.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.txtProductSKU.Location = new System.Drawing.Point(138, 98);
+			this.txtProductSKU.Location = new System.Drawing.Point(138, 27);
 			this.txtProductSKU.Name = "txtProductSKU";
 			this.txtProductSKU.Size = new System.Drawing.Size(127, 29);
 			this.txtProductSKU.TabIndex = 17;
@@ -220,7 +197,7 @@
 			// 
 			this.labShipmentID.AutoSize = true;
 			this.labShipmentID.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labShipmentID.Location = new System.Drawing.Point(2, 104);
+			this.labShipmentID.Location = new System.Drawing.Point(2, 33);
 			this.labShipmentID.Name = "labShipmentID";
 			this.labShipmentID.Size = new System.Drawing.Size(130, 19);
 			this.labShipmentID.TabIndex = 15;
@@ -230,7 +207,7 @@
 			// 
 			this.labLacationID.AutoSize = true;
 			this.labLacationID.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labLacationID.Location = new System.Drawing.Point(2, 139);
+			this.labLacationID.Location = new System.Drawing.Point(604, 33);
 			this.labLacationID.Name = "labLacationID";
 			this.labLacationID.Size = new System.Drawing.Size(130, 19);
 			this.labLacationID.TabIndex = 14;
@@ -240,17 +217,17 @@
 			// 
 			this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(138, 133);
+			this.comboBox1.Location = new System.Drawing.Point(740, 27);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(200, 28);
+			this.comboBox1.Size = new System.Drawing.Size(176, 28);
 			this.comboBox1.TabIndex = 22;
 			// 
 			// dgvPendingShipment
 			// 
 			this.dgvPendingShipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvPendingShipment.Location = new System.Drawing.Point(138, 167);
+			this.dgvPendingShipment.Location = new System.Drawing.Point(6, 62);
 			this.dgvPendingShipment.Name = "dgvPendingShipment";
-			this.dgvPendingShipment.Size = new System.Drawing.Size(329, 309);
+			this.dgvPendingShipment.Size = new System.Drawing.Size(461, 379);
 			this.dgvPendingShipment.TabIndex = 23;
 			// 
 			// panShipDetail
@@ -259,22 +236,32 @@
 			this.panShipDetail.Controls.Add(this.labDate);
 			this.panShipDetail.Controls.Add(this.btnRemoveProduct);
 			this.panShipDetail.Controls.Add(this.btnAddProduct);
-			this.panShipDetail.Controls.Add(this.listView1);
+			this.panShipDetail.Controls.Add(this.lstShipProducts);
 			this.panShipDetail.Controls.Add(this.labQuantity);
 			this.panShipDetail.Controls.Add(this.txtProductQuantity);
 			this.panShipDetail.Controls.Add(this.cboProductID);
 			this.panShipDetail.Controls.Add(this.labProductID);
 			this.panShipDetail.Controls.Add(this.labShipID_Display);
-			this.panShipDetail.Location = new System.Drawing.Point(474, 167);
+			this.panShipDetail.Location = new System.Drawing.Point(474, 62);
 			this.panShipDetail.Name = "panShipDetail";
-			this.panShipDetail.Size = new System.Drawing.Size(470, 309);
+			this.panShipDetail.Size = new System.Drawing.Size(470, 414);
 			this.panShipDetail.TabIndex = 24;
+			// 
+			// btnCreate
+			// 
+			this.btnCreate.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnCreate.Location = new System.Drawing.Point(317, 36);
+			this.btnCreate.Name = "btnCreate";
+			this.btnCreate.Size = new System.Drawing.Size(150, 29);
+			this.btnCreate.TabIndex = 33;
+			this.btnCreate.Text = "Create Shipment";
+			this.btnCreate.UseVisualStyleBackColor = true;
 			// 
 			// labDate
 			// 
 			this.labDate.AutoSize = true;
 			this.labDate.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labDate.Location = new System.Drawing.Point(326, 282);
+			this.labDate.Location = new System.Drawing.Point(317, 388);
 			this.labDate.Name = "labDate";
 			this.labDate.Size = new System.Drawing.Size(141, 19);
 			this.labDate.TabIndex = 31;
@@ -283,7 +270,7 @@
 			// btnRemoveProduct
 			// 
 			this.btnRemoveProduct.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnRemoveProduct.Location = new System.Drawing.Point(3, 71);
+			this.btnRemoveProduct.Location = new System.Drawing.Point(94, 36);
 			this.btnRemoveProduct.Name = "btnRemoveProduct";
 			this.btnRemoveProduct.Size = new System.Drawing.Size(85, 29);
 			this.btnRemoveProduct.TabIndex = 22;
@@ -300,13 +287,13 @@
 			this.btnAddProduct.Text = "Add";
 			this.btnAddProduct.UseVisualStyleBackColor = true;
 			// 
-			// listView1
+			// lstShipProducts
 			// 
-			this.listView1.Location = new System.Drawing.Point(94, 36);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(373, 243);
-			this.listView1.TabIndex = 30;
-			this.listView1.UseCompatibleStateImageBehavior = false;
+			this.lstShipProducts.Location = new System.Drawing.Point(0, 71);
+			this.lstShipProducts.Name = "lstShipProducts";
+			this.lstShipProducts.Size = new System.Drawing.Size(467, 308);
+			this.lstShipProducts.TabIndex = 30;
+			this.lstShipProducts.UseCompatibleStateImageBehavior = false;
 			// 
 			// labQuantity
 			// 
@@ -350,7 +337,7 @@
 			// 
 			this.labShipID_Display.AutoSize = true;
 			this.labShipID_Display.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labShipID_Display.Location = new System.Drawing.Point(3, 282);
+			this.labShipID_Display.Location = new System.Drawing.Point(3, 388);
 			this.labShipID_Display.Name = "labShipID_Display";
 			this.labShipID_Display.Size = new System.Drawing.Size(130, 19);
 			this.labShipID_Display.TabIndex = 16;
@@ -359,28 +346,29 @@
 			// btnLoadShipment
 			// 
 			this.btnLoadShipment.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLoadShipment.Location = new System.Drawing.Point(11, 166);
+			this.btnLoadShipment.Location = new System.Drawing.Point(346, 26);
 			this.btnLoadShipment.Name = "btnLoadShipment";
 			this.btnLoadShipment.Size = new System.Drawing.Size(121, 29);
 			this.btnLoadShipment.TabIndex = 25;
 			this.btnLoadShipment.Text = "Load Shipment";
 			this.btnLoadShipment.UseVisualStyleBackColor = true;
 			// 
-			// btnCreate
+			// button1
 			// 
-			this.btnCreate.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCreate.Location = new System.Drawing.Point(3, 250);
-			this.btnCreate.Name = "btnCreate";
-			this.btnCreate.Size = new System.Drawing.Size(85, 29);
-			this.btnCreate.TabIndex = 33;
-			this.btnCreate.Text = "Create";
-			this.btnCreate.UseVisualStyleBackColor = true;
+			this.button1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.Location = new System.Drawing.Point(320, 447);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(147, 29);
+			this.button1.TabIndex = 26;
+			this.button1.Text = "Mark as Shipped";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// Shipping
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(944, 501);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.btnLoadShipment);
 			this.Controls.Add(this.panShipDetail);
 			this.Controls.Add(this.dgvPendingShipment);
@@ -417,9 +405,6 @@
 		private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem orderByToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem orderByToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem filterByToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
@@ -433,7 +418,7 @@
 		private System.Windows.Forms.Panel panShipDetail;
 		private System.Windows.Forms.Button btnRemoveProduct;
 		private System.Windows.Forms.Button btnAddProduct;
-		private System.Windows.Forms.ListView listView1;
+		private System.Windows.Forms.ListView lstShipProducts;
 		private System.Windows.Forms.Label labQuantity;
 		private System.Windows.Forms.TextBox txtProductQuantity;
 		private System.Windows.Forms.ComboBox cboProductID;
@@ -442,5 +427,6 @@
 		private System.Windows.Forms.Label labDate;
 		private System.Windows.Forms.Button btnLoadShipment;
 		private System.Windows.Forms.Button btnCreate;
+		private System.Windows.Forms.Button button1;
 	}
 }
