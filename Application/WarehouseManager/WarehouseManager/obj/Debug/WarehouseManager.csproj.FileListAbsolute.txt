@@ -17,3 +17,4 @@ H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManag
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Shipping.resources
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Transactions.resources
 C:\Users\300214222\Desktop\Temp\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
+C:\Users\Matt\Documents\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config

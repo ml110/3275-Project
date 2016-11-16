@@ -28,253 +28,253 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.staReceiving = new System.Windows.Forms.StatusStrip();
-			this.tslLoggedUser = new System.Windows.Forms.ToolStripStatusLabel();
-			this.tslServerStatus = new System.Windows.Forms.ToolStripStatusLabel();
-			this.menReceiving = new System.Windows.Forms.MenuStrip();
-			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.orderByToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.filterByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.labOrderID = new System.Windows.Forms.Label();
-			this.txtOrderID = new System.Windows.Forms.TextBox();
-			this.btnLookup = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
-			this.btnUpdate = new System.Windows.Forms.Button();
-			this.btnAdd = new System.Windows.Forms.Button();
-			this.staReceiving.SuspendLayout();
-			this.menReceiving.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// staReceiving
-			// 
-			this.staReceiving.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.staReceiving = new System.Windows.Forms.StatusStrip();
+            this.tslLoggedUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tslServerStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menReceiving = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderByToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labOrderID = new System.Windows.Forms.Label();
+            this.txtOrderID = new System.Windows.Forms.TextBox();
+            this.btnLookup = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.staReceiving.SuspendLayout();
+            this.menReceiving.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // staReceiving
+            // 
+            this.staReceiving.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslLoggedUser,
             this.tslServerStatus});
-			this.staReceiving.Location = new System.Drawing.Point(0, 479);
-			this.staReceiving.Name = "staReceiving";
-			this.staReceiving.Size = new System.Drawing.Size(944, 22);
-			this.staReceiving.TabIndex = 7;
-			this.staReceiving.Text = "statusStrip1";
-			// 
-			// tslLoggedUser
-			// 
-			this.tslLoggedUser.Name = "tslLoggedUser";
-			this.tslLoggedUser.Size = new System.Drawing.Size(62, 17);
-			this.tslLoggedUser.Text = "UserName";
-			// 
-			// tslServerStatus
-			// 
-			this.tslServerStatus.Name = "tslServerStatus";
-			this.tslServerStatus.Size = new System.Drawing.Size(39, 17);
-			this.tslServerStatus.Text = "Status";
-			// 
-			// menReceiving
-			// 
-			this.menReceiving.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.staReceiving.Location = new System.Drawing.Point(0, 479);
+            this.staReceiving.Name = "staReceiving";
+            this.staReceiving.Size = new System.Drawing.Size(944, 22);
+            this.staReceiving.TabIndex = 7;
+            this.staReceiving.Text = "statusStrip1";
+            // 
+            // tslLoggedUser
+            // 
+            this.tslLoggedUser.Name = "tslLoggedUser";
+            this.tslLoggedUser.Size = new System.Drawing.Size(56, 17);
+            this.tslLoggedUser.Text = "UserName";
+            // 
+            // tslServerStatus
+            // 
+            this.tslServerStatus.Name = "tslServerStatus";
+            this.tslServerStatus.Size = new System.Drawing.Size(38, 17);
+            this.tslServerStatus.Text = "Status";
+            // 
+            // menReceiving
+            // 
+            this.menReceiving.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.orderByToolStripMenuItem,
             this.usersToolStripMenuItem,
             this.helpToolStripMenuItem});
-			this.menReceiving.Location = new System.Drawing.Point(0, 0);
-			this.menReceiving.Name = "menReceiving";
-			this.menReceiving.Size = new System.Drawing.Size(944, 24);
-			this.menReceiving.TabIndex = 8;
-			this.menReceiving.Text = "menuStrip1";
-			// 
-			// fileToolStripMenuItem
-			// 
-			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menReceiving.Location = new System.Drawing.Point(0, 0);
+            this.menReceiving.Name = "menReceiving";
+            this.menReceiving.Size = new System.Drawing.Size(944, 24);
+            this.menReceiving.TabIndex = 8;
+            this.menReceiving.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverToolStripMenuItem,
             this.importToolStripMenuItem,
             this.exportToolStripMenuItem});
-			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-			this.fileToolStripMenuItem.Text = "File";
-			// 
-			// serverToolStripMenuItem
-			// 
-			this.serverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // serverToolStripMenuItem
+            // 
+            this.serverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
-			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-			this.serverToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-			this.serverToolStripMenuItem.Text = "Server";
-			// 
-			// connectToolStripMenuItem
-			// 
-			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-			this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-			this.connectToolStripMenuItem.Text = "Connect";
-			// 
-			// disconnectToolStripMenuItem
-			// 
-			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-			this.disconnectToolStripMenuItem.Text = "Disconnect";
-			// 
-			// importToolStripMenuItem
-			// 
-			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-			this.importToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-			this.importToolStripMenuItem.Text = "Import...";
-			// 
-			// exportToolStripMenuItem
-			// 
-			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-			this.exportToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-			this.exportToolStripMenuItem.Text = "Export...";
-			// 
-			// orderByToolStripMenuItem
-			// 
-			this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
+            this.serverToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.serverToolStripMenuItem.Text = "Server";
+            // 
+            // connectToolStripMenuItem
+            // 
+            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.connectToolStripMenuItem.Text = "Connect";
+            // 
+            // disconnectToolStripMenuItem
+            // 
+            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
+            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.disconnectToolStripMenuItem.Text = "Disconnect";
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.importToolStripMenuItem.Text = "Import...";
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.exportToolStripMenuItem.Text = "Export...";
+            // 
+            // orderByToolStripMenuItem
+            // 
+            this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.orderByToolStripMenuItem1,
             this.filterByToolStripMenuItem});
-			this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
-			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-			this.orderByToolStripMenuItem.Text = "Tools";
-			// 
-			// orderByToolStripMenuItem1
-			// 
-			this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
-			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
-			this.orderByToolStripMenuItem1.Text = "Order By";
-			// 
-			// filterByToolStripMenuItem
-			// 
-			this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
-			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-			this.filterByToolStripMenuItem.Text = "Filter By";
-			// 
-			// usersToolStripMenuItem
-			// 
-			this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
+            this.orderByToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.orderByToolStripMenuItem.Text = "Tools";
+            // 
+            // orderByToolStripMenuItem1
+            // 
+            this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
+            this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.orderByToolStripMenuItem1.Text = "Order By";
+            // 
+            // filterByToolStripMenuItem
+            // 
+            this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
+            this.filterByToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterByToolStripMenuItem.Text = "Filter By";
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
-			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-			this.usersToolStripMenuItem.Text = "Users";
-			// 
-			// logOutToolStripMenuItem
-			// 
-			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-			this.logOutToolStripMenuItem.Text = "Log Out";
-			// 
-			// helpToolStripMenuItem
-			// 
-			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.usersToolStripMenuItem.Text = "Users";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
-			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-			this.helpToolStripMenuItem.Text = "Help";
-			// 
-			// aboutToolStripMenuItem
-			// 
-			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-			this.aboutToolStripMenuItem.Text = "About...";
-			// 
-			// labOrderID
-			// 
-			this.labOrderID.AutoSize = true;
-			this.labOrderID.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labOrderID.Location = new System.Drawing.Point(67, 33);
-			this.labOrderID.Name = "labOrderID";
-			this.labOrderID.Size = new System.Drawing.Size(97, 19);
-			this.labOrderID.TabIndex = 10;
-			this.labOrderID.Text = "Order ID";
-			// 
-			// txtOrderID
-			// 
-			this.txtOrderID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.txtOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.txtOrderID.Location = new System.Drawing.Point(170, 27);
-			this.txtOrderID.Name = "txtOrderID";
-			this.txtOrderID.Size = new System.Drawing.Size(100, 29);
-			this.txtOrderID.TabIndex = 11;
-			// 
-			// btnLookup
-			// 
-			this.btnLookup.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLookup.Location = new System.Drawing.Point(170, 62);
-			this.btnLookup.Name = "btnLookup";
-			this.btnLookup.Size = new System.Drawing.Size(100, 29);
-			this.btnLookup.TabIndex = 12;
-			this.btnLookup.Text = "Order Lookup";
-			this.btnLookup.UseVisualStyleBackColor = true;
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(276, 27);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(656, 204);
-			this.dataGridView1.TabIndex = 9;
-			// 
-			// dataGridView2
-			// 
-			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Location = new System.Drawing.Point(276, 237);
-			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(656, 204);
-			this.dataGridView2.TabIndex = 14;
-			// 
-			// btnUpdate
-			// 
-			this.btnUpdate.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnUpdate.Location = new System.Drawing.Point(804, 447);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(128, 29);
-			this.btnUpdate.TabIndex = 15;
-			this.btnUpdate.Text = "Update Details";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			// 
-			// btnAdd
-			// 
-			this.btnAdd.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAdd.Location = new System.Drawing.Point(170, 202);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(100, 29);
-			this.btnAdd.TabIndex = 16;
-			this.btnAdd.Text = "Add";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			// 
-			// Receiving
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(944, 501);
-			this.Controls.Add(this.btnAdd);
-			this.Controls.Add(this.btnUpdate);
-			this.Controls.Add(this.dataGridView2);
-			this.Controls.Add(this.btnLookup);
-			this.Controls.Add(this.txtOrderID);
-			this.Controls.Add(this.labOrderID);
-			this.Controls.Add(this.dataGridView1);
-			this.Controls.Add(this.menReceiving);
-			this.Controls.Add(this.staReceiving);
-			this.Name = "Receiving";
-			this.Text = "Warehouse Manager - Receiving";
-			this.staReceiving.ResumeLayout(false);
-			this.staReceiving.PerformLayout();
-			this.menReceiving.ResumeLayout(false);
-			this.menReceiving.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.aboutToolStripMenuItem.Text = "About...";
+            // 
+            // labOrderID
+            // 
+            this.labOrderID.AutoSize = true;
+            this.labOrderID.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labOrderID.Location = new System.Drawing.Point(67, 33);
+            this.labOrderID.Name = "labOrderID";
+            this.labOrderID.Size = new System.Drawing.Size(97, 19);
+            this.labOrderID.TabIndex = 10;
+            this.labOrderID.Text = "Order ID";
+            // 
+            // txtOrderID
+            // 
+            this.txtOrderID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtOrderID.Location = new System.Drawing.Point(170, 27);
+            this.txtOrderID.Name = "txtOrderID";
+            this.txtOrderID.Size = new System.Drawing.Size(100, 29);
+            this.txtOrderID.TabIndex = 11;
+            // 
+            // btnLookup
+            // 
+            this.btnLookup.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLookup.Location = new System.Drawing.Point(170, 62);
+            this.btnLookup.Name = "btnLookup";
+            this.btnLookup.Size = new System.Drawing.Size(100, 29);
+            this.btnLookup.TabIndex = 12;
+            this.btnLookup.Text = "Order Lookup";
+            this.btnLookup.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(276, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(656, 204);
+            this.dataGridView1.TabIndex = 9;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(276, 237);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(656, 204);
+            this.dataGridView2.TabIndex = 14;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(804, 447);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(128, 29);
+            this.btnUpdate.TabIndex = 15;
+            this.btnUpdate.Text = "Update Details";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(170, 202);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 29);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // Receiving
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.btnLookup);
+            this.Controls.Add(this.txtOrderID);
+            this.Controls.Add(this.labOrderID);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.menReceiving);
+            this.Controls.Add(this.staReceiving);
+            this.Name = "Receiving";
+            this.Text = "Warehouse Manager - Receiving";
+            this.staReceiving.ResumeLayout(false);
+            this.staReceiving.PerformLayout();
+            this.menReceiving.ResumeLayout(false);
+            this.menReceiving.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
