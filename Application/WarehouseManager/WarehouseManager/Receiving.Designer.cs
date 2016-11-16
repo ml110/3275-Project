@@ -198,6 +198,7 @@
 			this.dgvLookup.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dgvLookup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvLookup.Location = new System.Drawing.Point(276, 27);
+			this.dgvLookup.MultiSelect = false;
 			this.dgvLookup.Name = "dgvLookup";
 			this.dgvLookup.Size = new System.Drawing.Size(656, 204);
 			this.dgvLookup.TabIndex = 9;
@@ -220,6 +221,7 @@
 			this.btnUpdate.TabIndex = 15;
 			this.btnUpdate.Text = "Update Details";
 			this.btnUpdate.UseVisualStyleBackColor = true;
+			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
 			// 
 			// btnAdd
 			// 

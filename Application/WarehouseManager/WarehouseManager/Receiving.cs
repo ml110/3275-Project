@@ -24,7 +24,7 @@ namespace WarehouseManager
 	{
         //SQL Connection
         private MySqlConnection connection;
-        MySqlCommand command = new MySqlCommand();
+        MySqlCommand command = new MySqlCommand(); //change this line in release version
 
         private int lookupID; //OrderID
 
@@ -32,6 +32,7 @@ namespace WarehouseManager
 		List<int> listSkews = new List<int>();
 		List<int> listAmounts = new List<int>();
         
+		//Release version should also receive the employee information
 		//public Receiving(MySqlConnection conn, MySqlCommand cmd)
         public Receiving()
 		{
@@ -113,6 +114,16 @@ namespace WarehouseManager
 			else
 			{
 				updateOrderInfo(oID);
+
+				//Add the columns to the bottom
+				dgvChecklist.Columns.Clear(); //clear anything that's still there
+				dgvChecklist.Columns.Add((DataGridViewColumn)dgvLookup.Columns[0].Clone()); //SKU
+				dgvChecklist.Columns.Add((DataGridViewColumn)dgvLookup.Columns[1].Clone()); //Product Name
+				dgvChecklist.Columns.Add((DataGridViewColumn)dgvLookup.Columns[2].Clone()); //Quantity
+
+				//ensure the lists are clear
+				listSkews.Clear();
+				listAmounts.Clear();
 			}
         }
 
@@ -142,12 +153,117 @@ namespace WarehouseManager
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			int skew = Int16.Parse(dgvLookup.SelectedRows[0].Cells[0].Value.ToString());
-			listSkews.Add(skew);
-			int amt = Int16.Parse(dgvLookup.SelectedRows[0].Cells[2].Value.ToString().Split(' ')[0]);
-			listAmounts.Add(amt);
 
-			//DataGridViewColumn DGVcol = dgvLookup.Columns.
-			//dgvChecklist.Rows.Add("test", "test", "test");
+			//check if SKU is already in the list, if it is then I can't add the stuff
+			if (listSkews.Contains(skew))
+			{
+				MessageBox.Show("The selected product has already been added!", "OOPS", MessageBoxButtons.OK);
+			}
+			else
+			{
+				//is the selected row damaged?
+				if (dgvLookup.SelectedRows[0].Cells[4].Value.ToString() == "True")
+				{
+					MessageBox.Show("The selected product is damaged!", "OOPS", MessageBoxButtons.OK);
+				}
+				else
+				{
+					listSkews.Add(skew);
+					int amt = Int16.Parse(dgvLookup.SelectedRows[0].Cells[2].Value.ToString().Split(' ')[0]);
+					listAmounts.Add(amt);
+
+					//Now add the rows
+					string SKU = dgvLookup.SelectedRows[0].Cells[0].Value.ToString();
+					string pName = dgvLookup.SelectedRows[0].Cells[1].Value.ToString();
+					string quan = dgvLookup.SelectedRows[0].Cells[2].Value.ToString();
+					dgvChecklist.Rows.Add(SKU, pName, quan);
+				}			
+			}		
+		}
+
+		//time to update the DB
+		private void btnUpdate_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				updateInventory(listSkews, listAmounts);
+				updateDamaged();
+				MessageBox.Show("Inventory Updated!", "SUCCESS", MessageBoxButtons.OK);
+
+				//clear the stuff on success
+				listSkews.Clear();
+				listAmounts.Clear();
+				dgvChecklist.Rows.Clear();
+			}
+			catch (ArgumentException ex)
+			{
+				MessageBox.Show(ex.Message, "OOPS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			catch (MySql.Data.MySqlClient.MySqlException)
+			{
+				MessageBox.Show("Error updating inventory. Please contact an Administrator.", "OOPS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		//actual method that updates
+		private void updateInventory(List<int> SKU, List<int> AMT)
+		{
+			//check if they're empty
+			if (SKU.Count < 1)
+			{
+				throw new ArgumentException("No products to add!");
+			}
+
+			for (int i = 0; i < listSkews.Count; i++)
+			{
+				int currentStock = getStock(SKU.ElementAt(i));
+				int updatedStock = currentStock + AMT.ElementAt(i);
+				
+				command.CommandText = "UPDATE product SET product_stock = '" + updatedStock + "' WHERE product_id = '" + SKU.ElementAt(i) + "';";
+				command.Connection = connection;
+				MySqlDataReader sRead = command.ExecuteReader();
+				sRead.Close();
+			}
+		}
+
+		//method for returning the current stock 
+		private int getStock(int pID)
+		{
+			int stock = 0;
+
+			command.CommandText = "SELECT product_stock FROM product WHERE product_id = '" + pID + "' LIMIT 1;";
+			command.Connection = connection;
+			MySqlDataReader sRead = command.ExecuteReader();
+
+			while (sRead.Read())
+			{
+				stock = Int16.Parse(sRead[0].ToString());
+			}
+
+			sRead.Close();
+
+			return stock;
+		}
+
+		//method for updating damaged items in an order (order_product)
+		//idea for this is to just scan through the display and find the ones that are damaged.
+		private void updateDamaged()
+		{
+			for (int i = 0; i < dgvLookup.Rows.Count; i++)
+			{
+				//Debug.WriteLine(dgvLookup.Rows[i].Cells[4].Value.ToString());
+
+				if (dgvLookup.Rows[i].Cells[4].Value.ToString() == "True") //if damaged
+				{
+					int damSKU = Int16.Parse(dgvLookup.Rows[i].Cells[0].Value.ToString());
+					int damOID = Int16.Parse(txtOrderID.Text);
+
+					command.CommandText = "UPDATE order_product SET isDamaged = '1' WHERE order_id = '" + damOID + "' AND product_id = '" + damSKU + "';";
+					command.Connection = connection;
+					MySqlDataReader sRead = command.ExecuteReader();
+					sRead.Close();
+				}
+			}
 		}
 	}
 }
