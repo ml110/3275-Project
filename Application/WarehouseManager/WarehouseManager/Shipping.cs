@@ -16,5 +16,10 @@ namespace WarehouseManager
 		{
 			InitializeComponent();
 		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var aboutpage = new WarehouseAppAbout {Visible = true};
+		}
 	}
 }
