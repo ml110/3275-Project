@@ -8,7 +8,7 @@ include("include/connect.php");
 
 function getContent($sql) {
   //$sql = "SELECT product_name,product_img_path from product where category_id = '1'";
-  $conn = mysqli_connect("173.180.133.176", "root", "superpassword", "hi-tec");
+  $conn = mysqli_connect("localhost", "root", "", "hi-tec");
   $result = $conn->query($sql);
   $counter = 0;
   $content = "<div id=\"row\">";
