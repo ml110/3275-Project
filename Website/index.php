@@ -1,38 +1,108 @@
 <?php
-//include_once("include/connect.php");
+/*$conn = mysqli_connect("173.180.133.176", "root", "superpassword", "hi-tec");
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connection_error);
+}*/
+
+include("include/connect.php");
+
+function getContent($sql) {
+  //$sql = "SELECT product_name,product_img_path from product where category_id = '1'";
+  $conn = mysqli_connect("173.180.133.176", "root", "superpassword", "hi-tec");
+  $result = $conn->query($sql);
+  $counter = 0;
+  $content = "<div id=\"row\">";
+  if($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $counter++;
+      $productname = $row["product_name"];
+      $path = $row["product_img_path"];
+      if(($counter % 4) == 0 ) {
+        $content .= "</div>";
+        $content .= "<div id=\"row\">";
+      }
+      $content .= "<div style=\"height:300px;width:200px;\" class=\"col-sm-6 col-md-4\"><div class=\"thumbnail\">";
+      //$content .= "<div class=\"col-sm-6 col-md-4\"><div class=\"thumbnail\">";
+      $content .= "<img src=\"images/".$path."\"></img>";
+      $content .= "<div class=\"caption\"><h3>";
+      if(strlen($productname) < 18) {
+        $content .= $productname . "</h3><br/></div></div>";
+      }else{
+        $content .= $productname . "</h3></div></div>";
+      }
+      $content .= "</div>";
+    }
+    if(($counter % 4) != 0 ) {
+      $content .= "</div>";
+    }
+  }else{
+    $content = "<div class=\"alert alert-danger\" role=\"alert\">
+  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>
+  <span class=\"sr-only\">Error:</span>
+  <strong>No Results Found</strong>
+  </div>";
+  }
+  return $content;
+}
+
+
+$content = "";
+
 $breadcrumb = "<ol class=\"breadcrumb\">
   <li class=\"index.php\"><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span> Home</li>
 </ol>";
-$content = "";
+
 
 if(isset($_GET["cat"])) {
   $cat = $_GET["cat"];
-  $catName;
+  $catName = "";
   if(is_numeric($cat)) {
 	if($cat == 1) {
 	  $catName = "";
     }else if($cat == 2) { // RAM
 	  $catName = "Ram";
+    $test = "SELECT product_name,product_img_path from product where category_id = '1'";
+    $content = getContent($test);
     }else if($cat == 3) { //Motherboard
       $catName = "Motherboard";
+      $test = "SELECT product_name,product_img_path from product where category_id = '2'";
+      $content = getContent($test);
     }else if($cat == 4) { //GPU
 	  $catName = "GPU";
+    $test = "SELECT product_name,product_img_path from product where category_id = '3'";
+    $content = getContent($test);
 	}else if($cat == 5) { //CPU
       $catName = "CPU";
+      $test = "SELECT product_name,product_img_path from product where category_id = '4'";
+      $content = getContent($test);
     }else if($cat == 6) { //Storage
       $catName = "Storage";
+      $test = "SELECT product_name,product_img_path from product where category_id = '5'";
+      $content = getContent($test);
     }else if($cat == 7) { //PSU
       $catName = "PSU";
+      $test = "SELECT product_name,product_img_path from product where category_id = '6'";
+      $content = getContent($test);
     }else if($cat == 8) { //Displays
 	  $catName = "Displays";
+    $test = "SELECT product_name,product_img_path from product where category_id = '7'";
+    $content = getContent($test);
 	}else if($cat == 9) { //Keyboards
 	  $catName = "Keyboards";
-	}else if($cat == 10) { //Mice
+    $test = "SELECT product_name,product_img_path from product where category_id = '8'";
+    $content = getContent($test);
+	}else if($cat == 10) { //Mouse
 	  $catName = "Mouse";
+    $test = "SELECT product_name,product_img_path from product where category_id = '9'";
+    $content = getContent($test);
 	}else if($cat == 11) { //Desktop
 	  $catName = "Desktop";
+    $test = "SELECT product_name,product_img_path from product where category_id = '10'";
+    $content = getContent($test);
 	}else if($cat == 12) { //Accessories
 	  $catName = "Accessories";
+    $test = "SELECT product_name,product_img_path from product where category_id = '11'";
+    $content = getContent($test);
 	}else {
 	  //invalid category
 	  $content = "<div class=\"alert alert-danger\" role=\"alert\">
@@ -55,7 +125,8 @@ if(isset($_GET["cat"])) {
 		</ol>";
 	}
 }else{
-  //NO VALID CATEGORY
+  //HOME
+  $content = "<h2>Welcome to Hi-Tec</h2>";
 }
 
 if(isset($_GET["misc"])) {
@@ -64,8 +135,16 @@ if(isset($_GET["misc"])) {
   if(is_numeric($misc)) {
     if($misc == 1) { //ORDERS
       $miscName = "Orders";
+      $content = "<div class=\"alert alert-info\" role=\"alert\">
+  <span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span>
+  <strong>To place an order please call 604-584-8945</strong>
+</div>";
     }else if($misc == 2) { //CONTACT
       $miscName = "Contact";
+      $content = "<div class=\"alert alert-info\" role=\"alert\">
+  <span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span>
+  <strong>To Contact Us, please call our toll free number: 1-888-5415-8971</strong>
+</div>";
     }else{
 	   $content = "<div class=\"alert alert-danger\" role=\"alert\">
   <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>
@@ -84,6 +163,28 @@ if(isset($_GET["misc"])) {
   }
 }
 
+if(isset($_GET["search"])) {
+  $search = $_GET["search"];
+  $breadcrumb = "<ol class=\"breadcrumb\">
+   <li><a href=\"index.php\"><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span> Home</a></li>
+   <li class=\"active\">Searching for \"".$search."\"</li>
+  </ol>";
+  if(strlen($search) > 0) {
+    $sql = "SELECT product_name,product_img_path from product where product_name LIKE '%" . $search . "%'";
+    $content = getContent($sql);
+  }else{
+  $content = "<div class=\"alert alert-danger\" role=\"alert\">
+<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>
+<span class=\"sr-only\">Error:</span>
+<strong>Please enter a something to search for</strong>
+</div>";
+    $breadcrumb = "<ol class=\"breadcrumb\">
+     <li><a href=\"index.php\"><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span> Home</a></li>
+     <li class=\"active\">Searching for ...</li>
+    </ol>";
+  }
+
+}
 
 
 ?>
@@ -95,7 +196,7 @@ if(isset($_GET["misc"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>test</title>
+    <title>Hi-Tec</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/manjot.js"></script>
     <!-- Bootstrap -->
@@ -152,11 +253,11 @@ if(isset($_GET["misc"])) {
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left" method="get" action="index.php">
         <div class="input-group">
-      <input type="text" class="form-control" placeholder="GIGABYTE Radeon...">
+      <input type="text" name="search" class="form-control" placeholder="GIGABYTE Radeon...">
       <span class="input-group-btn">
-        <button type="button" class="btn btn-default">
+        <button type="submit" class="btn btn-default">
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 </button>
       </span>
@@ -167,64 +268,13 @@ if(isset($_GET["misc"])) {
 </nav>
 
 <div class="panel panel-default">
-<!--- BREADCRUMB ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-<ol id="brdCrmb" class="breadcrumb">
-  <li><a href="index.php">Home</a></li>
-  <li><a href="#">Categories</a></li>
-  <li class="active">GPU</li>
-</ol>
 
-///////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////BREADCRUMB  -->
 
 <?php echo $breadcrumb; ?>
 
   <div class="panel-body">
   <?php echo $content; ?>
-  <!--
-	<div class="row">
-  IN STOCK///////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="images/121125_2.jpg" alt="GPU">
-      <div class="caption">
-        <h4>GIGABYTE Radeon R9 380X Windforce 980MHZ 4GB 5.7GHZ GDDR5 DVI-D /I HDMI DisplayPort PCI-E Video Card</h4>
-        <p>Price: $279.99</p>
-		<div class="alert alert-success">
-			<center><strong>In Stock</strong></center>
-		</div>
-      </div>
-    </div>
-  </div>
-  ////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////IN STOCK
 
-
-  OUT OF STOCK///////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="images/121125_2.jpg" alt="GPU">
-      <div class="caption">
-        <h4>GIGABYTE Radeon R9 380X Windforce 980MHZ 4GB 5.7GHZ GDDR5 DVI-D /I HDMI DisplayPort PCI-E Video Card</h4>
-        <p>Price: $279.99</p>
-		<div class="alert alert-danger">
-			<center><strong>Out of Stock</strong></center>
-		</div>
-      </div>
-    </div>
-  </div>
-  ////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////OUT OF STOCK
-</div>  -->
   </div>
 </div>
 </div>
