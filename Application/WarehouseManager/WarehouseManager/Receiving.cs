@@ -152,33 +152,43 @@ namespace WarehouseManager
 		//THIS needs to add the selected row from the top DGV into the bottom readonly DGV
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
-			int skew = Int16.Parse(dgvLookup.SelectedRows[0].Cells[0].Value.ToString());
+			try
+			{
+				int skew = Int16.Parse(dgvLookup.SelectedRows[0].Cells[0].Value.ToString());
 
-			//check if SKU is already in the list, if it is then I can't add the stuff
-			if (listSkews.Contains(skew))
-			{
-				MessageBox.Show("The selected product has already been added!", "OOPS", MessageBoxButtons.OK);
-			}
-			else
-			{
-				//is the selected row damaged?
-				if (dgvLookup.SelectedRows[0].Cells[4].Value.ToString() == "True")
+				//check if SKU is already in the list, if it is then I can't add the stuff
+				if (listSkews.Contains(skew))
 				{
-					MessageBox.Show("The selected product is damaged!", "OOPS", MessageBoxButtons.OK);
+					MessageBox.Show("The selected product has already been added!", "OOPS", MessageBoxButtons.OK);
 				}
 				else
 				{
-					listSkews.Add(skew);
-					int amt = Int16.Parse(dgvLookup.SelectedRows[0].Cells[2].Value.ToString().Split(' ')[0]);
-					listAmounts.Add(amt);
+					//is the selected row damaged?
+					if (dgvLookup.SelectedRows[0].Cells[4].Value.ToString() == "True")
+					{
+						MessageBox.Show("The selected product is damaged!", "OOPS", MessageBoxButtons.OK);
+					}
+					else
+					{
+						listSkews.Add(skew);
+						int amt = Int16.Parse(dgvLookup.SelectedRows[0].Cells[2].Value.ToString().Split(' ')[0]);
+						listAmounts.Add(amt);
 
-					//Now add the rows
-					string SKU = dgvLookup.SelectedRows[0].Cells[0].Value.ToString();
-					string pName = dgvLookup.SelectedRows[0].Cells[1].Value.ToString();
-					string quan = dgvLookup.SelectedRows[0].Cells[2].Value.ToString();
-					dgvChecklist.Rows.Add(SKU, pName, quan);
-				}			
-			}		
+						//Now add the rows
+						string SKU = dgvLookup.SelectedRows[0].Cells[0].Value.ToString();
+						string pName = dgvLookup.SelectedRows[0].Cells[1].Value.ToString();
+						string quan = dgvLookup.SelectedRows[0].Cells[2].Value.ToString();
+						dgvChecklist.Rows.Add(SKU, pName, quan);
+
+						//disable the damaged checkbox
+						dgvLookup.SelectedRows[0].Cells[4].ReadOnly = true;
+					}
+				}
+			}
+			catch (ArgumentOutOfRangeException)
+			{
+				MessageBox.Show("Please select a row.", "OOPS", MessageBoxButtons.OK);
+			}
 		}
 
 		//time to update the DB
@@ -194,6 +204,10 @@ namespace WarehouseManager
 				listSkews.Clear();
 				listAmounts.Clear();
 				dgvChecklist.Rows.Clear();
+				dgvChecklist.Columns.Clear();
+				dgvLookup.DataSource = null;
+				txtOrderID.Text = null;
+				labOrderInfo.Text = null;
 			}
 			catch (ArgumentException ex)
 			{
@@ -251,11 +265,11 @@ namespace WarehouseManager
 		{
 			for (int i = 0; i < dgvLookup.Rows.Count; i++)
 			{
-				//Debug.WriteLine(dgvLookup.Rows[i].Cells[4].Value.ToString());
+				Debug.WriteLine(i + " " + Convert.ToString(dgvLookup.Rows[i].Cells[4].Value));
 
-				if (dgvLookup.Rows[i].Cells[4].Value.ToString() == "True") //if damaged
+				if (Convert.ToString(dgvLookup.Rows[i].Cells[4].Value) == "True") //if damaged
 				{
-					int damSKU = Int16.Parse(dgvLookup.Rows[i].Cells[0].Value.ToString());
+					int damSKU = Int16.Parse(Convert.ToString(dgvLookup.Rows[i].Cells[0].Value));
 					int damOID = Int16.Parse(txtOrderID.Text);
 
 					command.CommandText = "UPDATE order_product SET isDamaged = '1' WHERE order_id = '" + damOID + "' AND product_id = '" + damSKU + "';";
