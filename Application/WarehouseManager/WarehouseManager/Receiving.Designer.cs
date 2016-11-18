@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receiving));
 			this.staReceiving = new System.Windows.Forms.StatusStrip();
 			this.tslLoggedUser = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tslServerStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -107,7 +108,7 @@
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
 			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-			this.serverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.serverToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
 			this.serverToolStripMenuItem.Text = "Server";
 			// 
 			// connectToolStripMenuItem
@@ -125,13 +126,13 @@
 			// importToolStripMenuItem
 			// 
 			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-			this.importToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.importToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
 			this.importToolStripMenuItem.Text = "Import...";
 			// 
 			// exportToolStripMenuItem
 			// 
 			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-			this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.exportToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
 			this.exportToolStripMenuItem.Text = "Export...";
 			// 
 			// usersToolStripMenuItem
@@ -145,7 +146,7 @@
 			// logOutToolStripMenuItem
 			// 
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
 			// 
 			// helpToolStripMenuItem
@@ -159,7 +160,7 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			// 
 			// labOrderID
@@ -258,6 +259,7 @@
 			this.Controls.Add(this.dgvLookup);
 			this.Controls.Add(this.menReceiving);
 			this.Controls.Add(this.staReceiving);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Receiving";
 			this.Text = "Warehouse Manager - Receiving";
 			this.staReceiving.ResumeLayout(false);

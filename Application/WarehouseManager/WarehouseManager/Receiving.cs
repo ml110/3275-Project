@@ -24,7 +24,7 @@ namespace WarehouseManager
 	{
         //SQL Connection
         private MySqlConnection connection;
-        MySqlCommand command = new MySqlCommand(); //change this line in release version
+		MySqlCommand command;
 
         private int lookupID; //OrderID
 
@@ -32,12 +32,24 @@ namespace WarehouseManager
 		List<int> listSkews = new List<int>();
 		List<int> listAmounts = new List<int>();
         
-		//Release version should also receive the employee information
-		//public Receiving(MySqlConnection conn, MySqlCommand cmd)
+		//RELEASE CONSTRUCTOR
+		public Receiving(MySqlConnection conn, MySqlCommand cmd, string empName)
+		{
+			InitializeComponent();
+			connection = conn;
+			command = cmd;
+
+			//code needs to go here to change the lower left to display:
+			// 1. The currently logged in user
+			// 2. Connection status
+		}
+
+		//TEST CONSTRUCTOR
         public Receiving()
 		{
 			InitializeComponent();
-            DBConnect(); //REMOVE THIS IN FINAL VERSION
+            DBConnect();
+			command = new MySqlCommand();
 		}
 
         //TEMP CONNECT METHOD; REMOVE FROM FINAL VERSION
@@ -83,7 +95,7 @@ namespace WarehouseManager
 			}
 			catch (ArgumentException ex) //for no rows/order
 			{
-				MessageBox.Show(ex.Message, "OOPS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "AIYAH", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
         }
 
@@ -159,14 +171,14 @@ namespace WarehouseManager
 				//check if SKU is already in the list, if it is then I can't add the stuff
 				if (listSkews.Contains(skew))
 				{
-					MessageBox.Show("The selected product has already been added!", "OOPS", MessageBoxButtons.OK);
+					MessageBox.Show("The selected product has already been added!", "AIYAH", MessageBoxButtons.OK);
 				}
 				else
 				{
 					//is the selected row damaged?
 					if (dgvLookup.SelectedRows[0].Cells[4].Value.ToString() == "True")
 					{
-						MessageBox.Show("The selected product is damaged!", "OOPS", MessageBoxButtons.OK);
+						MessageBox.Show("The selected product is damaged!", "AIYAH", MessageBoxButtons.OK);
 					}
 					else
 					{
@@ -182,12 +194,14 @@ namespace WarehouseManager
 
 						//disable the damaged checkbox
 						dgvLookup.SelectedRows[0].Cells[4].ReadOnly = true;
+						//colour the added row
+						dgvLookup.SelectedRows[0].DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
 					}
 				}
 			}
 			catch (ArgumentOutOfRangeException)
 			{
-				MessageBox.Show("Please select a row.", "OOPS", MessageBoxButtons.OK);
+				MessageBox.Show("Please select a row.", "AIYAH", MessageBoxButtons.OK);
 			}
 		}
 
@@ -196,6 +210,10 @@ namespace WarehouseManager
 		{
 			try
 			{
+				//VALID CHECK//////
+				orderValid();
+				//////////////////
+
 				updateInventory(listSkews, listAmounts);
 				updateDamaged();
 				MessageBox.Show("Inventory Updated!", "SUCCESS", MessageBoxButtons.OK);
@@ -277,6 +295,27 @@ namespace WarehouseManager
 					MySqlDataReader sRead = command.ExecuteReader();
 					sRead.Close();
 				}
+			}
+		}
+
+		//This method checks to ensure that all items (rows) in the dgvLookup have been checked or added
+		private void orderValid()
+		{
+			int totalItems = dgvLookup.Rows.Count;
+			int damagedItems = 0;
+			int addedItems = dgvChecklist.Rows.Count;
+
+			for (int i = 0; i < dgvLookup.Rows.Count; i++)
+			{
+				if (Convert.ToString(dgvLookup.Rows[i].Cells[4].Value) == "True")
+				{
+					damagedItems++;
+				}
+			}
+
+			if ((damagedItems + addedItems) != totalItems)
+			{
+				throw new ArgumentException("You still have unprocessed items!");
 			}
 		}
 	}
