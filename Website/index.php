@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 include("include/connect.php");
 
 /*function getContent($sql) {
-  //$sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
+  //$sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
   $conn = mysqli_connect("173.180.133.176", "root", "superpassword", "hi-tec");
   $result = $conn->query($sql);
   $counter = 0;
@@ -46,7 +46,7 @@ include("include/connect.php");
 }*/
 
 function getContent($sql) {
-  //$sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
+  //$sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
   $conn = mysqli_connect("localhost", "root", "", "hi-tec");
   $result = $conn->query($sql);
   if($result->num_rows > 0) {
@@ -58,14 +58,15 @@ function getContent($sql) {
       $stock = $row["product_stock"];
       $manufacturer = $row["manufacturer_name"];
       $sku = $row["product_id"];
-
+      $shelfid = $row["shelf_id"];
+      $shelfid *= 12;
       $content .= "<tr>";
       //$content .= "<td width=\"20%\"><img height=\"50%\" width=\"50%\" src=\"images/".$path."\"></img></td>";
       $content .= "<td width=\"30%\"><img class=\"img-responsive\" src=\"images/".$path."\"></img></td>";
       $content .= "<td>";
       $content .= "<h4><span style=\"color:#395793;\"><strong>" . $productname . "</span></strong></h4>";
       $content .= "<strong>Manufacturer: " . $manufacturer . "<br/>";
-      $content .= "<strong>SKU: " . $sku . "<br/>";
+      $content .= "<strong>SKU: " . $sku . $shelfid ."<br/>";
       if($stock > 0) {
         $content .= "<span style=\"font-size:16px;\" class=\"label label-success\">In Stock</span>";
         /*$content .= "<div style=\"width:50%;\" class=\"alert alert-success\">
@@ -105,62 +106,62 @@ if(isset($_GET["cat"])) {
   if(is_numeric($cat)) {
 	if($cat == 1) {
 	  $catName = "";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | All Products";
     }else if($cat == 2) { // RAM
 	  $catName = "RAM";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | RAM";
     }else if($cat == 3) { //Motherboard
       $catName = "Motherboard";
-      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '2'";
+      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '2'";
       $content = getContent($test);
       $title = "HI-TEC Electronic Supply Ltd | Motherboard";
     }else if($cat == 4) { //GPU
 	  $catName = "GPU";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '3'";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '3'";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | GPU";
 	}else if($cat == 5) { //CPU
       $catName = "CPU";
-      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '4'";
+      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '4'";
       $content = getContent($test);
       $title = "HI-TEC Electronic Supply Ltd | CPU";
     }else if($cat == 6) { //Storage
       $catName = "Storage";
-      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '5'";
+      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '5'";
       $content = getContent($test);
       $title = "HI-TEC Electronic Supply Ltd | Storage";
     }else if($cat == 7) { //PSU
       $catName = "PSU";
-      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '6'";
+      $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '6'";
       $content = getContent($test);
       $title = "HI-TEC Electronic Supply Ltd | PSU";
     }else if($cat == 8) { //Displays
 	  $catName = "Displays";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '7'";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '7'";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | Displays";
 	}else if($cat == 9) { //Keyboards
 	  $catName = "Keyboards";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '8'";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '8'";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | Keyboards";
 	}else if($cat == 10) { //Mouse
 	  $catName = "Mouse";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '9'";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '9'";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | Mouse";
 	}else if($cat == 11) { //Desktop
 	  $catName = "Desktop";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '10'";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '10'";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | Desktop";
 	}else if($cat == 12) { //Accessories
 	  $catName = "Accessories";
-    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '11'";
+    $test = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '11'";
     $content = getContent($test);
     $title = "HI-TEC Electronic Supply Ltd | Accessories";
 	}else {
@@ -266,7 +267,7 @@ if(isset($_GET["search"])) {
      <li><a href=\"index.php\"><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span> Home</a></li>
      <li class=\"active\">Searching for \"".$search."\"</li>
     </ol>";
-    $sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where product_name LIKE '%" . $search . "%'";
+    $sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where product_name LIKE '%" . $search . "%'";
     $content = getContent($sql);
     $title = "HI-TEC Electronic Supply Ltd | " . $search;
   }else{
