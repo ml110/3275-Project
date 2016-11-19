@@ -141,5 +141,9 @@ namespace WarehouseManager
 				
 		}
 
-	}
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var shipping = new Shipping() {Visible= true }; 
+        }
+    }
 }
