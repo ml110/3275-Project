@@ -100,7 +100,10 @@ namespace WarehouseManager
         //This method takes in a number (the orderID), and spits out the associated data to the DGV
         private void DisplayOrder(int oId)
         {
-            var query = "SELECT P.product_id AS SKU, P.product_name AS PRODUCTNAME, concat(OP.quantity, \" units\") AS AMOUNT, concat(\"$\", (round((OP.quantity * P.product_price), 2))) AS TOTALPRICE, OP.isDamaged AS DAMAGED FROM `order` AS O";
+            var query = "SELECT P.product_id AS SKU, P.product_name AS PRODUCTNAME, " +
+                        "concat(OP.quantity, \" units\") AS AMOUNT, " +
+                        "concat(\"$\", (round((OP.quantity * P.product_price), 2))) AS TOTALPRICE, " +
+                        "OP.isDamaged AS DAMAGED FROM `order` AS O";
                 query += " INNER JOIN order_product AS OP ON O.order_id = OP.order_id";
                 query += " INNER JOIN product AS P ON OP.product_id = P.product_id";
                 query += " INNER JOIN supplier AS S ON O.supplier_id = S.supplier_id";

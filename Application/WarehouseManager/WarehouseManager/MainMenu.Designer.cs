@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.btnRec = new System.Windows.Forms.Button();
@@ -37,9 +38,11 @@
 			this.labLoginPass = new System.Windows.Forms.Label();
 			this.txtLoginID = new System.Windows.Forms.TextBox();
 			this.labLoginID = new System.Windows.Forms.Label();
+			this.erpLogin = new System.Windows.Forms.ErrorProvider(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.erpLogin)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// splitContainer1
@@ -104,9 +107,11 @@
 			// txtLoginPass
 			// 
 			this.txtLoginPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.txtLoginPass.CausesValidation = false;
 			this.txtLoginPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.txtLoginPass.Location = new System.Drawing.Point(124, 245);
 			this.txtLoginPass.Name = "txtLoginPass";
+			this.txtLoginPass.PasswordChar = '*';
 			this.txtLoginPass.Size = new System.Drawing.Size(349, 35);
 			this.txtLoginPass.TabIndex = 3;
 			// 
@@ -139,6 +144,10 @@
 			this.labLoginID.TabIndex = 0;
 			this.labLoginID.Text = "Employee ID";
 			// 
+			// erpLogin
+			// 
+			this.erpLogin.ContainerControl = this;
+			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +162,7 @@
 			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.erpLogin)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -167,6 +177,7 @@
 		private System.Windows.Forms.TextBox txtLoginID;
 		private System.Windows.Forms.Label labLoginID;
         private System.Windows.Forms.Button btnRec;
+		private System.Windows.Forms.ErrorProvider erpLogin;
 	}
 }
 

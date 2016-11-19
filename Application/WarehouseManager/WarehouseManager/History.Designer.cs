@@ -37,8 +37,6 @@
 			this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.orderByToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.filterByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,9 +90,7 @@
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.serverToolStripMenuItem,
-            this.importToolStripMenuItem,
-            this.exportToolStripMenuItem});
+            this.serverToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
@@ -105,32 +101,20 @@
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
 			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-			this.serverToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.serverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.serverToolStripMenuItem.Text = "Server";
 			// 
 			// connectToolStripMenuItem
 			// 
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-			this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+			this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.connectToolStripMenuItem.Text = "Connect";
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
-			// 
-			// importToolStripMenuItem
-			// 
-			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-			this.importToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-			this.importToolStripMenuItem.Text = "Import...";
-			// 
-			// exportToolStripMenuItem
-			// 
-			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-			this.exportToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-			this.exportToolStripMenuItem.Text = "Export...";
 			// 
 			// orderByToolStripMenuItem
 			// 
@@ -144,13 +128,13 @@
 			// orderByToolStripMenuItem1
 			// 
 			this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
-			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.orderByToolStripMenuItem1.Text = "Order By";
 			// 
 			// filterByToolStripMenuItem
 			// 
 			this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
-			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.filterByToolStripMenuItem.Text = "Filter By";
 			// 
 			// usersToolStripMenuItem
@@ -164,7 +148,7 @@
 			// logOutToolStripMenuItem
 			// 
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
 			// 
 			// helpToolStripMenuItem
@@ -178,7 +162,7 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			// 
 			// panControls
@@ -228,8 +212,6 @@
 		private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem orderByToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem orderByToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem filterByToolStripMenuItem;
