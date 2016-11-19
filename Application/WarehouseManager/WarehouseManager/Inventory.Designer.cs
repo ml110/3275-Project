@@ -126,7 +126,7 @@
             this.orderByToolStripMenuItem1,
             this.filterByToolStripMenuItem});
 			this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
-			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
 			this.orderByToolStripMenuItem.Text = "Tools";
 			// 
 			// orderByToolStripMenuItem1
@@ -226,6 +226,7 @@
 			this.Controls.Add(this.staInventory);
 			this.Controls.Add(this.dgvInvDisplay);
 			this.Controls.Add(this.menInventory);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menInventory;
 			this.Name = "Inventory";
 			this.Text = "Warehouse Manager - Inventory";
