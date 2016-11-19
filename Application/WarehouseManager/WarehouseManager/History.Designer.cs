@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(History));
 			this.staHistory = new System.Windows.Forms.StatusStrip();
 			this.tslLoggedUser = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tslServerStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -204,6 +205,7 @@
 			this.Controls.Add(this.panControls);
 			this.Controls.Add(this.menHistory);
 			this.Controls.Add(this.staHistory);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "History";
 			this.Text = "Warehouse Manager - History";
 			this.staHistory.ResumeLayout(false);
