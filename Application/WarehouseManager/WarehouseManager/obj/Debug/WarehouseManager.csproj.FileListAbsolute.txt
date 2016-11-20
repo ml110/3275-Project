@@ -62,3 +62,6 @@ D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project
 D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
 D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
