@@ -1,6 +1,6 @@
 ﻿namespace WarehouseManager
 {
-	partial class formMain
+	partial class FormMain
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,17 +28,22 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnRec = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.labLoginTitle = new System.Windows.Forms.Label();
             this.txtLoginPass = new System.Windows.Forms.TextBox();
             this.labLoginPass = new System.Windows.Forms.Label();
             this.txtLoginID = new System.Windows.Forms.TextBox();
             this.labLoginID = new System.Windows.Forms.Label();
-            this.btnRec = new System.Windows.Forms.Button();
+            this.erpLogin = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -57,6 +62,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.btnRec);
             this.splitContainer1.Panel2.Controls.Add(this.btnLogin);
             this.splitContainer1.Panel2.Controls.Add(this.labLoginTitle);
@@ -69,6 +75,16 @@
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnRec
+            // 
+            this.btnRec.Location = new System.Drawing.Point(458, 442);
+            this.btnRec.Name = "btnRec";
+            this.btnRec.Size = new System.Drawing.Size(113, 44);
+            this.btnRec.TabIndex = 6;
+            this.btnRec.Text = "TEST BUTTON FOR RECEIVING";
+            this.btnRec.UseVisualStyleBackColor = true;
+            this.btnRec.Click += new System.EventHandler(this.btnRec_Click);
+            // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -78,6 +94,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // labLoginTitle
             // 
@@ -85,16 +102,18 @@
             this.labLoginTitle.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labLoginTitle.Location = new System.Drawing.Point(30, 27);
             this.labLoginTitle.Name = "labLoginTitle";
-            this.labLoginTitle.Size = new System.Drawing.Size(552, 38);
+            this.labLoginTitle.Size = new System.Drawing.Size(550, 38);
             this.labLoginTitle.TabIndex = 4;
             this.labLoginTitle.Text = "Warehouse Manager - User Login";
             // 
             // txtLoginPass
             // 
             this.txtLoginPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLoginPass.CausesValidation = false;
             this.txtLoginPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtLoginPass.Location = new System.Drawing.Point(124, 245);
             this.txtLoginPass.Name = "txtLoginPass";
+            this.txtLoginPass.PasswordChar = '*';
             this.txtLoginPass.Size = new System.Drawing.Size(349, 35);
             this.txtLoginPass.TabIndex = 3;
             // 
@@ -127,29 +146,35 @@
             this.labLoginID.TabIndex = 0;
             this.labLoginID.Text = "Employee ID";
             // 
-            // btnRec
+            // erpLogin
             // 
-            this.btnRec.Location = new System.Drawing.Point(458, 442);
-            this.btnRec.Name = "btnRec";
-            this.btnRec.Size = new System.Drawing.Size(113, 44);
-            this.btnRec.TabIndex = 6;
-            this.btnRec.Text = "TEST BUTTON FOR RECEIVING";
-            this.btnRec.UseVisualStyleBackColor = true;
-            this.btnRec.Click += new System.EventHandler(this.btnRec_Click);
+            this.erpLogin.ContainerControl = this;
             // 
-            // formMain
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(72, 442);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 31);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 501);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "formMain";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FormMain";
             this.Text = "Warehouse Manager - Login";
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.erpLogin)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -164,6 +189,8 @@
 		private System.Windows.Forms.TextBox txtLoginID;
 		private System.Windows.Forms.Label labLoginID;
         private System.Windows.Forms.Button btnRec;
-	}
+		private System.Windows.Forms.ErrorProvider erpLogin;
+        private System.Windows.Forms.Button button1;
+    }
 }
 

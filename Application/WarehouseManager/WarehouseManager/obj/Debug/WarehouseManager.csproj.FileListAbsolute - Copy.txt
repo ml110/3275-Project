@@ -59,15 +59,12 @@ D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project
 D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
 <<<<<<< HEAD
-C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
-C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
-C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
-=======
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
+>>>>>>> 1d65200b740ef82e15dde5edddd27197df8cba90
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
@@ -80,4 +77,3 @@ C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseMa
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
->>>>>>> 3a392aac9a9f6ada29d8d39c6d2809994a99cc05
