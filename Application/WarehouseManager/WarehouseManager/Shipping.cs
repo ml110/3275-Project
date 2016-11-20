@@ -15,6 +15,7 @@ namespace WarehouseManager
         private MySqlConnection _connection;
         private readonly MySqlCommand _command;
         private readonly string _empName;
+        private int shippingID; 
 
         public Shipping(MySqlConnection conn, MySqlCommand cmd, string empName)
         {
@@ -22,6 +23,8 @@ namespace WarehouseManager
             _connection = conn;
             _command = cmd;
             _empName = empName;
+
+            
 
             //code needs to go here to change the lower left to display:
             // 1. The currently logged in user
@@ -50,14 +53,83 @@ namespace WarehouseManager
             _connection.Open();
         }
 
-        public Shipping()
+       /* public Shipping()
 		{
 			InitializeComponent();
 		}
+        */
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var aboutpage = new WarehouseAppAbout {Visible = true};
 		}
-	}
+
+        private void btnLoadShipment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+
+                
+                if (txtProductSKU.Text == null || txtProductSKU.Text == "")
+                {
+                    DisplayAllShipments();
+                }
+                else
+                {
+                    shippingID = short.Parse(txtProductSKU.Text);
+                    DisplayShipment(shippingID);
+                }
+            }
+            catch (FormatException) //for shitty inputs
+            {
+                MessageBox.Show(@"Are you sure you know what a number is? Because I don't think you do...", @"HEY IDIOT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentException ex) //for no rows/order
+            {
+                MessageBox.Show(ex.Message, @"AIYAH", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void DisplayShipment(int sID)
+        {
+            var query = " SELECT SP.product_id, SP.quantity, P.product_name," +
+                        " round((SP.quantity * P.product_price), 2) AS TOTALPRICE" +
+                        " FROM shipment_product AS SP";
+            query += " INNER JOIN product AS P ON SP.product_id = P.product_id";
+            query += " WHERE SP.shipment_id = '" + sID + "'";
+
+            var ds = new DataSet();
+            dgvPendingShipment.DataSource = null;
+
+            var mda = new MySqlDataAdapter(query, _connection);
+            mda.Fill(ds, "SHIPMENT");
+
+            dgvPendingShipment.DataSource = ds.Tables["SHIPMENT"];
+
+            if (ds.Tables["SHIPMENT"].Rows.Count == 0)
+            {
+                throw new ArgumentException("No shipment with the ID " + sID + " was found.");
+            }
+        }
+
+        private void DisplayAllShipments()
+        {
+            var query = " SELECT S.shipment_id, L.location_name AS Destination, S.shipment_date," +
+                        " C.client_name, C.client_rep, S.hasShipped" +
+                          " FROM shipment AS S";
+            query += " INNER JOIN location AS L ON S.location_id = L.location_id";
+            query += " INNER JOIN client AS C ON L.client_id = C.client_id";
+            query += " ORDER BY S.shipment_id ASC";
+
+            var dataset = new DataSet();
+            dgvPendingShipment.DataSource = null;
+
+            var myadapter = new MySqlDataAdapter(query, _connection);
+            myadapter.Fill(dataset, "SHIPMENT");
+
+            dgvPendingShipment.DataSource = dataset.Tables["SHIPMENT"];
+        }
+    }
 }

@@ -224,6 +224,8 @@
             // 
             // dgvPendingShipment
             // 
+            this.dgvPendingShipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPendingShipment.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPendingShipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPendingShipment.Location = new System.Drawing.Point(6, 62);
             this.dgvPendingShipment.Name = "dgvPendingShipment";
@@ -352,6 +354,7 @@
             this.btnLoadShipment.TabIndex = 25;
             this.btnLoadShipment.Text = "Load Shipment";
             this.btnLoadShipment.UseVisualStyleBackColor = true;
+            this.btnLoadShipment.Click += new System.EventHandler(this.btnLoadShipment_Click);
             // 
             // button1
             // 
