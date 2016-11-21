@@ -15,9 +15,7 @@ namespace WarehouseManager
         private MySqlConnection _connection;
         private readonly MySqlCommand _command;
         private readonly string _empName;
-
         private int _shippingId; 
-
 
         public Shipping(MySqlConnection conn, MySqlCommand cmd, string empName)
         {
@@ -58,16 +56,10 @@ namespace WarehouseManager
 			var aboutpage = new WarehouseAppAbout {Visible = true};
 		}
 
-	
-
-
         private void btnLoadShipment_Click(object sender, EventArgs e)
         {
             try
-            {
-                
-
-                
+            {         
                 if (string.IsNullOrEmpty(txtProductSKU.Text))
                 {
                     DisplayAllShipments();
@@ -129,5 +121,4 @@ namespace WarehouseManager
             dgvPendingShipment.DataSource = dataset.Tables["SHIPMENT"];
         }
     }
-
 }

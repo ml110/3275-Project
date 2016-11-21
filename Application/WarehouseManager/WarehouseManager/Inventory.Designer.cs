@@ -132,13 +132,13 @@
 			// orderByToolStripMenuItem1
 			// 
 			this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
-			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.orderByToolStripMenuItem1.Text = "Order By";
 			// 
 			// filterByToolStripMenuItem
 			// 
 			this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
-			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.filterByToolStripMenuItem.Text = "Filter By";
 			// 
 			// usersToolStripMenuItem
@@ -152,8 +152,9 @@
 			// logOutToolStripMenuItem
 			// 
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
+			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 

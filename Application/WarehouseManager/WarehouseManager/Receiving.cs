@@ -36,10 +36,21 @@ namespace WarehouseManager
 			_connection = conn;
 			_command = cmd;
 			_empName = empName;
+			
 
 			//code needs to go here to change the lower left to display:
 			// 1. The currently logged in user
 			// 2. Connection status
+			if (_connection != null)
+			{
+				tslServerStatus.Text = @"Connected";
+				tslServerStatus.ForeColor = Color.Green;
+			}
+			else
+			{
+				tslServerStatus.Text = @"Disconnected";
+				tslServerStatus.ForeColor = Color.Red;
+			}
 		}
 
 		//TEST CONSTRUCTOR
@@ -65,17 +76,6 @@ namespace WarehouseManager
             _connection = new MySqlConnection(connectionString);
 
             _connection.Open();
-
-            if (_connection != null)
-            {
-                tslServerStatus.Text = @"Connected";
-                tslServerStatus.ForeColor = Color.Green;
-            }
-            else
-            {
-                tslServerStatus.Text = @"Disconnected";
-                tslServerStatus.ForeColor = Color.Red;
-            }
         }
 
 		//view the inputed order number

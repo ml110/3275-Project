@@ -81,7 +81,11 @@ namespace WarehouseManager
 						if (!int.TryParse(txtLoginPass.Text, out temp1))
 						{
 							var validPass = txtLoginPass.Text;
-							DbValidate(validId, validPass);
+							if (DbValidate(validId, validPass) == false)
+							{
+								erpLogin.SetError(btnLogin, @"Username or Password is incorrect");
+							}
+
 						}
 						else
 						{
@@ -102,49 +106,106 @@ namespace WarehouseManager
 			
 			
 		}
-		/* 
-		 * SELECT emmloyee.employee_id, employee_creds.employee_password
-		 * INNER JOIN employee ON employee_creds.employee_id = employee.employee_id
-		 * WHERE employee.employee_id = '1' AND employee_creds.employee_password = 'Yellow'
-		 */
-		private void DbValidate(int empId, string empPass)
+		/*	V1.0 w/ empID = 1, empPass = Yellow
+			SELECT emmloyee.employee_id, employee_creds.employee_password
+			INNER JOIN employee ON employee_creds.employee_id = employee.employee_id
+			WHERE employee.employee_id = '1' AND employee_creds.employee_password = 'Yellow'
+			V1.1 w/ empID = 1, empPass = Yellow
+			SELECT employee.employee_id AS ID, employee_creds.employee_password AS PASSWORD, 
+			concat_ws(',', employee.employee_fname, employee.employee_lname) AS FullName 
+			FROM employee 
+			INNER JOIN employee_creds ON employee.employee_id = employee_creds.employee_id 
+			WHERE employee.employee_id = 1 AND employee_creds.employee_password = 'Yellow'
+		*/
+		private bool DbValidate(int empId, string empPass)
 		{
-			/*var query = "SELECT employee.employee_fname, employee.employee_lname, permission_group.permission_group_name" +
-			            "INNER JOIN employee ON employee.employee_id = employee_creds.employee_id, " +
-			            "INNER JOIN employee_creds ON employee_creds.permission_id = permission_group.permission_id, " +
-			            "WHERE employee.employee_id = '" + empId + "' AND employee_creds.employee_password = '" + empPass + "'";
-			*/
-
-			var query1 = "SELECT employee.employee_id AS ID, employee_creds.employee_password AS PASSWORD, concat_ws(',', employee.employee_fname, employee.employee_lname) AS FullName" +
+			var query1 = "SELECT employee.employee_id AS ID, employee_creds.employee_password AS PASSWORD, " +
+			             "concat_ws(',', employee.employee_fname, employee.employee_lname) AS FullName " +
 			             "FROM employee " +
 			             "INNER JOIN employee_creds ON employee.employee_id = employee_creds.employee_id " +
-			             "WHERE employee.employee_id = '" + empId + "' AND employee_creds.employee_password = '" + empPass + "'";
-			var query2 = "";
+			             "WHERE employee.employee_id = "+ empId +" AND employee_creds.employee_password = '" + empPass + "'";
+			
 			_command.Connection = _connection;
 			_command.CommandText = query1;
 			var reader = _command.ExecuteReader();
-			var empName = "";
-			int dbEmpId;
-			string dbEmpPass;
+			bool retValue = false;
 			while (reader.Read())
 			{
-				empName = reader["FullName"].ToString();
-				dbEmpId = int.Parse(reader["ID"].ToString());
-				dbEmpPass = reader["PASSWORD"].ToString();
-			}
+				var empName = reader["FullName"].ToString();
+				var dbEmpId = int.Parse(reader["ID"].ToString());
+				var dbEmpPass = reader["PASSWORD"].ToString();
 
+				if (dbEmpId == empId && dbEmpPass == empPass)
+				{
+					empName = empName.Replace(',', ' ');
+					reader.Close();
+					GetPermission(dbEmpId, empName);
+					retValue = true;
+					break;
+				}
+			}
 			reader.Close();
-			if (empName != "")
+			return retValue;
+		}
+		
+		private void GetPermission(int empId, string empName)
+		{
+			var query2 = "SELECT PG.permission_group_name AS PNAME FROM employee_creds AS EC INNER JOIN permission_group AS PG ON EC.permission_id = PG.permission_id WHERE EC.employee_id = " + empId;
+			
+			//test query, delete later
+			var query3 =
+				"SELECT EC.employee_id AS EID, PG.permission_id AS PID, PG.permission_group_name AS PNAME FROM employee_creds AS EC INNER JOIN permission_group AS PG ON EC.permission_id = PG.permission_id WHERE EC.employee_id = 7";
+			
+			_command.Connection = _connection;
+			_command.CommandText = query2;
+			var reader = _command.ExecuteReader();
+			var pname = "";
+			while (reader.Read())
 			{
-				Hide();
-				//Invoking Receiving Form's Constructor
+				//var pid = reader["PID"].ToString();
+				pname = reader["PNAME"].ToString();
+			}
+			reader.Close();
+			InvokeForm(pname,empName);
+			
+		}
+		/* Permission Group Name Reference
+		 * 1. Warehouse Employee
+		 * 2. Receiving
+		 * 3. Supplier
+		 * 4. Operations Supervisor
+		 * 5. Warehouse Manager
+		 * 6. Administrator
+		 */
+		private void InvokeForm(string formName, string empName)
+		{
+			Hide();
+
+			//Invoking Inventory Form's Constructor
+			if (formName == "Warehouse Employee")
+			{
+				var warehouse = new Inventory(_connection, _command, empName);
+				warehouse.Closed += (s, args) => Close();
+				warehouse.Show();
+			}
+			//Invoking Receiving Form's Constructor
+			if (formName == "Receiving")
+			{
 				var receiving = new Receiving(_connection, _command, empName);
 				receiving.Closed += (s, args) => Close();
 				receiving.Show();
 			}
-				
-		}
+			//Invoking Shipping Form's Constructor
+			if (formName == "Shipping")
+			{
+				var shipping = new Shipping(_connection, _command, empName);
+				shipping.Closed += (s, args) => Close();
+				shipping.Show();
+			}
 
-        
+
+
+
+		}
     }
 }
