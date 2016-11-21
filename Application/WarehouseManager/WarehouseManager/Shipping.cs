@@ -120,5 +120,50 @@ namespace WarehouseManager
 
             dgvPendingShipment.DataSource = dataset.Tables["SHIPMENT"];
         }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            int txtProduct = Convert.ToInt32(cboProductID.Text);
+            int quantity = Convert.ToInt32(txtProductQuantity.Text);
+            //validate the productid via sql query
+            //validate quantity
+            ListViewItem newItem = new ListViewItem(txtProduct.ToString());
+            newItem.SubItems.Add(quantity.ToString());
+            lstShipProducts.Items.Add(newItem);
+        }
+
+        private void btnRemoveProduct_Click(object sender, EventArgs e)
+        {
+            if (lstShipProducts.SelectedItems.Count > 0)
+            {
+                lstShipProducts.SelectedItems[0].Remove();
+            }
+        }
+
+        public void displayDesination()
+        {
+            string query = "SELECT location_name from location";
+            DataSet destinations = new DataSet();
+            MySqlDataAdapter myAdapter = new MySqlDataAdapter(query, _connection);
+            myAdapter.Fill(destinations, "location_name");
+            comboBox1.DataSource = destinations.Tables["location_name"];
+            comboBox1.DisplayMember = "location_name";
+        }
+
+        public void displayProductIds()
+        {
+            string query = "SELECT product_id from product order by product_id";
+            DataSet products = new DataSet();
+            MySqlDataAdapter myAdapter = new MySqlDataAdapter(query, _connection);
+            myAdapter.Fill(products, "product_id");
+            cboProductID.DataSource = products.Tables["product_id"];
+            cboProductID.DisplayMember = "product_id";
+        }
+
+        private void Shipping_Load(object sender, EventArgs e)
+        {
+            displayDesination();
+            displayProductIds();
+        }
     }
 }

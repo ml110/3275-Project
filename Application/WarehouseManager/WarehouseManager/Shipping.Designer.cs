@@ -61,6 +61,8 @@
             this.labShipID_Display = new System.Windows.Forms.Label();
             this.btnLoadShipment = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.staShipping.SuspendLayout();
             this.menShipping.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingShipment)).BeginInit();
@@ -278,6 +280,7 @@
             this.btnRemoveProduct.TabIndex = 22;
             this.btnRemoveProduct.Text = "Remove";
             this.btnRemoveProduct.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
             // 
             // btnAddProduct
             // 
@@ -288,14 +291,21 @@
             this.btnAddProduct.TabIndex = 21;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // lstShipProducts
             // 
+            this.lstShipProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lstShipProducts.FullRowSelect = true;
+            this.lstShipProducts.GridLines = true;
             this.lstShipProducts.Location = new System.Drawing.Point(0, 71);
             this.lstShipProducts.Name = "lstShipProducts";
             this.lstShipProducts.Size = new System.Drawing.Size(467, 308);
             this.lstShipProducts.TabIndex = 30;
             this.lstShipProducts.UseCompatibleStateImageBehavior = false;
+            this.lstShipProducts.View = System.Windows.Forms.View.Details;
             // 
             // labQuantity
             // 
@@ -366,6 +376,16 @@
             this.button1.Text = "Mark as Shipped";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ProductId";
+            this.columnHeader1.Width = 153;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Quantity";
+            this.columnHeader2.Width = 316;
+            // 
             // Shipping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,6 +404,7 @@
             this.Controls.Add(this.staShipping);
             this.Name = "Shipping";
             this.Text = "Warehouse Manager - Shipping";
+            this.Load += new System.EventHandler(this.Shipping_Load);
             this.staShipping.ResumeLayout(false);
             this.staShipping.PerformLayout();
             this.menShipping.ResumeLayout(false);
@@ -431,5 +452,7 @@
 		private System.Windows.Forms.Button btnLoadShipment;
 		private System.Windows.Forms.Button btnCreate;
 		private System.Windows.Forms.Button button1;
-	}
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+    }
 }
