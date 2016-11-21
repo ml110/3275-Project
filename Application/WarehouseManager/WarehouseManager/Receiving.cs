@@ -151,7 +151,7 @@ namespace WarehouseManager
 				var dateString = reader["ODATE"].ToString();
 				dateString = dateString.Substring(0, 10).Trim();
 				
-				labOrderInfo.Text = reader["SNAME"] + @"\n";
+				labOrderInfo.Text = reader["SNAME"] + Environment.NewLine;
                 labOrderInfo.Text += dateString;
             }
 

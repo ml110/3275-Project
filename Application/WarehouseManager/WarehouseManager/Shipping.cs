@@ -50,11 +50,6 @@ namespace WarehouseManager
             _connection.Open();
         }
 
-        public Shipping()
-		{
-			InitializeComponent();
-		}
-
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var aboutpage = new WarehouseAppAbout {Visible = true};

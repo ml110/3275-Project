@@ -37,6 +37,10 @@ namespace WarehouseManager
 
 			_connection.Open();
 		}
+		private void btnRec_Click(object sender, EventArgs e)
+		{
+			var recForm = new Receiving {Visible = true};
+		}
 
 		public FormMain()
 		{
@@ -45,10 +49,10 @@ namespace WarehouseManager
 			_command = new MySqlCommand();
 		}
 
-		private void btnRec_Click(object sender, EventArgs e)
-		{
-			var recForm = new Receiving {Visible = true};
-		}
+		private void button1_Click(object sender, EventArgs e)
+        {
+            var shipping = new Shipping() {Visible= true }; 
+        }
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
@@ -141,9 +145,6 @@ namespace WarehouseManager
 				
 		}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var shipping = new Shipping() {Visible= true }; 
-        }
+        
     }
 }
