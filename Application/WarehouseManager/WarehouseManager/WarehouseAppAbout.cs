@@ -9,17 +9,23 @@ using System.Windows.Forms;
 
 namespace WarehouseManager
 {
-	partial class WarehouseAppAbout : Form
+	internal partial class WarehouseAppAbout : Form
 	{
 		public WarehouseAppAbout()
 		{
 			InitializeComponent();
-			this.Text = String.Format("About {0}", AssemblyTitle);
-			this.labelProductName.Text = AssemblyProduct;
-			this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-			this.labelCopyright.Text = AssemblyCopyright;
-			this.labelCompanyName.Text = AssemblyCompany;
-			this.textBoxDescription.Text = AssemblyDescription;
+			Text = $@"About {AssemblyTitle}";
+			labelProductName.Text = AssemblyProduct;
+			labelVersion.Text = $@"Version {AssemblyVersion}";
+			labelCopyright.Text = AssemblyCopyright;
+			labelCompanyName.Text = AssemblyCompany;
+			textBoxDescription.Text = AssemblyDescription;
+		}
+
+		public sealed override string Text
+		{
+			get { return base.Text; }
+			set { base.Text = value; }
 		}
 
 		#region Assembly Attribute Accessors
@@ -49,7 +55,7 @@ namespace WarehouseManager
 			}
 		}
 
-		public string AssemblyDescription
+		private string AssemblyDescription
 		{
 			get
 			{
@@ -101,5 +107,10 @@ namespace WarehouseManager
 			}
 		}
 		#endregion
+
+		private void okButton_Click(object sender, EventArgs e)
+		{
+			Hide();
+		}
 	}
 }

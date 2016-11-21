@@ -23,11 +23,29 @@ namespace WarehouseManager
             _connection = conn;
             _command = cmd;
             _empName = empName;
+	        staShipping.Items["tslLoggedUser"].Text = _empName;
 
-            //code needs to go here to change the lower left to display:
-            // 1. The currently logged in user
-            // 2. Connection status
-        }
+	        if (conn != null)
+			{
+				staShipping.Items["tslServerStatus"].Text = @"Connected";
+				staShipping.Items["tslServerStatus"].ForeColor = Color.Green;
+
+				connectToolStripMenuItem.Enabled = false;
+				disconnectToolStripMenuItem.Enabled = true;
+			}
+			else
+			{
+				staShipping.Items["tslServerStatus"].Text = @"Disconnected";
+				staShipping.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+				connectToolStripMenuItem.Enabled = true;
+				disconnectToolStripMenuItem.Enabled = false;
+			}
+
+			//code needs to go here to change the lower left to display:
+			// 1. The currently logged in user
+			// 2. Connection status
+		}
         public Shipping()
         {
             InitializeComponent();
@@ -38,11 +56,9 @@ namespace WarehouseManager
         private void DbConnect()
         {
             const string server = "173.180.133.176";
-            //string server = "localhost";
             const string db = "hi-tec";
             const string id = "root";
             const string pass = "superpassword";
-            //string pass = "superpassword";
             const string port = "3306";
 
             const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
@@ -53,7 +69,9 @@ namespace WarehouseManager
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var aboutpage = new WarehouseAppAbout {Visible = true};
+			var about = new WarehouseAppAbout();
+			about.Closed += (s, args) => Close();
+			about.Show();
 		}
 
         private void btnLoadShipment_Click(object sender, EventArgs e)
@@ -140,7 +158,7 @@ namespace WarehouseManager
             }
         }
 
-        public void displayDesination()
+		private void DisplayDesination()
         {
             string query = "SELECT location_name from location";
             DataSet destinations = new DataSet();
@@ -150,7 +168,7 @@ namespace WarehouseManager
             comboBox1.DisplayMember = "location_name";
         }
 
-        public void displayProductIds()
+		private void DisplayProductIds()
         {
             string query = "SELECT product_id from product order by product_id";
             DataSet products = new DataSet();
@@ -162,8 +180,55 @@ namespace WarehouseManager
 
         private void Shipping_Load(object sender, EventArgs e)
         {
-            displayDesination();
-            displayProductIds();
+            DisplayDesination();
+            DisplayProductIds();
         }
-    }
+
+		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			_connection?.Close();
+			Hide();
+			var login = new FormMain();
+			login.Closed += (s, args) => Close();
+			login.Show();
+		}
+
+		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (_connection.State == ConnectionState.Closed)
+			{
+				const string server = "173.180.133.176";
+				const string db = "hi-tec";
+				const string id = "root";
+				const string pass = "superpassword";
+				const string port = "3306";
+
+				const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
+				_connection = new MySqlConnection(connectionString);
+
+				_connection.Open();
+
+				staShipping.Items["tslServerStatus"].Text = @"Connected";
+				staShipping.Items["tslServerStatus"].ForeColor = Color.Green;
+
+				connectToolStripMenuItem.Enabled = false;
+				disconnectToolStripMenuItem.Enabled = true;
+			}
+		}
+
+		private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			_connection?.Close();
+
+			if (_connection.State == ConnectionState.Closed)
+			{
+				staShipping.Items["tslServerStatus"].Text = @"Disconnected";
+				staShipping.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+				connectToolStripMenuItem.Enabled = true;
+				disconnectToolStripMenuItem.Enabled = false; 
+			}
+			
+		}
+	}
 }

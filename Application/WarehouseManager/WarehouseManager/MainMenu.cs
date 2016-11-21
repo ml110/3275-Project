@@ -56,6 +56,11 @@ namespace WarehouseManager
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
+			ButtonAction();
+		}
+
+		private void ButtonAction()
+		{
 			/* validatedResult value meaning:
 			 * 0 => Field is Empty
 			 * 1 => Field is an Integer
@@ -103,9 +108,8 @@ namespace WarehouseManager
 			{
 				erpLogin.SetError(txtLoginID, @"Please Enter Your Employee ID!");
 			}
-			
-			
 		}
+
 		/*	V1.0 w/ empID = 1, empPass = Yellow
 			SELECT emmloyee.employee_id, employee_creds.employee_password
 			INNER JOIN employee ON employee_creds.employee_id = employee.employee_id
@@ -128,7 +132,7 @@ namespace WarehouseManager
 			_command.Connection = _connection;
 			_command.CommandText = query1;
 			var reader = _command.ExecuteReader();
-			bool retValue = false;
+			var retValue = false;
 			while (reader.Read())
 			{
 				var empName = reader["FullName"].ToString();
@@ -172,7 +176,7 @@ namespace WarehouseManager
 		/* Permission Group Name Reference
 		 * 1. Warehouse Employee
 		 * 2. Receiving
-		 * 3. Supplier
+		 * 3. Shipping
 		 * 4. Operations Supervisor
 		 * 5. Warehouse Manager
 		 * 6. Administrator
@@ -202,10 +206,14 @@ namespace WarehouseManager
 				shipping.Closed += (s, args) => Close();
 				shipping.Show();
 			}
-
-
-
-
 		}
-    }
+
+		private void txtLoginPass_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char) Keys.Return)
+			{
+				ButtonAction();
+			}
+		}
+	}
 }
