@@ -15,10 +15,9 @@ namespace WarehouseManager
         private MySqlConnection _connection;
         private readonly MySqlCommand _command;
         private readonly string _empName;
-<<<<<<< .merge_file_a69076
-=======
-        private int shippingID; 
->>>>>>> .merge_file_a55956
+
+        private int _shippingId; 
+
 
         public Shipping(MySqlConnection conn, MySqlCommand cmd, string empName)
         {
@@ -27,11 +26,6 @@ namespace WarehouseManager
             _command = cmd;
             _empName = empName;
 
-<<<<<<< .merge_file_a69076
-=======
-            
-
->>>>>>> .merge_file_a55956
             //code needs to go here to change the lower left to display:
             // 1. The currently logged in user
             // 2. Connection status
@@ -59,22 +53,13 @@ namespace WarehouseManager
             _connection.Open();
         }
 
-<<<<<<< .merge_file_a69076
-=======
-       /* public Shipping()
-		{
-			InitializeComponent();
-		}
-        */
-
->>>>>>> .merge_file_a55956
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var aboutpage = new WarehouseAppAbout {Visible = true};
 		}
-<<<<<<< .merge_file_a69076
-	}
-=======
+
+	
+
 
         private void btnLoadShipment_Click(object sender, EventArgs e)
         {
@@ -83,14 +68,14 @@ namespace WarehouseManager
                 
 
                 
-                if (txtProductSKU.Text == null || txtProductSKU.Text == "")
+                if (string.IsNullOrEmpty(txtProductSKU.Text))
                 {
                     DisplayAllShipments();
                 }
                 else
                 {
-                    shippingID = short.Parse(txtProductSKU.Text);
-                    DisplayShipment(shippingID);
+                    _shippingId = short.Parse(txtProductSKU.Text);
+                    DisplayShipment(_shippingId);
                 }
             }
             catch (FormatException) //for shitty inputs
@@ -104,13 +89,13 @@ namespace WarehouseManager
 
         }
 
-        private void DisplayShipment(int sID)
+        private void DisplayShipment(int sId)
         {
             var query = " SELECT SP.product_id, SP.quantity, P.product_name," +
                         " round((SP.quantity * P.product_price), 2) AS TOTALPRICE" +
                         " FROM shipment_product AS SP";
             query += " INNER JOIN product AS P ON SP.product_id = P.product_id";
-            query += " WHERE SP.shipment_id = '" + sID + "'";
+            query += " WHERE SP.shipment_id = '" + sId + "'";
 
             var ds = new DataSet();
             dgvPendingShipment.DataSource = null;
@@ -122,7 +107,7 @@ namespace WarehouseManager
 
             if (ds.Tables["SHIPMENT"].Rows.Count == 0)
             {
-                throw new ArgumentException("No shipment with the ID " + sID + " was found.");
+                throw new ArgumentException("No shipment with the ID " + sId + " was found.");
             }
         }
 
@@ -144,5 +129,5 @@ namespace WarehouseManager
             dgvPendingShipment.DataSource = dataset.Tables["SHIPMENT"];
         }
     }
->>>>>>> .merge_file_a55956
+
 }
