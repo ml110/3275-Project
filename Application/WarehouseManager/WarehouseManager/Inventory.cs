@@ -114,5 +114,10 @@ namespace WarehouseManager
                 this.CloseConnection();
             }
         }
+
+        private void dgvInvDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     }
