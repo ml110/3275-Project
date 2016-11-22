@@ -17,20 +17,18 @@ namespace WarehouseManager
 	{
         private MySqlConnection _connection;
         private readonly MySqlCommand _command;
-        private readonly string _empName;
-        private int _shippingId;
+		private int _shippingId;
 
-		List<int> listSkews = new List<int>(); //stores the SKUs
-		List<int> listQuan = new List<int>(); //stores the amounts
-		private int newID; //for new shipments
+		readonly List<int> _listSkews = new List<int>(); //stores the SKUs
+		readonly List<int> _listQuan = new List<int>(); //stores the amounts
+		private int _newId; //for new shipments
 
         public Shipping(MySqlConnection conn, MySqlCommand cmd, string empName)
         {
-            InitializeComponent();
+	        InitializeComponent();
             _connection = conn;
             _command = cmd;
-            _empName = empName;
-	        staShipping.Items["tslLoggedUser"].Text = _empName;
+	        staShipping.Items["tslLoggedUser"].Text = empName;
 
 	        if (conn != null)
 			{
@@ -156,35 +154,25 @@ namespace WarehouseManager
 		//Add the shit to the thing
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-			int pID = 0;
-			int amt = 0;
-			string pName = "";
-
-			try
+	        try
 			{
-				pID = Convert.ToInt32(txtSKU.Text);
-				amt = Convert.ToInt32(txtProductQuantity.Text);
-				pName = getProduct(pID);
+				var pId = int.Parse(txtSKU.Text);
+				var amt = int.Parse(txtProductQuantity.Text);
+				var pName = GetProduct(pId);
 
 				//CHECK FOR DUPLICATES FIRST
-				if (listSkews.Contains(pID))
+				if (_listSkews.Contains(pId))
 				{
 					throw new ArgumentException("The specified product has already been added!");				
 				}
-				else
+				if (amt < 1)
 				{
-					if (amt < 1)
-					{
-						throw new ArgumentException("Please enter an amount greater than 0."); //amount check
-					}
-					else
-					{
-						listSkews.Add(pID);
-						listQuan.Add(amt);
-					}
+					throw new ArgumentException("Please enter an amount greater than 0."); //amount check
 				}
+				_listSkews.Add(pId);
+				_listQuan.Add(amt);
 
-				ListViewItem lineProduct = new ListViewItem(pID.ToString());
+				var lineProduct = new ListViewItem(pId.ToString());
 				lineProduct.SubItems.Add(pName);
 				lineProduct.SubItems.Add(amt.ToString());
 
@@ -199,7 +187,7 @@ namespace WarehouseManager
 			}
 			catch (FormatException)
 			{
-				MessageBox.Show("Product SKU and quantity must be numbers!", @"AIYAH", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(@"Product SKU and quantity must be numbers!", @"AIYAH", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
         }
 
@@ -208,7 +196,7 @@ namespace WarehouseManager
         {
 			try
 			{
-				removeRow();
+				RemoveRow();
 			}
 			catch (ArgumentException ex)
 			{
@@ -217,29 +205,26 @@ namespace WarehouseManager
         }
 
 		//method of row removal
-		private void removeRow()
+		private void RemoveRow()
 		{
 			if (lstShipProducts.SelectedItems.Count < 1) //check if anythings selected
 			{
 				throw new ArgumentException("Select a row to remove!");
 			}
-			else
-			{
-				//get the SKU first, then the index of that sku and remove the elements at that IDX in the two lists
-				int removalSKU = Convert.ToInt32(lstShipProducts.SelectedItems[0].SubItems[0].ToString());
-				int removalIDX = listSkews.IndexOf(removalSKU);
-				listSkews.Remove(removalIDX);
-				listQuan.Remove(removalIDX);
+			//get the SKU first, then the index of that sku and remove the elements at that IDX in the two lists
+			var removalSku = Convert.ToInt32(lstShipProducts.SelectedItems[0].SubItems[0].ToString());
+			var removalIdx = _listSkews.IndexOf(removalSku);
+			_listSkews.Remove(removalIdx);
+			_listQuan.Remove(removalIdx);
 				
-				lstShipProducts.Items.Remove(lstShipProducts.SelectedItems[0]);
-			}
+			lstShipProducts.Items.Remove(lstShipProducts.SelectedItems[0]);
 		}
 
 		private void DisplayDesination()
         {
-            string query = "SELECT concat(\"[\", location_id, \"] \", location_name) AS LOC from location";
-            DataSet destinations = new DataSet();
-            MySqlDataAdapter myAdapter = new MySqlDataAdapter(query, _connection);
+            var query = "SELECT concat(\"[\", location_id, \"] \", location_name) AS LOC from location";
+            var destinations = new DataSet();
+            var myAdapter = new MySqlDataAdapter(query, _connection);
             myAdapter.Fill(destinations, "LOC");
             cboDestination.DataSource = destinations.Tables["LOC"];
             cboDestination.DisplayMember = "LOC";
@@ -257,6 +242,7 @@ namespace WarehouseManager
 
 		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+<<<<<<< HEAD
 			if (_connection.State == ConnectionState.Closed)
 			{
 				const string server = "192.168.1.78";
@@ -264,18 +250,25 @@ namespace WarehouseManager
 				const string id = "root";
 				const string pass = "superpassword";
 				const string port = "3306";
+=======
+			if (_connection.State != ConnectionState.Closed) return;
+			const string server = "173.180.133.176";
+			const string db = "hi-tec";
+			const string id = "root";
+			const string pass = "superpassword";
+			const string port = "3306";
+>>>>>>> 4bb93ca43f62b1eef71dda362ec504df2ad2452a
 
-				const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
-				_connection = new MySqlConnection(connectionString);
+			const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
+			_connection = new MySqlConnection(connectionString);
 
-				_connection.Open();
+			_connection.Open();
 
-				staShipping.Items["tslServerStatus"].Text = @"Connected";
-				staShipping.Items["tslServerStatus"].ForeColor = Color.Green;
+			staShipping.Items["tslServerStatus"].Text = @"Connected";
+			staShipping.Items["tslServerStatus"].ForeColor = Color.Green;
 
-				connectToolStripMenuItem.Enabled = false;
-				disconnectToolStripMenuItem.Enabled = true;
-			}
+			connectToolStripMenuItem.Enabled = false;
+			disconnectToolStripMenuItem.Enabled = true;
 		}
 
 		//THIS THING
@@ -284,7 +277,7 @@ namespace WarehouseManager
 		{
 			try
 			{
-				mark();
+				Mark();
 			}
 			catch (ArgumentException ex)
 			{
@@ -297,7 +290,7 @@ namespace WarehouseManager
 		}
 
 		//this is the actual mark as shipped method, called by above button
-		private void mark()
+		private void Mark()
 		{
 			if (dgvPendingShipment.SelectedRows.Count < 1) //check if you actually have anything selected
 			{
@@ -309,15 +302,15 @@ namespace WarehouseManager
 				throw new ArgumentException("Shipment is already shipped!");
 			}
 
-			string crap = dgvPendingShipment.SelectedRows[0].Cells[0].Value.ToString();
-			int SID = Int32.Parse(crap);
+			var crap = dgvPendingShipment.SelectedRows[0].Cells[0].Value.ToString();
+			var sid = int.Parse(crap);
 
 			//run the update query
-			string updateQuery = "UPDATE shipment SET hasShipped = '1' WHERE shipment_id = '" + SID + "';";
+			var updateQuery = "UPDATE shipment SET hasShipped = '1' WHERE shipment_id = '" + sid + "';";
 			_command.CommandText = updateQuery;
 			_command.Connection = _connection;
-			MySqlDataReader MDR = _command.ExecuteReader();
-			MDR.Close();
+			var mdr = _command.ExecuteReader();
+			mdr.Close();
 
 			//update the display
 			DisplayAllShipments();
@@ -334,59 +327,56 @@ namespace WarehouseManager
 			btnRemoveProduct.Enabled = true;
 			
 			//New shipment_id
-			newID = getLastID("shipment", "shipment_id") + 1;
+			_newId = GetLastId("shipment", "shipment_id") + 1;
 			
 			//update the labeldisplay shit yeah fuck am i tired
-			labShipID_Display.Text = "New Shipment ID: " + newID.ToString();
+			labShipID_Display.Text = @"New Shipment ID: " + _newId.ToString();
 
-			MessageBox.Show("New shipment staged!", "READY", MessageBoxButtons.OK);
+			MessageBox.Show(@"New shipment staged!", @"READY", MessageBoxButtons.OK);
 		}
 
 		//This will grab the last ID in a mojig
-		private int getLastID(string table, string field)
+		private int GetLastId(string table, string field)
 		{
-			int theID = 0;
+			var theId = 0;
 
-			string query = "SELECT " + field + " FROM " + table + " ORDER BY " + field + " DESC LIMIT 1;";
+			var query = "SELECT " + field + " FROM " + table + " ORDER BY " + field + " DESC LIMIT 1;";
 			_command.CommandText = query;
 			_command.Connection = _connection;
-			MySqlDataReader MDR = _command.ExecuteReader();
+			var mdr = _command.ExecuteReader();
 
-			while (MDR.Read())
+			while (mdr.Read())
 			{
-				theID = Convert.ToInt32(MDR[0].ToString());
+				theId = Convert.ToInt32(mdr[0].ToString());
 			}
 
-			MDR.Close();
+			mdr.Close();
 
-			return theID;
+			return theId;
 		}
 
 		//gets the product name given a SKU
-		private string getProduct(int SKU)
+		private string GetProduct(int sku)
 		{
-			string name = "";
+			var name = "";
 
-			string query = "SELECT product_name FROM product WHERE product_id = '" + SKU + "';";
+			var query = "SELECT product_name FROM product WHERE product_id = '" + sku + "';";
 			_command.CommandText = query;
 			_command.Connection = _connection;
-			MySqlDataReader MDR = _command.ExecuteReader();
+			var mdr = _command.ExecuteReader();
 
-			while (MDR.Read())
+			while (mdr.Read())
 			{
-				name = MDR[0].ToString();
+				name = mdr[0].ToString();
 			}
 
-			MDR.Close();
+			mdr.Close();
 
-			if (String.IsNullOrEmpty(name))
+			if (string.IsNullOrEmpty(name))
 			{
-				throw new ArgumentException("No product with the SKU " + SKU + " exists!");
+				throw new ArgumentException("No product with the SKU " + sku + " exists!");
 			}
-			else
-			{
-				return name;
-			}
+			return name;
 		}
 
 		//putting this here for now
@@ -394,34 +384,32 @@ namespace WarehouseManager
 		{
 			try
 			{
-				DialogResult confirm = MessageBox.Show("Are you sure?", "CONFIRM SHIPMENT", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				var confirm = MessageBox.Show(@"Are you sure?", @"CONFIRM SHIPMENT", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-				if (confirm == DialogResult.Yes)
-				{
-					int locationID = Convert.ToInt32(cboDestination.Text.Split(']')[0].Trim('['));
-					string shipDate = labDate.Text;
-					createShipment(newID, locationID, shipDate);
+				if (confirm != DialogResult.Yes) return;
+				var locationId = Convert.ToInt32(cboDestination.Text.Split(']')[0].Trim('['));
+				var shipDate = labDate.Text;
+				CreateShipment(_newId, locationId, shipDate);
 
-					//if we've gotten this far, then it's a success and I gotta reset everything and shit
-					MessageBox.Show("Shipment created!", "SUCCESS", MessageBoxButtons.OK);
+				//if we've gotten this far, then it's a success and I gotta reset everything and shit
+				MessageBox.Show(@"Shipment created!", @"SUCCESS", MessageBoxButtons.OK);
 
-					listQuan.Clear();
-					listSkews.Clear();
-					lstShipProducts.Items.Clear();
-					txtSKU.Clear();
-					txtSKU.Enabled = false;
-					txtProductQuantity.Clear();
-					txtProductQuantity.Enabled = false;
+				_listQuan.Clear();
+				_listSkews.Clear();
+				lstShipProducts.Items.Clear();
+				txtSKU.Clear();
+				txtSKU.Enabled = false;
+				txtProductQuantity.Clear();
+				txtProductQuantity.Enabled = false;
 
-					btnAddProduct.Enabled = false;
-					btnRemoveProduct.Enabled = false;
-					btnCreate.Enabled = false;
+				btnAddProduct.Enabled = false;
+				btnRemoveProduct.Enabled = false;
+				btnCreate.Enabled = false;
 
-					labShipID_Display.Text = "---";
+				labShipID_Display.Text = @"---";
 
-					//re-display all the shipments so the user can see the changes
-					DisplayAllShipments();
-				}
+				//re-display all the shipments so the user can see the changes
+				DisplayAllShipments();
 			}
 			catch (ArgumentException ex)
 			{
@@ -434,34 +422,34 @@ namespace WarehouseManager
 		}
 
 		//method for insertions
-		private void createShipment(int id, int loc, string date)
+		private void CreateShipment(int id, int loc, string date)
 		{
 			//prep the date for proper format in the DB
-			DateTime dateFormat = DateTime.Parse(date);
+			var dateFormat = DateTime.Parse(date);
 			date = dateFormat.ToString("yyyy-MM-dd");
 
-			string shipmentQuery = "INSERT INTO shipment VALUES ('" + id + "', '" + loc + "', '" + date + "', '0');";
+			var shipmentQuery = "INSERT INTO shipment VALUES ('" + id + "', '" + loc + "', '" + date + "', '0');";
 			_command.CommandText = shipmentQuery;
 			_command.Connection = _connection;
-			MySqlDataReader MDR = _command.ExecuteReader();
-			MDR.Close();
+			var mdr = _command.ExecuteReader();
+			mdr.Close();
 
-			createShipmentDetails(id); //make the stuff
+			CreateShipmentDetails(id); //make the stuff
 		}
 
 		//for shipment_products
-		private void createShipmentDetails(int id)
+		private void CreateShipmentDetails(int id)
 		{
-			for (int i = 0; i < listSkews.Count; i++)
+			for (var i = 0; i < _listSkews.Count; i++)
 			{
-				int SKU = listSkews.ElementAt(i);
-				int AMT = listQuan.ElementAt(i);
+				var sku = _listSkews.ElementAt(i);
+				var amt = _listQuan.ElementAt(i);
 
-				string detailQuery = "INSERT INTO shipment_product VALUES ('" + id + "', '" + SKU + "', '" + AMT + "');";
+				var detailQuery = "INSERT INTO shipment_product VALUES ('" + id + "', '" + sku + "', '" + amt + "');";
 				_command.CommandText = detailQuery;
 				_command.Connection = _connection;
-				MySqlDataReader MDR = _command.ExecuteReader();
-				MDR.Close();
+				var mdr = _command.ExecuteReader();
+				mdr.Close();
 			}
 		}
 
@@ -469,14 +457,12 @@ namespace WarehouseManager
 		{
 			_connection?.Close();
 
-			if (_connection.State == ConnectionState.Closed)
-			{
-				staShipping.Items["tslServerStatus"].Text = @"Disconnected";
-				staShipping.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+			if (_connection == null || _connection.State != ConnectionState.Closed) return;
+			staShipping.Items["tslServerStatus"].Text = @"Disconnected";
+			staShipping.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
 
-				connectToolStripMenuItem.Enabled = true;
-				disconnectToolStripMenuItem.Enabled = false;
-			}
+			connectToolStripMenuItem.Enabled = true;
+			disconnectToolStripMenuItem.Enabled = false;
 		}
 
 		private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)

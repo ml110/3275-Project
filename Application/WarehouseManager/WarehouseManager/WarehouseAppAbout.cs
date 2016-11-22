@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WarehouseManager
@@ -14,12 +8,18 @@ namespace WarehouseManager
 		public WarehouseAppAbout()
 		{
 			InitializeComponent();
-			Text = $@"About {AssemblyTitle}";
-			labelProductName.Text = AssemblyProduct;
-			labelVersion.Text = $@"Version {AssemblyVersion}";
-			labelCopyright.Text = AssemblyCopyright;
-			labelCompanyName.Text = AssemblyCompany;
-			textBoxDescription.Text = AssemblyDescription;
+			Text = $@"M³CS Integrated Warehouse Management System";
+			labelProductName.Text = @"M³CS IWMS";
+			labelVersion.Text = @"Demo Version 0.61b";
+			labelCopyright.Text = @"© HI-TEC 2016";
+			labelCompanyName.Text = @"HI-TEC Electronic Supply Ltd.";
+			textBoxDescription.Text = 
+				@"This is a prototype warehouse management application for HI-TEC Electronic Supply Ltd., a fictional business-to-business supplier that operates in the Lower Mainland. "
+				+ Environment.NewLine + Environment.NewLine + @"It tracks current stock, incoming orders, and outgoing shipments." 
+				+ Environment.NewLine + Environment.NewLine + @"This system is comprised primarily of: " 
+				+ Environment.NewLine + @"1) A mySQL Database"
+				+ Environment.NewLine + @"2) A website for clients " 
+				+ Environment.NewLine + @"3) A program for employees ";
 		}
 
 		public sealed override string Text
@@ -27,86 +27,6 @@ namespace WarehouseManager
 			get { return base.Text; }
 			set { base.Text = value; }
 		}
-
-		#region Assembly Attribute Accessors
-
-		public string AssemblyTitle
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-				if (attributes.Length > 0)
-				{
-					AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
-					if (titleAttribute.Title != "")
-					{
-						return titleAttribute.Title;
-					}
-				}
-				return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
-			}
-		}
-
-		public string AssemblyVersion
-		{
-			get
-			{
-				return Assembly.GetExecutingAssembly().GetName().Version.ToString();
-			}
-		}
-
-		private string AssemblyDescription
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyDescriptionAttribute)attributes[0]).Description;
-			}
-		}
-
-		public string AssemblyProduct
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyProductAttribute)attributes[0]).Product;
-			}
-		}
-
-		public string AssemblyCopyright
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
-			}
-		}
-
-		public string AssemblyCompany
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyCompanyAttribute)attributes[0]).Company;
-			}
-		}
-		#endregion
 
 		private void okButton_Click(object sender, EventArgs e)
 		{
