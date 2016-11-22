@@ -112,5 +112,10 @@ namespace WarehouseManager
 		{
 			Hide();
 		}
-	}
+
+        private void WarehouseAppAbout_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

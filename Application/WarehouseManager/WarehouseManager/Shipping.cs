@@ -63,7 +63,7 @@ namespace WarehouseManager
         //TEMP CONNECT METHOD; REMOVE FROM FINAL VERSION
         private void DbConnect()
         {
-            const string server = "173.180.133.176";
+            const string server = "192.168.1.78";
             const string db = "hi-tec";
             const string id = "root";
             const string pass = "superpassword";
@@ -259,7 +259,7 @@ namespace WarehouseManager
 		{
 			if (_connection.State == ConnectionState.Closed)
 			{
-				const string server = "173.180.133.176";
+				const string server = "192.168.1.78";
 				const string db = "hi-tec";
 				const string id = "root";
 				const string pass = "superpassword";

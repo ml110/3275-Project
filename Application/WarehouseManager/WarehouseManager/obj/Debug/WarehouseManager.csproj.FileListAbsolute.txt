@@ -93,3 +93,14 @@ C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManag
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Inventory.resources
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.FormMain.resources
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Properties.Resources.resources
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Receiving.resources
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Shipping.resources
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
+C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
