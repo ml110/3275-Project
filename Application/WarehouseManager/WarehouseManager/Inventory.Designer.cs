@@ -29,6 +29,9 @@
 		private void InitializeComponent()
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
 			this.dgvInvDisplay = new System.Windows.Forms.DataGridView();
 			this.menInventory = new System.Windows.Forms.MenuStrip();
@@ -36,6 +39,14 @@
 			this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
+=======
+			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.orderByToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.filterByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +74,7 @@
 			// menInventory
 			// 
 			this.menInventory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+<<<<<<< HEAD
 =======
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.dgvInvDisplay = new System.Windows.Forms.DataGridView();
@@ -108,10 +120,15 @@
             // 
             this.menInventory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 >>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
             this.fileToolStripMenuItem,
             this.usersToolStripMenuItem,
             this.helpToolStripMenuItem});
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			this.menInventory.Location = new System.Drawing.Point(0, 0);
 			this.menInventory.Name = "menInventory";
 			this.menInventory.Size = new System.Drawing.Size(944, 24);
@@ -121,6 +138,7 @@
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+<<<<<<< HEAD
             this.serverToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
@@ -162,51 +180,54 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
             this.serverToolStripMenuItem,
             this.importToolStripMenuItem,
             this.exportToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // serverToolStripMenuItem
-            // 
-            this.serverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem.Text = "File";
+			// 
+			// serverToolStripMenuItem
+			// 
+			this.serverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
-            this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-            this.serverToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.serverToolStripMenuItem.Text = "Server";
-            // 
-            // connectToolStripMenuItem
-            // 
-            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.connectToolStripMenuItem.Text = "Connect";
-            // 
-            // disconnectToolStripMenuItem
-            // 
-            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.disconnectToolStripMenuItem.Text = "Disconnect";
-            // 
-            // importToolStripMenuItem
-            // 
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.importToolStripMenuItem.Text = "Import...";
-            // 
-            // exportToolStripMenuItem
-            // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.exportToolStripMenuItem.Text = "Export...";
-            // 
-            // orderByToolStripMenuItem
-            // 
-            this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
+			this.serverToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.serverToolStripMenuItem.Text = "Server";
+			// 
+			// connectToolStripMenuItem
+			// 
+			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
+			this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+			this.connectToolStripMenuItem.Text = "Connect";
+			// 
+			// disconnectToolStripMenuItem
+			// 
+			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
+			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+			this.disconnectToolStripMenuItem.Text = "Disconnect";
+			// 
+			// importToolStripMenuItem
+			// 
+			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+			this.importToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.importToolStripMenuItem.Text = "Import...";
+			// 
+			// exportToolStripMenuItem
+			// 
+			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+			this.exportToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.exportToolStripMenuItem.Text = "Export...";
+			// 
+			// orderByToolStripMenuItem
+			// 
+			this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.orderByToolStripMenuItem1,
             this.filterByToolStripMenuItem});
+<<<<<<< HEAD
             this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
             this.orderByToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.orderByToolStripMenuItem.Text = "Tools";
@@ -227,23 +248,47 @@
             // 
             this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 >>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+			this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
+			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+			this.orderByToolStripMenuItem.Text = "Tools";
+			// 
+			// orderByToolStripMenuItem1
+			// 
+			this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
+			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+			this.orderByToolStripMenuItem1.Text = "Order By";
+			// 
+			// filterByToolStripMenuItem
+			// 
+			this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
+			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.filterByToolStripMenuItem.Text = "Filter By";
+			// 
+			// usersToolStripMenuItem
+			// 
+			this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
             this.logOutToolStripMenuItem});
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.usersToolStripMenuItem.Text = "Users";
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.logOutToolStripMenuItem.Text = "Log Out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+			this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+			this.usersToolStripMenuItem.Text = "Users";
+			// 
+			// logOutToolStripMenuItem
+			// 
+			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.logOutToolStripMenuItem.Text = "Log Out";
+			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+			// 
+			// helpToolStripMenuItem
+			// 
+			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
 			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.helpToolStripMenuItem.Text = "Help";
@@ -251,13 +296,19 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+<<<<<<< HEAD
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+=======
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.aboutToolStripMenuItem.Text = "About...";
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			// 
 			// staInventory
 			// 
 			this.staInventory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+<<<<<<< HEAD
 =======
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -273,85 +324,75 @@
             // 
             this.staInventory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 >>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
             this.tslLoggedUser,
             this.tslServerStatus});
-            this.staInventory.Location = new System.Drawing.Point(0, 479);
-            this.staInventory.Name = "staInventory";
-            this.staInventory.Size = new System.Drawing.Size(944, 22);
-            this.staInventory.TabIndex = 2;
-            this.staInventory.Text = "statusStrip1";
-            // 
-            // tslLoggedUser
-            // 
-            this.tslLoggedUser.Name = "tslLoggedUser";
-            this.tslLoggedUser.Size = new System.Drawing.Size(62, 17);
-            this.tslLoggedUser.Text = "UserName";
-            // 
-            // tslServerStatus
-            // 
-            this.tslServerStatus.Name = "tslServerStatus";
-            this.tslServerStatus.Size = new System.Drawing.Size(39, 17);
-            this.tslServerStatus.Text = "Status";
-            // 
-            // tooInventory
-            // 
-            this.tooInventory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.staInventory.Location = new System.Drawing.Point(0, 479);
+			this.staInventory.Name = "staInventory";
+			this.staInventory.Size = new System.Drawing.Size(944, 22);
+			this.staInventory.TabIndex = 2;
+			this.staInventory.Text = "statusStrip1";
+			// 
+			// tslLoggedUser
+			// 
+			this.tslLoggedUser.Name = "tslLoggedUser";
+			this.tslLoggedUser.Size = new System.Drawing.Size(62, 17);
+			this.tslLoggedUser.Text = "UserName";
+			// 
+			// tslServerStatus
+			// 
+			this.tslServerStatus.Name = "tslServerStatus";
+			this.tslServerStatus.Size = new System.Drawing.Size(39, 17);
+			this.tslServerStatus.Text = "Status";
+			// 
+			// tooInventory
+			// 
+			this.tooInventory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tscTxtSearch,
             this.tscBtnSearch});
-            this.tooInventory.Location = new System.Drawing.Point(0, 24);
-            this.tooInventory.Name = "tooInventory";
-            this.tooInventory.Size = new System.Drawing.Size(944, 25);
-            this.tooInventory.TabIndex = 3;
-            this.tooInventory.Text = "toolStrip1";
-            // 
-            // tscTxtSearch
-            // 
-            this.tscTxtSearch.Name = "tscTxtSearch";
-            this.tscTxtSearch.Size = new System.Drawing.Size(200, 25);
-            // 
-            // tscBtnSearch
-            // 
-            this.tscBtnSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tscBtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("tscBtnSearch.Image")));
-            this.tscBtnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tscBtnSearch.Name = "tscBtnSearch";
-            this.tscBtnSearch.Size = new System.Drawing.Size(46, 22);
-            this.tscBtnSearch.Text = "Search";
-            // 
-            // refresh
-            // 
-            this.refresh.Location = new System.Drawing.Point(857, 27);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(75, 23);
-            this.refresh.TabIndex = 4;
-            this.refresh.Text = "Refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
-            // 
-            // Inventory
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 501);
-            this.Controls.Add(this.refresh);
-            this.Controls.Add(this.tooInventory);
-            this.Controls.Add(this.staInventory);
-            this.Controls.Add(this.dgvInvDisplay);
-            this.Controls.Add(this.menInventory);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menInventory;
-            this.Name = "Inventory";
-            this.Text = "Warehouse Manager - Inventory";
-            this.Load += new System.EventHandler(this.Inventory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInvDisplay)).EndInit();
-            this.menInventory.ResumeLayout(false);
-            this.menInventory.PerformLayout();
-            this.staInventory.ResumeLayout(false);
-            this.staInventory.PerformLayout();
-            this.tooInventory.ResumeLayout(false);
-            this.tooInventory.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.tooInventory.Location = new System.Drawing.Point(0, 24);
+			this.tooInventory.Name = "tooInventory";
+			this.tooInventory.Size = new System.Drawing.Size(944, 25);
+			this.tooInventory.TabIndex = 3;
+			this.tooInventory.Text = "toolStrip1";
+			// 
+			// tscTxtSearch
+			// 
+			this.tscTxtSearch.Name = "tscTxtSearch";
+			this.tscTxtSearch.Size = new System.Drawing.Size(200, 25);
+			// 
+			// tscBtnSearch
+			// 
+			this.tscBtnSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.tscBtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("tscBtnSearch.Image")));
+			this.tscBtnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tscBtnSearch.Name = "tscBtnSearch";
+			this.tscBtnSearch.Size = new System.Drawing.Size(46, 22);
+			this.tscBtnSearch.Text = "Search";
+			// 
+			// Inventory
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(944, 501);
+			this.Controls.Add(this.tooInventory);
+			this.Controls.Add(this.staInventory);
+			this.Controls.Add(this.dgvInvDisplay);
+			this.Controls.Add(this.menInventory);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MainMenuStrip = this.menInventory;
+			this.Name = "Inventory";
+			this.Text = "Warehouse Manager - Inventory";
+			((System.ComponentModel.ISupportInitialize)(this.dgvInvDisplay)).EndInit();
+			this.menInventory.ResumeLayout(false);
+			this.menInventory.PerformLayout();
+			this.staInventory.ResumeLayout(false);
+			this.staInventory.PerformLayout();
+			this.tooInventory.ResumeLayout(false);
+			this.tooInventory.PerformLayout();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -373,6 +414,5 @@
 		private System.Windows.Forms.ToolStripButton tscBtnSearch;
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.Button refresh;
-    }
+	}
 }

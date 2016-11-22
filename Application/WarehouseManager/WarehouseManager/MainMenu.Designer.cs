@@ -29,9 +29,17 @@
 		private void InitializeComponent()
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+=======
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.button1 = new System.Windows.Forms.Button();
+			this.btnRec = new System.Windows.Forms.Button();
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			this.btnLogin = new System.Windows.Forms.Button();
 			this.labLoginTitle = new System.Windows.Forms.Label();
 			this.txtLoginPass = new System.Windows.Forms.TextBox();
@@ -61,6 +69,11 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
+<<<<<<< HEAD
+=======
+			this.splitContainer1.Panel2.Controls.Add(this.button1);
+			this.splitContainer1.Panel2.Controls.Add(this.btnRec);
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			this.splitContainer1.Panel2.Controls.Add(this.btnLogin);
 			this.splitContainer1.Panel2.Controls.Add(this.labLoginTitle);
 			this.splitContainer1.Panel2.Controls.Add(this.txtLoginPass);
@@ -72,6 +85,29 @@
 			this.splitContainer1.SplitterWidth = 2;
 			this.splitContainer1.TabIndex = 0;
 			// 
+<<<<<<< HEAD
+=======
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(72, 442);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(98, 31);
+			this.button1.TabIndex = 7;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// btnRec
+			// 
+			this.btnRec.Location = new System.Drawing.Point(458, 442);
+			this.btnRec.Name = "btnRec";
+			this.btnRec.Size = new System.Drawing.Size(113, 44);
+			this.btnRec.TabIndex = 6;
+			this.btnRec.Text = "TEST BUTTON FOR RECEIVING";
+			this.btnRec.UseVisualStyleBackColor = true;
+			this.btnRec.Click += new System.EventHandler(this.btnRec_Click);
+			// 
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			// btnLogin
 			// 
 			this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,6 +190,7 @@
 			this.splitContainer1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.erpLogin)).EndInit();
 			this.ResumeLayout(false);
+<<<<<<< HEAD
 =======
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
@@ -317,6 +354,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpLogin)).EndInit();
             this.ResumeLayout(false);
 >>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 
 		}
 
@@ -333,8 +372,11 @@
 <<<<<<< HEAD
 =======
         private System.Windows.Forms.Button button1;
+<<<<<<< HEAD
         private System.Windows.Forms.Button button2;
 >>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
     }
 }
 

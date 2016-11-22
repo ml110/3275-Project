@@ -28,6 +28,7 @@
 		private void InitializeComponent()
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WarehouseAppAbout));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -173,6 +174,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);
 =======
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WarehouseAppAbout));
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -311,12 +314,19 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+<<<<<<< HEAD
 			this.Text = "About Warehouse Manager";
+=======
+			this.Text = "WarehouseAppAbout";
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 			this.tableLayoutPanel.ResumeLayout(false);
 			this.tableLayoutPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
 			this.ResumeLayout(false);
+<<<<<<< HEAD
 >>>>>>> 4bb93ca43f62b1eef71dda362ec504df2ad2452a
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 
 		}
 

@@ -64,7 +64,7 @@ namespace WarehouseManager
         //TEMP CONNECT METHOD; REMOVE FROM FINAL VERSION
         private void DbConnect()
         {
-			const string server = "192.168.1.78";
+			const string server = "173.180.133.176";
 			//string server = "localhost";
             const string db = "hi-tec";
             const string id = "root";
@@ -313,6 +313,7 @@ namespace WarehouseManager
 				throw new ArgumentException("You still have unprocessed items!");
 			}
 		}
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 		//Menu Control, User Information & Status Display Components
@@ -372,4 +373,7 @@ namespace WarehouseManager
         }
     }
 >>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+	}
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 }
