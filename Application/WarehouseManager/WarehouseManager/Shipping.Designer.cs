@@ -44,7 +44,7 @@
 			this.txtProductSKU = new System.Windows.Forms.TextBox();
 			this.labShipmentID = new System.Windows.Forms.Label();
 			this.labLacationID = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.cboDestination = new System.Windows.Forms.ComboBox();
 			this.dgvPendingShipment = new System.Windows.Forms.DataGridView();
 			this.panShipDetail = new System.Windows.Forms.Panel();
 			this.txtSKU = new System.Windows.Forms.TextBox();
@@ -82,13 +82,13 @@
 			// tslLoggedUser
 			// 
 			this.tslLoggedUser.Name = "tslLoggedUser";
-			this.tslLoggedUser.Size = new System.Drawing.Size(56, 17);
+			this.tslLoggedUser.Size = new System.Drawing.Size(62, 17);
 			this.tslLoggedUser.Text = "UserName";
 			// 
 			// tslServerStatus
 			// 
 			this.tslServerStatus.Name = "tslServerStatus";
-			this.tslServerStatus.Size = new System.Drawing.Size(38, 17);
+			this.tslServerStatus.Size = new System.Drawing.Size(39, 17);
 			this.tslServerStatus.Text = "Status";
 			// 
 			// menShipping
@@ -108,7 +108,7 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
 			this.fileToolStripMenuItem.Text = "System";
 			// 
 			// serverToolStripMenuItem
@@ -117,48 +117,50 @@
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
 			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-			this.serverToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+			this.serverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.serverToolStripMenuItem.Text = "Server";
 			// 
 			// connectToolStripMenuItem
 			// 
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-			this.connectToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+			this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.connectToolStripMenuItem.Text = "Connect";
 			this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
+			this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click_1);
 			// 
 			// usersToolStripMenuItem
 			// 
 			this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
 			this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			this.usersToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+			this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
 			this.usersToolStripMenuItem.Text = "Users";
 			// 
 			// logOutToolStripMenuItem
 			// 
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
+			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click_1);
 			// 
 			// helpToolStripMenuItem
 			// 
 			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.helpToolStripMenuItem.Text = "Help";
 			// 
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
@@ -202,15 +204,15 @@
 			this.labLacationID.TabIndex = 14;
 			this.labLacationID.Text = "Destination";
 			// 
-			// comboBox1
+			// cboDestination
 			// 
-			this.comboBox1.Enabled = false;
-			this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(858, 28);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(176, 28);
-			this.comboBox1.TabIndex = 22;
+			this.cboDestination.Enabled = false;
+			this.cboDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cboDestination.FormattingEnabled = true;
+			this.cboDestination.Location = new System.Drawing.Point(858, 28);
+			this.cboDestination.Name = "cboDestination";
+			this.cboDestination.Size = new System.Drawing.Size(176, 28);
+			this.cboDestination.TabIndex = 22;
 			// 
 			// dgvPendingShipment
 			// 
@@ -400,7 +402,7 @@
 			this.Controls.Add(this.btnLoadShipment);
 			this.Controls.Add(this.panShipDetail);
 			this.Controls.Add(this.dgvPendingShipment);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.cboDestination);
 			this.Controls.Add(this.btnNewShipment);
 			this.Controls.Add(this.txtProductSKU);
 			this.Controls.Add(this.labShipmentID);
@@ -440,7 +442,7 @@
 		private System.Windows.Forms.TextBox txtProductSKU;
 		private System.Windows.Forms.Label labShipmentID;
 		private System.Windows.Forms.Label labLacationID;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox cboDestination;
 		private System.Windows.Forms.DataGridView dgvPendingShipment;
 		private System.Windows.Forms.Panel panShipDetail;
 		private System.Windows.Forms.Button btnRemoveProduct;

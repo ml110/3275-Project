@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -233,8 +234,8 @@ namespace WarehouseManager
             DataSet destinations = new DataSet();
             MySqlDataAdapter myAdapter = new MySqlDataAdapter(query, _connection);
             myAdapter.Fill(destinations, "LOC");
-            comboBox1.DataSource = destinations.Tables["LOC"];
-            comboBox1.DisplayMember = "LOC";
+            cboDestination.DataSource = destinations.Tables["LOC"];
+            cboDestination.DisplayMember = "LOC";
 
 			//NOTE: i actually don't like how janky having the ID infront of the name looks, but I need to ensure that 
 			//I'm using a unique identifier in the other parts of the program. If anyone can think of a better option,
@@ -244,17 +245,8 @@ namespace WarehouseManager
         private void Shipping_Load(object sender, EventArgs e)
         {
             DisplayDesination();
-			labDate.Text = DateTime.Now.Date.ToString().Substring(0, 10); //Note: either I'm really fucking tired and losing it, or the "1"s in the label look fucked
+			labDate.Text = DateTime.Now.Date.ToString(CultureInfo.InvariantCulture).Substring(0, 10); //Note: either I'm really fucking tired and losing it, or the "1"s in the label look fucked
         }
-
-		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			_connection?.Close();
-			Hide();
-			var login = new FormMain();
-			login.Closed += (s, args) => Close();
-			login.Show();
-		}
 
 		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -328,7 +320,7 @@ namespace WarehouseManager
 		private void btnNewShipment_Click(object sender, EventArgs e)
 		{
 			//ENABLE THE CONTROLS YO
-			comboBox1.Enabled = true;
+			cboDestination.Enabled = true;
 			txtSKU.Enabled = true;
 			txtProductQuantity.Enabled = true;
 			btnAddProduct.Enabled = true;
@@ -399,7 +391,7 @@ namespace WarehouseManager
 
 				if (confirm == DialogResult.Yes)
 				{
-					int locationID = Convert.ToInt32(comboBox1.Text.Split(']')[0].Trim('['));
+					int locationID = Convert.ToInt32(cboDestination.Text.Split(']')[0].Trim('['));
 					string shipDate = labDate.Text;
 					createShipment(newID, locationID, shipDate);
 
@@ -466,7 +458,7 @@ namespace WarehouseManager
 			}
 		}
 
-		private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
+		private void disconnectToolStripMenuItem_Click_1(object sender, EventArgs e)
 		{
 			_connection?.Close();
 
@@ -476,9 +468,17 @@ namespace WarehouseManager
 				staShipping.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
 
 				connectToolStripMenuItem.Enabled = true;
-				disconnectToolStripMenuItem.Enabled = false; 
+				disconnectToolStripMenuItem.Enabled = false;
 			}
-			
+		}
+
+		private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+		{
+			_connection?.Close();
+			Hide();
+			var login = new FormMain();
+			login.Closed += (s, args) => Close();
+			login.Show();
 		}
 	}
 }
