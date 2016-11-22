@@ -36,21 +36,26 @@ namespace WarehouseManager
 			_connection = conn;
 			_command = cmd;
 			_empName = empName;
-			
+			staReceiving.Items["tslLoggedUser"].Text = empName;
 
-			//code needs to go here to change the lower left to display:
-			// 1. The currently logged in user
-			// 2. Connection status
-			if (_connection != null)
+			if (_connection.State == ConnectionState.Open)
 			{
-				tslServerStatus.Text = @"Connected";
-				tslServerStatus.ForeColor = Color.Green;
+				staReceiving.Items["tslServerStatus"].Text = @"Connected";
+				staReceiving.Items["tslServerStatus"].ForeColor = Color.Green;
+
+				connectToolStripMenuItem.Enabled = false;
+				disconnectToolStripMenuItem.Enabled = true;
 			}
 			else
 			{
-				tslServerStatus.Text = @"Disconnected";
-				tslServerStatus.ForeColor = Color.Red;
+				staReceiving.Items["tslServerStatus"].Text = @"Disconnected";
+				staReceiving.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+				connectToolStripMenuItem.Enabled = true;
+				disconnectToolStripMenuItem.Enabled = false;
 			}
+
+
 		}
 
 		//TEST CONSTRUCTOR
@@ -64,12 +69,10 @@ namespace WarehouseManager
         //TEMP CONNECT METHOD; REMOVE FROM FINAL VERSION
         private void DbConnect()
         {
-			const string server = "173.180.133.176";
-			//string server = "localhost";
+			const string server = "173.180.133.176";			
             const string db = "hi-tec";
             const string id = "root";
-			const string pass = "superpassword";
-            //string pass = "superpassword";
+			const string pass = "superpassword";           
             const string port = "3306";
 
             const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
@@ -313,7 +316,7 @@ namespace WarehouseManager
 				throw new ArgumentException("You still have unprocessed items!");
 			}
 		}
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 		//Menu Control, User Information & Status Display Components
 
 		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

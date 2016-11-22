@@ -117,3 +117,4 @@ C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseMan
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache

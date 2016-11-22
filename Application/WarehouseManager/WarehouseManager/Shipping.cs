@@ -56,6 +56,7 @@ namespace WarehouseManager
             DbConnect();
             _command = new MySqlCommand();
         }
+
         //TEMP CONNECT METHOD; REMOVE FROM FINAL VERSION
         private void DbConnect()
         {
@@ -70,13 +71,6 @@ namespace WarehouseManager
 
             _connection.Open();
         }
-
-		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			var about = new WarehouseAppAbout();
-			about.Closed += (s, args) => Close();
-			about.Show();
-		}
 
         private void btnLoadShipment_Click(object sender, EventArgs e)
         {
@@ -237,27 +231,6 @@ namespace WarehouseManager
             DisplayDesination();
 			labDate.Text = DateTime.Now.Date.ToString(CultureInfo.InvariantCulture).Substring(0, 10); //Note: either I'm really fucking tired and losing it, or the "1"s in the label look fucked
         }
-
-		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			if (_connection.State != ConnectionState.Closed) return;
-			const string server = "173.180.133.176";
-			const string db = "hi-tec";
-			const string id = "root";
-			const string pass = "superpassword";
-			const string port = "3306";
-
-			const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
-			_connection = new MySqlConnection(connectionString);
-
-			_connection.Open();
-
-			staShipping.Items["tslServerStatus"].Text = @"Connected";
-			staShipping.Items["tslServerStatus"].ForeColor = Color.Green;
-
-			connectToolStripMenuItem.Enabled = false;
-			disconnectToolStripMenuItem.Enabled = true;
-		}
 
 		//THIS THING
 		//marks the selected row (shipment) as shipped
@@ -441,6 +414,47 @@ namespace WarehouseManager
 			}
 		}
 
+
+		
+		//Menu Control, User Information & Status Display Components
+
+		private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+		{
+			_connection?.Close();
+			Hide();
+			var login = new FormMain();
+			login.Closed += (s, args) => Close();
+			login.Show();
+		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var about = new WarehouseAppAbout();
+			about.Closed += (s, args) => Close();
+			about.Show();
+		}
+
+		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (_connection.State != ConnectionState.Closed) return;
+			const string server = "173.180.133.176";
+			const string db = "hi-tec";
+			const string id = "root";
+			const string pass = "superpassword";
+			const string port = "3306";
+
+			const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
+			_connection = new MySqlConnection(connectionString);
+
+			_connection.Open();
+
+			staShipping.Items["tslServerStatus"].Text = @"Connected";
+			staShipping.Items["tslServerStatus"].ForeColor = Color.Green;
+
+			connectToolStripMenuItem.Enabled = false;
+			disconnectToolStripMenuItem.Enabled = true;
+		}
+
 		private void disconnectToolStripMenuItem_Click_1(object sender, EventArgs e)
 		{
 			_connection?.Close();
@@ -450,15 +464,6 @@ namespace WarehouseManager
 
 			connectToolStripMenuItem.Enabled = true;
 			disconnectToolStripMenuItem.Enabled = false;
-		}
-
-		private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
-		{
-			_connection?.Close();
-			Hide();
-			var login = new FormMain();
-			login.Closed += (s, args) => Close();
-			login.Show();
 		}
 	}
 }
