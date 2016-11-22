@@ -94,14 +94,8 @@ H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManag
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
 <<<<<<< HEAD
 >>>>>>> 4bb93ca43f62b1eef71dda362ec504df2ad2452a
-<<<<<<< HEAD
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache
-=======
-<<<<<<< HEAD
-C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache
-=======
 >>>>>>> fb9a618dbf83af5d2a8817365e98b8bb3d89ab35
 >>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 >>>>>>> 0d74719a943f7721285f6377d6f228512ed80c22
-=======
 >>>>>>> parent of aae6266... test
