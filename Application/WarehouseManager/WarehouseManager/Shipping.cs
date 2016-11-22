@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -29,8 +30,9 @@ namespace WarehouseManager
             _connection = conn;
             _command = cmd;
 	        staShipping.Items["tslLoggedUser"].Text = empName;
-
-	        if (conn != null)
+			//_connection == null || _connection.State == ConnectionState.Closed
+	        
+	        if (conn.State == ConnectionState.Open)
 			{
 				staShipping.Items["tslServerStatus"].Text = @"Connected";
 				staShipping.Items["tslServerStatus"].ForeColor = Color.Green;
@@ -46,10 +48,6 @@ namespace WarehouseManager
 				connectToolStripMenuItem.Enabled = true;
 				disconnectToolStripMenuItem.Enabled = false;
 			}
-
-			//code needs to go here to change the lower left to display:
-			// 1. The currently logged in user
-			// 2. Connection status
 		}
 
         public Shipping()
@@ -447,7 +445,6 @@ namespace WarehouseManager
 		{
 			_connection?.Close();
 
-			if (_connection == null || _connection.State != ConnectionState.Closed) return;
 			staShipping.Items["tslServerStatus"].Text = @"Disconnected";
 			staShipping.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
 

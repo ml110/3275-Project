@@ -14,28 +14,32 @@ namespace WarehouseManager
 	public partial class Inventory : Form
 	{
 		private MySqlConnection _connection;
-		private readonly MySqlCommand _command;
-		private string _empName;
+		private MySqlCommand _command;
+		private int _pId;
 
-		public Inventory(MySqlConnection conn, MySqlCommand cmd, string empName)
+		public Inventory(MySqlConnection conn, MySqlCommand cmd, string empName, int permId)
 		{
 			InitializeComponent();
 			_connection = conn;
 			_command = cmd;
-			_empName = empName;
-			staInventory.Items["tslLoggedUser"].Text = _empName;
+			_pId = permId;
+			staInventory.Items["tslLoggedUser"].Text = empName;
 			
-			if (conn != null)
+			if (_connection.State == ConnectionState.Open)
 			{
 				staInventory.Items["tslServerStatus"].Text = @"Connected";
 				staInventory.Items["tslServerStatus"].ForeColor = Color.Green;
 
 				connectToolStripMenuItem.Enabled = false;
+				disconnectToolStripMenuItem.Enabled = true;
 			}
 			else
 			{
 				staInventory.Items["tslServerStatus"].Text = @"Disconnected";
 				staInventory.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+				connectToolStripMenuItem.Enabled = true;
+				disconnectToolStripMenuItem.Enabled = false;
 			}
 		}
 
@@ -43,6 +47,8 @@ namespace WarehouseManager
 		{
 			InitializeComponent();
 		}
+		
+		//Menu Control, User Information & Status Display Components
 
 		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -51,6 +57,45 @@ namespace WarehouseManager
 			var login = new FormMain();
 			login.Closed += (s, args) => Close();
 			login.Show();
+		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var about = new WarehouseAppAbout();
+			about.Closed += (s, args) => Close();
+			about.Show();
+		}
+
+		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (_connection.State != ConnectionState.Closed) return;
+			const string server = "173.180.133.176";
+			const string db = "hi-tec";
+			const string id = "root";
+			const string pass = "superpassword";
+			const string port = "3306";
+
+			const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
+			_connection = new MySqlConnection(connectionString);
+
+			_connection.Open();
+
+			staInventory.Items["tslServerStatus"].Text = @"Connected";
+			staInventory.Items["tslServerStatus"].ForeColor = Color.Green;
+
+			connectToolStripMenuItem.Enabled = false;
+			disconnectToolStripMenuItem.Enabled = true;
+		}
+
+		private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			_connection?.Close();
+
+			staInventory.Items["tslServerStatus"].Text = @"Disconnected";
+			staInventory.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+			connectToolStripMenuItem.Enabled = true;
+			disconnectToolStripMenuItem.Enabled = false;
 		}
 	}
 }

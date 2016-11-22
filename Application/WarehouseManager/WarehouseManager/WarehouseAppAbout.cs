@@ -20,6 +20,7 @@ namespace WarehouseManager
 				+ Environment.NewLine + @"1) A mySQL Database"
 				+ Environment.NewLine + @"2) A website for clients " 
 				+ Environment.NewLine + @"3) A program for employees ";
+			ControlBox = false;
 		}
 
 		public sealed override string Text

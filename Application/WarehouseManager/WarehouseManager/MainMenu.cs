@@ -16,6 +16,7 @@ using System.Windows.Forms;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 using MySql.Data.MySqlClient;
 
+
 namespace WarehouseManager
 {
 	public partial class FormMain : Form
@@ -37,10 +38,6 @@ namespace WarehouseManager
 
 			_connection.Open();
 		}
-		private void btnRec_Click(object sender, EventArgs e)
-		{
-			var recForm = new Receiving {Visible = true};
-		}
 
 		public FormMain()
 		{
@@ -48,11 +45,6 @@ namespace WarehouseManager
 			DbConnect();
 			_command = new MySqlCommand();
 		}
-
-		private void button1_Click(object sender, EventArgs e)
-        {
-            var shipping = new Shipping() {Visible= true }; 
-        }
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
@@ -86,9 +78,16 @@ namespace WarehouseManager
 						if (!int.TryParse(txtLoginPass.Text, out temp1))
 						{
 							var validPass = txtLoginPass.Text;
-							if (DbValidate(validId, validPass) == false)
+							var temp2 = DbValidate(validId, validPass);
+							var isValid = bool.Parse(temp2[0]);
+							if (!isValid)
 							{
 								erpLogin.SetError(btnLogin, @"Username or Password is incorrect");
+							}
+							else
+							{
+								erpLogin.SetError(btnLogin, @"");
+								GetPermission(int.Parse(temp2[1]),temp2[2]);
 							}
 
 						}
@@ -121,7 +120,7 @@ namespace WarehouseManager
 			INNER JOIN employee_creds ON employee.employee_id = employee_creds.employee_id 
 			WHERE employee.employee_id = 1 AND employee_creds.employee_password = 'Yellow'
 		*/
-		private bool DbValidate(int empId, string empPass)
+		private string[] DbValidate(int empId, string empPass)
 		{
 			var query1 = "SELECT employee.employee_id AS ID, employee_creds.employee_password AS PASSWORD, " +
 			             "concat_ws(',', employee.employee_fname, employee.employee_lname) AS FullName " +
@@ -132,7 +131,7 @@ namespace WarehouseManager
 			_command.Connection = _connection;
 			_command.CommandText = query1;
 			var reader = _command.ExecuteReader();
-			var retValue = false;
+			string[] retValue = { bool.FalseString, "", "" };
 			while (reader.Read())
 			{
 				var empName = reader["FullName"].ToString();
@@ -143,8 +142,7 @@ namespace WarehouseManager
 				{
 					empName = empName.Replace(',', ' ');
 					reader.Close();
-					GetPermission(dbEmpId, empName);
-					retValue = true;
+					retValue = new[] {bool.TrueString, dbEmpId.ToString(), empName};
 					break;
 				}
 			}
@@ -154,7 +152,7 @@ namespace WarehouseManager
 		
 		private void GetPermission(int empId, string empName)
 		{
-			var query2 = "SELECT PG.permission_group_name AS PNAME FROM employee_creds AS EC INNER JOIN permission_group AS PG ON EC.permission_id = PG.permission_id WHERE EC.employee_id = " + empId;
+			var query2 = "SELECT PG.permission_id AS PID, PG.permission_group_name AS PNAME FROM employee_creds AS EC INNER JOIN permission_group AS PG ON EC.permission_id = PG.permission_id WHERE EC.employee_id = " + empId;
 			
 			//test query, delete later
 			var query3 =
@@ -164,31 +162,32 @@ namespace WarehouseManager
 			_command.CommandText = query2;
 			var reader = _command.ExecuteReader();
 			var pname = "";
+			var pid = 0;
 			while (reader.Read())
 			{
-				//var pid = reader["PID"].ToString();
+				pid = int.Parse(reader["PID"].ToString());
 				pname = reader["PNAME"].ToString();
 			}
 			reader.Close();
-			InvokeForm(pname,empName);
+			InvokeForm(pname,empName,pid);
 			
 		}
 		/* Permission Group Name Reference
 		 * 1. Warehouse Employee
 		 * 2. Receiving
 		 * 3. Shipping
-		 * 4. Operations Supervisor
-		 * 5. Warehouse Manager
-		 * 6. Administrator
+		 * 4. Operations Supervisor - History
+		 * 5. Warehouse Manager		- History
+		 * 6. Administrator			- History
 		 */
-		private void InvokeForm(string formName, string empName)
+		private void InvokeForm(string formName, string empName, int pid)
 		{
 			Hide();
 
 			//Invoking Inventory Form's Constructor
 			if (formName == "Warehouse Employee")
 			{
-				var warehouse = new Inventory(_connection, _command, empName);
+				var warehouse = new Inventory(_connection, _command, empName, pid);
 				warehouse.Closed += (s, args) => Close();
 				warehouse.Show();
 			}
@@ -205,6 +204,13 @@ namespace WarehouseManager
 				var shipping = new Shipping(_connection, _command, empName);
 				shipping.Closed += (s, args) => Close();
 				shipping.Show();
+			}
+			//Invoking Operations Supervisor Form's Constructor
+			if (formName == "Operations Supervisor")
+			{
+				var history = new History(_connection, _command, empName, pid);
+				history.Closed += (s, args) => Close();
+				history.Show();
 			}
 		}
 

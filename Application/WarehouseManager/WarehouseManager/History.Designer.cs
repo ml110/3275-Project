@@ -37,9 +37,6 @@
 			this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.orderByToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.filterByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +75,6 @@
 			// 
 			this.menHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.orderByToolStripMenuItem,
             this.usersToolStripMenuItem,
             this.helpToolStripMenuItem});
 			this.menHistory.Location = new System.Drawing.Point(0, 0);
@@ -92,8 +88,8 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-			this.fileToolStripMenuItem.Text = "File";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+			this.fileToolStripMenuItem.Text = "System";
 			// 
 			// serverToolStripMenuItem
 			// 
@@ -109,33 +105,14 @@
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
 			this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.connectToolStripMenuItem.Text = "Connect";
+			this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
 			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
-			// 
-			// orderByToolStripMenuItem
-			// 
-			this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.orderByToolStripMenuItem1,
-            this.filterByToolStripMenuItem});
-			this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
-			this.orderByToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-			this.orderByToolStripMenuItem.Text = "Tools";
-			// 
-			// orderByToolStripMenuItem1
-			// 
-			this.orderByToolStripMenuItem1.Name = "orderByToolStripMenuItem1";
-			this.orderByToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-			this.orderByToolStripMenuItem1.Text = "Order By";
-			// 
-			// filterByToolStripMenuItem
-			// 
-			this.filterByToolStripMenuItem.Name = "filterByToolStripMenuItem";
-			this.filterByToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.filterByToolStripMenuItem.Text = "Filter By";
+			this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
 			// 
 			// usersToolStripMenuItem
 			// 
@@ -150,6 +127,7 @@
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
 			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
+			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -164,6 +142,7 @@
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// panControls
 			// 
@@ -212,9 +191,6 @@
 		private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem orderByToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem orderByToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem filterByToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;

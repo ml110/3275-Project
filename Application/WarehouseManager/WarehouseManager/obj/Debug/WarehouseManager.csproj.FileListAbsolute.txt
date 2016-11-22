@@ -82,7 +82,6 @@ H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManag
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Inventory.resources
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.FormMain.resources
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Properties.Resources.resources

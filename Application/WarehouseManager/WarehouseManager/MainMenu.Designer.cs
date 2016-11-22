@@ -31,8 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.button1 = new System.Windows.Forms.Button();
-			this.btnRec = new System.Windows.Forms.Button();
 			this.btnLogin = new System.Windows.Forms.Button();
 			this.labLoginTitle = new System.Windows.Forms.Label();
 			this.txtLoginPass = new System.Windows.Forms.TextBox();
@@ -62,8 +60,6 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
-			this.splitContainer1.Panel2.Controls.Add(this.button1);
-			this.splitContainer1.Panel2.Controls.Add(this.btnRec);
 			this.splitContainer1.Panel2.Controls.Add(this.btnLogin);
 			this.splitContainer1.Panel2.Controls.Add(this.labLoginTitle);
 			this.splitContainer1.Panel2.Controls.Add(this.txtLoginPass);
@@ -74,26 +70,6 @@
 			this.splitContainer1.SplitterDistance = 340;
 			this.splitContainer1.SplitterWidth = 2;
 			this.splitContainer1.TabIndex = 0;
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(72, 442);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(98, 31);
-			this.button1.TabIndex = 7;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// btnRec
-			// 
-			this.btnRec.Location = new System.Drawing.Point(458, 442);
-			this.btnRec.Name = "btnRec";
-			this.btnRec.Size = new System.Drawing.Size(113, 44);
-			this.btnRec.TabIndex = 6;
-			this.btnRec.Text = "TEST BUTTON FOR RECEIVING";
-			this.btnRec.UseVisualStyleBackColor = true;
-			this.btnRec.Click += new System.EventHandler(this.btnRec_Click);
 			// 
 			// btnLogin
 			// 
@@ -189,9 +165,7 @@
 		private System.Windows.Forms.Label labLoginPass;
 		private System.Windows.Forms.TextBox txtLoginID;
 		private System.Windows.Forms.Label labLoginID;
-        private System.Windows.Forms.Button btnRec;
 		private System.Windows.Forms.ErrorProvider erpLogin;
-        private System.Windows.Forms.Button button1;
     }
 }
 

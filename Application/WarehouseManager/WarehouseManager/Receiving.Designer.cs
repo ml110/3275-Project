@@ -95,8 +95,8 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-			this.fileToolStripMenuItem.Text = "File";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+			this.fileToolStripMenuItem.Text = "System";
 			// 
 			// serverToolStripMenuItem
 			// 
@@ -112,12 +112,14 @@
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
 			this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.connectToolStripMenuItem.Text = "Connect";
+			this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
 			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
+			this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
 			// 
 			// usersToolStripMenuItem
 			// 
@@ -132,6 +134,7 @@
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
 			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
+			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -146,6 +149,7 @@
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// labOrderID
 			// 
