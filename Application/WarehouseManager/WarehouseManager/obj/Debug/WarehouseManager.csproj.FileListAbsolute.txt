@@ -94,7 +94,6 @@ H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManag
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Inventory.resources
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.FormMain.resources
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Properties.Resources.resources
@@ -106,4 +105,8 @@ H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManag
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
 >>>>>>> 4bb93ca43f62b1eef71dda362ec504df2ad2452a
+<<<<<<< HEAD
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache
+=======
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
+>>>>>>> 0d74719a943f7721285f6377d6f228512ed80c22

@@ -14,38 +14,62 @@ namespace WarehouseManager
 	public partial class Inventory : Form
 	{
 		private MySqlConnection _connection;
+<<<<<<< HEAD
+		private MySqlCommand _command;
+		private int _pId;
+
+		public Inventory(MySqlConnection conn, MySqlCommand cmd, string empName, int permId)
+=======
 		private readonly MySqlCommand _command;
 		private string _empName;
-        private MySqlDataAdapter dgvFill;
 
+<<<<<<< HEAD
         public Inventory(MySqlConnection conn, MySqlCommand cmd, string empName)
+>>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+		public Inventory(MySqlConnection conn, MySqlCommand cmd, string empName)
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 		{
 			InitializeComponent();
 			_connection = conn;
 			_command = cmd;
-			_empName = empName;
-			staInventory.Items["tslLoggedUser"].Text = _empName;
+			_pId = permId;
+			staInventory.Items["tslLoggedUser"].Text = empName;
 			
-			if (conn != null)
+			if (_connection.State == ConnectionState.Open)
 			{
 				staInventory.Items["tslServerStatus"].Text = @"Connected";
 				staInventory.Items["tslServerStatus"].ForeColor = Color.Green;
 
 				connectToolStripMenuItem.Enabled = false;
+				disconnectToolStripMenuItem.Enabled = true;
 			}
 			else
 			{
 				staInventory.Items["tslServerStatus"].Text = @"Disconnected";
 				staInventory.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+				connectToolStripMenuItem.Enabled = true;
+				disconnectToolStripMenuItem.Enabled = false;
 			}
 		}
 
 		public Inventory()
 		{
 			InitializeComponent();
+<<<<<<< HEAD
+<<<<<<< HEAD
+		}
+		
+		//Menu Control, User Information & Status Display Components
+=======
 		}      
+>>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+		}
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			_connection?.Close();
 			Hide();
@@ -53,7 +77,50 @@ namespace WarehouseManager
 			login.Closed += (s, args) => Close();
 			login.Show();
 		}
+<<<<<<< HEAD
 
+<<<<<<< HEAD
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var about = new WarehouseAppAbout();
+			about.Closed += (s, args) => Close();
+			about.Show();
+		}
+
+		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (_connection.State != ConnectionState.Closed) return;
+			const string server = "173.180.133.176";
+			const string db = "hi-tec";
+			const string id = "root";
+			const string pass = "superpassword";
+			const string port = "3306";
+
+			const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
+			_connection = new MySqlConnection(connectionString);
+
+			_connection.Open();
+
+			staInventory.Items["tslServerStatus"].Text = @"Connected";
+			staInventory.Items["tslServerStatus"].ForeColor = Color.Green;
+
+			connectToolStripMenuItem.Enabled = false;
+			disconnectToolStripMenuItem.Enabled = true;
+		}
+
+		private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			_connection?.Close();
+
+			staInventory.Items["tslServerStatus"].Text = @"Disconnected";
+			staInventory.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+			connectToolStripMenuItem.Enabled = true;
+			disconnectToolStripMenuItem.Enabled = false;
+		}
+	}
+}
+=======
 //I HAVE TO FORCE CONNECTION UP AND DOWN FOR RELOAD BUTTON... I THINK????
         private bool OpenConnection()
         {
@@ -121,3 +188,8 @@ namespace WarehouseManager
         }
     }
     }
+>>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
+=======
+	}
+}
+>>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
