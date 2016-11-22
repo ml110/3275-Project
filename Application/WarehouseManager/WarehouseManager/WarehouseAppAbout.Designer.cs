@@ -165,7 +165,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "WarehouseAppAbout";
+			this.Text = "About Warehouse Manager";
 			this.tableLayoutPanel.ResumeLayout(false);
 			this.tableLayoutPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

@@ -1,17 +1,4 @@
 D:\Users\Matt\Documents\School Work\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.formMain.resources
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Properties.Resources.resources
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Inventory.resources
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Receiving.resources
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Shipping.resources
 C:\Users\300214222\Desktop\Temp\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
 C:\Users\Matt\Documents\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
 C:\Users\Matt\Documents\College Course Work\Github\CSIS 3275 Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
@@ -64,8 +51,6 @@ C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseMan
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
-H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
 C:\Users\Manveer\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
@@ -93,3 +78,18 @@ C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManag
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csprojResolveAssemblyReference.cache
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Inventory.resources
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.FormMain.resources
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Properties.Resources.resources
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Receiving.resources
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.Shipping.resources
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
+H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
