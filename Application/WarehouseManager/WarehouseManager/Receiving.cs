@@ -313,9 +313,7 @@ namespace WarehouseManager
 				throw new ArgumentException("You still have unprocessed items!");
 			}
 		}
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 		//Menu Control, User Information & Status Display Components
 
 		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -366,14 +364,4 @@ namespace WarehouseManager
 			disconnectToolStripMenuItem.Enabled = false;
 		}
 	}
-=======
-        private void dgvLookup_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-    }
->>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
-=======
-	}
->>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
 }
