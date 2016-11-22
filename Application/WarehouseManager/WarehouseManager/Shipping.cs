@@ -169,12 +169,19 @@ namespace WarehouseManager
 				//CHECK FOR DUPLICATES FIRST
 				if (listSkews.Contains(pID))
 				{
-					throw new ArgumentException("The specified product has already been added!");
+					throw new ArgumentException("The specified product has already been added!");				
 				}
 				else
 				{
-					listSkews.Add(pID);
-					listQuan.Add(amt);
+					if (amt < 1)
+					{
+						throw new ArgumentException("Please enter an amount greater than 0."); //amount check
+					}
+					else
+					{
+						listSkews.Add(pID);
+						listQuan.Add(amt);
+					}
 				}
 
 				ListViewItem lineProduct = new ListViewItem(pID.ToString());
