@@ -64,7 +64,7 @@ namespace WarehouseManager
         //TEMP CONNECT METHOD; REMOVE FROM FINAL VERSION
         private void DbConnect()
         {
-			const string server = "173.180.133.176";
+			const string server = "192.168.1.78";
 			//string server = "localhost";
             const string db = "hi-tec";
             const string id = "root";
@@ -314,6 +314,7 @@ namespace WarehouseManager
 			}
 		}
 
+<<<<<<< HEAD
 		//Menu Control, User Information & Status Display Components
 
 		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -364,4 +365,11 @@ namespace WarehouseManager
 			disconnectToolStripMenuItem.Enabled = false;
 		}
 	}
+=======
+        private void dgvLookup_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
+>>>>>>> f48655aa87fbb95755fd404b0bd92ef12f45d8a9
 }

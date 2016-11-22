@@ -59,7 +59,7 @@ namespace WarehouseManager
         //TEMP CONNECT METHOD; REMOVE FROM FINAL VERSION
         private void DbConnect()
         {
-            const string server = "173.180.133.176";
+            const string server = "192.168.1.78";
             const string db = "hi-tec";
             const string id = "root";
             const string pass = "superpassword";
@@ -240,12 +240,22 @@ namespace WarehouseManager
 
 		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+<<<<<<< HEAD
+			if (_connection.State == ConnectionState.Closed)
+			{
+				const string server = "192.168.1.78";
+				const string db = "hi-tec";
+				const string id = "root";
+				const string pass = "superpassword";
+				const string port = "3306";
+=======
 			if (_connection.State != ConnectionState.Closed) return;
 			const string server = "173.180.133.176";
 			const string db = "hi-tec";
 			const string id = "root";
 			const string pass = "superpassword";
 			const string port = "3306";
+>>>>>>> 4bb93ca43f62b1eef71dda362ec504df2ad2452a
 
 			const string connectionString = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + db + ";UID=" + id + ";PASSWORD=" + pass + ";";
 			_connection = new MySqlConnection(connectionString);

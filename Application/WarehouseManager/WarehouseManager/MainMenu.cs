@@ -27,7 +27,7 @@ namespace WarehouseManager
 
 		private void DbConnect()
 		{
-			const string server = "173.180.133.176";
+			const string server = "192.168.1.78";
 			const string db = "hi-tec";
 			const string id = "root";
 			const string pass = "superpassword";
@@ -221,5 +221,10 @@ namespace WarehouseManager
 				ButtonAction();
 			}
 		}
-	}
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var inventory = new Inventory() { Visible = true };
+        }
+    }
 }
