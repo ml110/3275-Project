@@ -26,6 +26,24 @@ namespace WarehouseManager
 			_command = cmd;
 			_empName = empName;
 			_pId = permId;
+			staHistory.Items["tslLoggedUser"].Text = empName;
+
+			if (_connection.State == ConnectionState.Open)
+			{
+				staHistory.Items["tslServerStatus"].Text = @"Connected";
+				staHistory.Items["tslServerStatus"].ForeColor = Color.Green;
+
+				connectToolStripMenuItem.Enabled = false;
+				disconnectToolStripMenuItem.Enabled = true;
+			}
+			else
+			{
+				staHistory.Items["tslServerStatus"].Text = @"Disconnected";
+				staHistory.Items["tslServerStatus"].ForeColor = Color.OrangeRed;
+
+				connectToolStripMenuItem.Enabled = true;
+				disconnectToolStripMenuItem.Enabled = false;
+			}
 		}
 
 		public History()
@@ -33,6 +51,7 @@ namespace WarehouseManager
 			InitializeComponent();
 		}
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 		//Menu Control, User Information & Status Display Components
 
 		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
