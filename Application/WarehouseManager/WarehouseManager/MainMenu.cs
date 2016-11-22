@@ -27,7 +27,7 @@ namespace WarehouseManager
 
 		private void DbConnect()
 		{
-			const string server = "173.180.133.176";
+			const string server = "192.168.1.78";
 			const string db = "hi-tec";
 			const string id = "root";
 			const string pass = "superpassword";
@@ -155,8 +155,7 @@ namespace WarehouseManager
 			var query2 = "SELECT PG.permission_id AS PID, PG.permission_group_name AS PNAME FROM employee_creds AS EC INNER JOIN permission_group AS PG ON EC.permission_id = PG.permission_id WHERE EC.employee_id = " + empId;
 			
 			//test query, delete later
-			var query3 =
-				"SELECT EC.employee_id AS EID, PG.permission_id AS PID, PG.permission_group_name AS PNAME FROM employee_creds AS EC INNER JOIN permission_group AS PG ON EC.permission_id = PG.permission_id WHERE EC.employee_id = 7";
+			var query3 ="SELECT EC.employee_id AS EID, PG.permission_id AS PID, PG.permission_group_name AS PNAME FROM employee_creds AS EC INNER JOIN permission_group AS PG ON EC.permission_id = PG.permission_id WHERE EC.employee_id = 7";
 			
 			_command.Connection = _connection;
 			_command.CommandText = query2;
