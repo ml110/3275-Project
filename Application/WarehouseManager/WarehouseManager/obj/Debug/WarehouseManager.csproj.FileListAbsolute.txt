@@ -79,7 +79,6 @@ C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManag
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 C:\Users\Manjot\Desktop\3275 Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
 <<<<<<< HEAD
-<<<<<<< HEAD
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\bin\Debug\MySql.Data.dll
@@ -91,7 +90,6 @@ C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseMan
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.History.resources
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.WarehouseAppAbout.resources
 C:\Users\Curtis\Documents\3275-Project\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.csproj.GenerateResource.Cache
-=======
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe.config
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.exe
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\bin\Debug\WarehouseManager.pdb
@@ -107,5 +105,4 @@ H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManag
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.exe
 H:\Documents\CSIS_3275\Term Project\Source\SourceTree\Application\WarehouseManager\WarehouseManager\obj\Debug\WarehouseManager.pdb
 >>>>>>> 4bb93ca43f62b1eef71dda362ec504df2ad2452a
-=======
 >>>>>>> parent of 93d8aaa... janky ass code from a janky ass coder. inventory half works
