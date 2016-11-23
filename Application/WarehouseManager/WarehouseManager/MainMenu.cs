@@ -27,8 +27,8 @@ namespace WarehouseManager
 
 		private void DbConnect()
 		{
-			const string server = "192.168.1.78";
-			//const string server = "173.180.133.176";
+			//const string server = "192.168.1.78";
+			const string server = "173.180.133.176";
 			const string db = "hi-tec";
 			const string id = "root";
 			const string pass = "superpassword";
@@ -194,14 +194,14 @@ namespace WarehouseManager
 			//Invoking Receiving Form's Constructor
 			if (formName == "Receiving")
 			{
-				var receiving = new Receiving(_connection, _command, empName);
+				var receiving = new Receiving(_connection, _command, empName, pid);
 				receiving.Closed += (s, args) => Close();
 				receiving.Show();
 			}
 			//Invoking Shipping Form's Constructor
 			if (formName == "Shipping")
 			{
-				var shipping = new Shipping(_connection, _command, empName);
+				var shipping = new Shipping(_connection, _command, empName, pid);
 				shipping.Closed += (s, args) => Close();
 				shipping.Show();
 			}

@@ -62,6 +62,7 @@
 			this.labShipID_Display = new System.Windows.Forms.Label();
 			this.btnLoadShipment = new System.Windows.Forms.Button();
 			this.btnMarkShipped = new System.Windows.Forms.Button();
+			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.staShipping.SuspendLayout();
 			this.menShipping.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPendingShipment)).BeginInit();
@@ -106,7 +107,8 @@
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.serverToolStripMenuItem});
+            this.serverToolStripMenuItem,
+            this.quitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
 			this.fileToolStripMenuItem.Text = "System";
@@ -123,14 +125,14 @@
 			// connectToolStripMenuItem
 			// 
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-			this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.connectToolStripMenuItem.Text = "Connect";
 			this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
 			this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click_1);
 			// 
@@ -145,7 +147,7 @@
 			// logOutToolStripMenuItem
 			// 
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
 			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click_1);
 			// 
@@ -160,7 +162,7 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
@@ -393,6 +395,13 @@
 			this.btnMarkShipped.UseVisualStyleBackColor = true;
 			this.btnMarkShipped.Click += new System.EventHandler(this.btnMarkShipped_Click);
 			// 
+			// quitToolStripMenuItem
+			// 
+			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+			this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.quitToolStripMenuItem.Text = "Quit";
+			this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+			// 
 			// Shipping
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,5 +469,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.TextBox txtSKU;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
-    }
+		private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+	}
 }

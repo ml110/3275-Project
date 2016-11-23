@@ -22,6 +22,7 @@ namespace WarehouseManager
         private MySqlConnection _connection;
 		private readonly MySqlCommand _command;
 		private readonly string _empName;
+		private int _pId;
 
 		private int _lookupId; //OrderID
 
@@ -30,14 +31,25 @@ namespace WarehouseManager
 		private readonly List<int> _listAmounts = new List<int>();
         
 		//RELEASE CONSTRUCTOR
-		public Receiving(MySqlConnection conn, MySqlCommand cmd, string empName)
+		public Receiving(MySqlConnection conn, MySqlCommand cmd, string empName, int permId)
 		{
 			InitializeComponent();
 			_connection = conn;
 			_command = cmd;
 			_empName = empName;
+			_pId = permId;
 			staReceiving.Items["tslLoggedUser"].Text = empName;
-
+			if (_pId > 3)
+			{
+				logOutToolStripMenuItem.Enabled = false;
+				quitToolStripMenuItem.Visible = true;
+				ControlBox = false;
+			}
+			else
+			{
+				logOutToolStripMenuItem.Enabled = true;
+				quitToolStripMenuItem.Visible = false;
+			}
 			if (_connection.State == ConnectionState.Open)
 			{
 				staReceiving.Items["tslServerStatus"].Text = @"Connected";
@@ -365,6 +377,11 @@ namespace WarehouseManager
 
 			connectToolStripMenuItem.Enabled = true;
 			disconnectToolStripMenuItem.Enabled = false;
+		}
+
+		private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Hide();
 		}
 	}
 }

@@ -19,19 +19,34 @@ namespace WarehouseManager
         private MySqlConnection _connection;
         private readonly MySqlCommand _command;
 		private int _shippingId;
+		private string _empName;
+		private int _pId;
 
 		readonly List<int> _listSkews = new List<int>(); //stores the SKUs
 		readonly List<int> _listQuan = new List<int>(); //stores the amounts
 		private int _newId; //for new shipments
 
-        public Shipping(MySqlConnection conn, MySqlCommand cmd, string empName)
+        public Shipping(MySqlConnection conn, MySqlCommand cmd, string empName, int permId)
         {
 	        InitializeComponent();
             _connection = conn;
             _command = cmd;
+	        _empName = empName;
+	        _pId = permId;
 	        staShipping.Items["tslLoggedUser"].Text = empName;
 			//_connection == null || _connection.State == ConnectionState.Closed
-	        
+
+	        if (_pId > 3)
+	        {
+		        logOutToolStripMenuItem.Enabled = false;
+		        quitToolStripMenuItem.Visible = true;
+		        ControlBox = false;
+	        }
+	        else
+	        {
+		        logOutToolStripMenuItem.Enabled = true;
+		        quitToolStripMenuItem.Visible = false;
+	        }
 	        if (conn.State == ConnectionState.Open)
 			{
 				staShipping.Items["tslServerStatus"].Text = @"Connected";
@@ -464,6 +479,11 @@ namespace WarehouseManager
 
 			connectToolStripMenuItem.Enabled = true;
 			disconnectToolStripMenuItem.Enabled = false;
+		}
+
+		private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Hide();
 		}
 	}
 }

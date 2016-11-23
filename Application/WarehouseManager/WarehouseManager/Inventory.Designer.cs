@@ -46,6 +46,7 @@
 			this.tscTxtSearch = new System.Windows.Forms.ToolStripTextBox();
 			this.tscBtnSearch = new System.Windows.Forms.ToolStripButton();
 			this.refresh = new System.Windows.Forms.Button();
+			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.dgvInvDisplay)).BeginInit();
 			this.menInventory.SuspendLayout();
 			this.staInventory.SuspendLayout();
@@ -76,7 +77,8 @@
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.serverToolStripMenuItem});
+            this.serverToolStripMenuItem,
+            this.quitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
 			this.fileToolStripMenuItem.Text = "System";
@@ -87,7 +89,7 @@
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
 			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-			this.serverToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+			this.serverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.serverToolStripMenuItem.Text = "Server";
 			// 
 			// connectToolStripMenuItem
@@ -194,6 +196,13 @@
 			this.refresh.UseVisualStyleBackColor = true;
 			this.refresh.Click += new System.EventHandler(this.refresh_Click_1);
 			// 
+			// quitToolStripMenuItem
+			// 
+			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+			this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.quitToolStripMenuItem.Text = "Quit";
+			this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+			// 
 			// Inventory
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,5 +249,6 @@
 		private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.Button refresh;
-    }
+		private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+	}
 }

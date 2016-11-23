@@ -16,6 +16,7 @@ namespace WarehouseManager
 	{
 		private MySqlConnection _connection;
 		private MySqlCommand _command;
+		private string _empName;
 		private int _pId;
         private MySqlDataAdapter _dgvFill;
 
@@ -24,9 +25,21 @@ namespace WarehouseManager
 			InitializeComponent();
 			_connection = conn;
 			_command = cmd;
+			_empName = empName;
 			_pId = permId;
 			staInventory.Items["tslLoggedUser"].Text = empName;
-			
+
+			if (_pId > 3)
+			{
+				logOutToolStripMenuItem.Enabled = false;
+				quitToolStripMenuItem.Visible = true;
+				ControlBox = false;
+			}
+			else
+			{
+				logOutToolStripMenuItem.Enabled = true;
+				quitToolStripMenuItem.Visible = false;
+			}
 			if (_connection.State == ConnectionState.Open)
 			{
 				staInventory.Items["tslServerStatus"].Text = @"Connected";
@@ -78,8 +91,8 @@ namespace WarehouseManager
 
         private void Inventory_Load()
         {
-            const string server = "192.168.1.78";
-			//const string server = "173.180.133.176";
+            //const string server = "192.168.1.78";
+			const string server = "173.180.133.176";
 			const string db = "hi-tec";
             const string id = "root";
             const string pass = "superpassword";
@@ -89,26 +102,26 @@ namespace WarehouseManager
             _connection = new MySqlConnection(connectionString);
 
 
-            if (OpenConnection())
-            {
-                if (_pId <= 3)
-                {
-                    _dgvFill = new MySqlDataAdapter("SELECT * from product", _connection);
-                    DataSet DS = new DataSet();
-                    _dgvFill.Fill(DS);
-                    dgvInvDisplay.DataSource = DS.Tables[0];
-                }
-                else
-                {
-                    _dgvFill = new MySqlDataAdapter("SELECT P.product_id AS SKU, P.product_name AS PRODUCTNAME, P.product_stock AS STOCK, SH.shelf_number AS SHELFNUM, AI.aisle_number AS AISLENUM, SE.section_name AS SECTIONNAME FROM product AS P INNER JOIN shelf AS SH ON P.shelf_id = SH.shelf_id INNER JOIN aisle AS AI ON SH.aisle_id = AI.aisle_id INNER JOIN section AS SE ON AI.section_id = SE.section_id", _connection);
-                    DataSet DS = new DataSet();
-                    _dgvFill.Fill(DS);
-                    dgvInvDisplay.DataSource = DS.Tables[0];
-                }
+			if (OpenConnection())
+			{
+				if (_pId <= 3)
+				{
+					_dgvFill = new MySqlDataAdapter("SELECT P.product_id AS SKU, P.product_name AS PRODUCTNAME, P.product_stock AS STOCK, SH.shelf_number AS SHELFNUM, AI.aisle_number AS AISLENUM, SE.section_name AS SECTIONNAME FROM product AS P INNER JOIN shelf AS SH ON P.shelf_id = SH.shelf_id INNER JOIN aisle AS AI ON SH.aisle_id = AI.aisle_id INNER JOIN section AS SE ON AI.section_id = SE.section_id", _connection);
+					DataSet DS = new DataSet();
+					_dgvFill.Fill(DS);
+					dgvInvDisplay.DataSource = DS.Tables[0];
+				}
+				else
+				{
+					_dgvFill = new MySqlDataAdapter("SELECT P.product_id AS SKU, P.product_name AS PRODUCTNAME, P.product_stock AS STOCK, M.manufacturer_name AS MANUFACTURER, P.product_price as PRICE, SH.shelf_number AS SHELFNUM, AI.aisle_number AS AISLENUM, SE.section_name AS SECTIONNAME FROM product AS P INNER JOIN shelf AS SH ON P.shelf_id = SH.shelf_id INNER JOIN aisle AS AI ON SH.aisle_id = AI.aisle_id INNER JOIN section AS SE ON AI.section_id = SE.section_id INNER JOIN manufacturer AS M ON P.manufacturer_id = M.manufacturer_id ORDER BY SKU", _connection);
+					DataSet DS = new DataSet();
+					_dgvFill.Fill(DS);
+					dgvInvDisplay.DataSource = DS.Tables[0];
+				}
 
-                CloseConnection();
-            }
-        }
+				CloseConnection();
+			}
+		}
 
         private void refresh_Click_1(object sender, EventArgs e)
         {
@@ -179,6 +192,11 @@ namespace WarehouseManager
 		private void dgvInvDisplay_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
 			dgvInvDisplay.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+		}
+
+		private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Hide();
 		}
 	}
 }

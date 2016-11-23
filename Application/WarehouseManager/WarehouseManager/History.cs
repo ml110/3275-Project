@@ -18,6 +18,7 @@ namespace WarehouseManager
 		private readonly MySqlCommand _command;
 		private string _empName;
 		private int _pId;
+		private MySqlDataAdapter _dgvData;
 
 		public History(MySqlConnection conn, MySqlCommand cmd, string empName, int permId)
 		{
@@ -51,12 +52,20 @@ namespace WarehouseManager
 			InitializeComponent();
 		}
 
-		private void dbCall()
+		private void History_Load(object sender, EventArgs e)
 		{
-			
+			if (_connection.State == ConnectionState.Open)
+			{
+				_dgvData = new MySqlDataAdapter("SELECT S.shipment_id AS ID, L.location_name AS Destination, L.location_rep AS Representative, P.phone_number AS Phone, S.shipment_date AS \"Date\", S.hasShipped AS \"Stat.\" FROM shipment AS S INNER JOIN location AS L ON S.location_id = L.location_id INNER JOIN phone AS P ON L.phone_id = P.phone_id ORDER BY S.shipment_date", _connection);
+				var ds = new DataSet();
+				_dgvData.Fill(ds);
+				dgvShipments.DataSource = ds.Tables[0];
+
+				_dgvData = new MySqlDataAdapter();
+			}
 		}
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////
 		//Menu Control, User Information & Status Display Components
 
 		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,21 +126,23 @@ namespace WarehouseManager
 
 		private void receivingToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var receiving = new Receiving(_connection, _command, _empName);
+			var receiving = new Receiving(_connection, _command, _empName,_pId);
 			receiving.Closed += (s, args) => Close();
 			receiving.Show();
 		}
 
 		private void shippingToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var shipping = new Shipping(_connection, _command, _empName);
+			var shipping = new Shipping(_connection, _command, _empName,_pId);
 			shipping.Closed += (s, args) => Close();
 			shipping.Show();
 		}
 
-        private void History_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+		private void dgvShipments_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvShipments.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+			dgvShipments.ReadOnly = true;
+			dgvShipments.RowHeadersVisible = false;
+		}
+	}
 }
