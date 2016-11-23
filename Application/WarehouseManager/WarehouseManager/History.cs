@@ -78,8 +78,9 @@ namespace WarehouseManager
 		private void connectToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (_connection.State != ConnectionState.Closed) return;
-			const string server = "173.180.133.176";
-			const string db = "hi-tec";
+			//const string server = "173.180.133.176";
+            const string server = "192.168.1.78";
+            const string db = "hi-tec";
 			const string id = "root";
 			const string pass = "superpassword";
 			const string port = "3306";
@@ -127,5 +128,10 @@ namespace WarehouseManager
 			shipping.Closed += (s, args) => Close();
 			shipping.Show();
 		}
-	}
+
+        private void History_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

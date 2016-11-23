@@ -78,8 +78,8 @@ namespace WarehouseManager
 
         private void Inventory_Load()
         {
-            //const string server = "192.168.1.78";
-			const string server = "173.180.133.176";
+            const string server = "192.168.1.78";
+			//const string server = "173.180.133.176";
 			const string db = "hi-tec";
             const string id = "root";
             const string pass = "superpassword";
@@ -91,10 +91,20 @@ namespace WarehouseManager
 
             if (OpenConnection())
             {
-                _dgvFill = new MySqlDataAdapter("SELECT P.product_id AS SKU, P.product_name AS PRODUCTNAME, P.product_stock AS STOCK, SH.shelf_number AS SHELFNUM, AI.aisle_number AS AISLENUM, SE.section_name AS SECTIONNAME FROM product AS P INNER JOIN shelf AS SH ON P.shelf_id = SH.shelf_id INNER JOIN aisle AS AI ON SH.aisle_id = AI.aisle_id INNER JOIN section AS SE ON AI.section_id = SE.section_id", _connection);
-                DataSet DS = new DataSet();
-                _dgvFill.Fill(DS);
-                dgvInvDisplay.DataSource = DS.Tables[0];
+                if (_pId <= 3)
+                {
+                    _dgvFill = new MySqlDataAdapter("SELECT * from product", _connection);
+                    DataSet DS = new DataSet();
+                    _dgvFill.Fill(DS);
+                    dgvInvDisplay.DataSource = DS.Tables[0];
+                }
+                else
+                {
+                    _dgvFill = new MySqlDataAdapter("SELECT P.product_id AS SKU, P.product_name AS PRODUCTNAME, P.product_stock AS STOCK, SH.shelf_number AS SHELFNUM, AI.aisle_number AS AISLENUM, SE.section_name AS SECTIONNAME FROM product AS P INNER JOIN shelf AS SH ON P.shelf_id = SH.shelf_id INNER JOIN aisle AS AI ON SH.aisle_id = AI.aisle_id INNER JOIN section AS SE ON AI.section_id = SE.section_id", _connection);
+                    DataSet DS = new DataSet();
+                    _dgvFill.Fill(DS);
+                    dgvInvDisplay.DataSource = DS.Tables[0];
+                }
 
                 CloseConnection();
             }
