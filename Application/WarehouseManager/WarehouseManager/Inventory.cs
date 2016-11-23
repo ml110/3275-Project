@@ -113,6 +113,7 @@ namespace WarehouseManager
         private void refresh_Click_1(object sender, EventArgs e)
         {
             Inventory_Load();
+	        tscTxtSearch.Text = "";
         }
 
         private void Inventory_Load_1(object sender, EventArgs e)
