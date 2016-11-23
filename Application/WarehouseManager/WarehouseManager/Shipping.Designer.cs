@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shipping));
 			this.staShipping = new System.Windows.Forms.StatusStrip();
 			this.tslLoggedUser = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tslServerStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -36,6 +37,7 @@
 			this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +64,6 @@
 			this.labShipID_Display = new System.Windows.Forms.Label();
 			this.btnLoadShipment = new System.Windows.Forms.Button();
 			this.btnMarkShipped = new System.Windows.Forms.Button();
-			this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.staShipping.SuspendLayout();
 			this.menShipping.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPendingShipment)).BeginInit();
@@ -119,7 +120,7 @@
             this.connectToolStripMenuItem,
             this.disconnectToolStripMenuItem});
 			this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-			this.serverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.serverToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
 			this.serverToolStripMenuItem.Text = "Server";
 			// 
 			// connectToolStripMenuItem
@@ -135,6 +136,13 @@
 			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
 			this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click_1);
+			// 
+			// quitToolStripMenuItem
+			// 
+			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+			this.quitToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+			this.quitToolStripMenuItem.Text = "Quit";
+			this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
 			// 
 			// usersToolStripMenuItem
 			// 
@@ -395,13 +403,6 @@
 			this.btnMarkShipped.UseVisualStyleBackColor = true;
 			this.btnMarkShipped.Click += new System.EventHandler(this.btnMarkShipped_Click);
 			// 
-			// quitToolStripMenuItem
-			// 
-			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-			this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.quitToolStripMenuItem.Text = "Quit";
-			this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
-			// 
 			// Shipping
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +419,7 @@
 			this.Controls.Add(this.labLacationID);
 			this.Controls.Add(this.menShipping);
 			this.Controls.Add(this.staShipping);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Shipping";
 			this.Text = "Warehouse Manager - Shipping";
 			this.Load += new System.EventHandler(this.Shipping_Load);
