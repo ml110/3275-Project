@@ -48,6 +48,9 @@
 			this.receivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.shippingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dgvOrders = new System.Windows.Forms.DataGridView();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.labShipHist = new System.Windows.Forms.Label();
+			this.labOrderHist = new System.Windows.Forms.Label();
 			this.staHistory.SuspendLayout();
 			this.menHistory.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvShipments)).BeginInit();
@@ -60,9 +63,9 @@
 			this.staHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslLoggedUser,
             this.tslServerStatus});
-			this.staHistory.Location = new System.Drawing.Point(0, 479);
+			this.staHistory.Location = new System.Drawing.Point(0, 509);
 			this.staHistory.Name = "staHistory";
-			this.staHistory.Size = new System.Drawing.Size(944, 22);
+			this.staHistory.Size = new System.Drawing.Size(1024, 22);
 			this.staHistory.TabIndex = 9;
 			this.staHistory.Text = "statusStrip1";
 			// 
@@ -86,7 +89,7 @@
             this.helpToolStripMenuItem});
 			this.menHistory.Location = new System.Drawing.Point(0, 0);
 			this.menHistory.Name = "menHistory";
-			this.menHistory.Size = new System.Drawing.Size(944, 24);
+			this.menHistory.Size = new System.Drawing.Size(1024, 24);
 			this.menHistory.TabIndex = 10;
 			this.menHistory.Text = "menuStrip1";
 			// 
@@ -156,19 +159,21 @@
 			this.dgvShipments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvShipments.Location = new System.Drawing.Point(6, 52);
 			this.dgvShipments.Name = "dgvShipments";
-			this.dgvShipments.Size = new System.Drawing.Size(458, 424);
+			this.dgvShipments.Size = new System.Drawing.Size(432, 454);
 			this.dgvShipments.TabIndex = 0;
 			this.dgvShipments.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShipments_DataBindingComplete);
 			// 
 			// toolHistory
 			// 
+			this.toolHistory.AutoSize = false;
 			this.toolHistory.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripSeparator1});
 			this.toolHistory.Location = new System.Drawing.Point(0, 24);
 			this.toolHistory.Name = "toolHistory";
 			this.toolHistory.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.toolHistory.Size = new System.Drawing.Size(944, 25);
+			this.toolHistory.Size = new System.Drawing.Size(1024, 25);
 			this.toolHistory.TabIndex = 11;
 			this.toolHistory.Text = "toolStrip1";
 			// 
@@ -209,16 +214,44 @@
 			// dgvOrders
 			// 
 			this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvOrders.Location = new System.Drawing.Point(470, 52);
+			this.dgvOrders.Location = new System.Drawing.Point(444, 52);
 			this.dgvOrders.Name = "dgvOrders";
-			this.dgvOrders.Size = new System.Drawing.Size(468, 424);
+			this.dgvOrders.Size = new System.Drawing.Size(575, 454);
 			this.dgvOrders.TabIndex = 12;
+			this.dgvOrders.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvOrders_DataBindingComplete);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// labShipHist
+			// 
+			this.labShipHist.AutoSize = true;
+			this.labShipHist.Font = new System.Drawing.Font("Lucida Console", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labShipHist.Location = new System.Drawing.Point(109, 28);
+			this.labShipHist.Name = "labShipHist";
+			this.labShipHist.Size = new System.Drawing.Size(218, 21);
+			this.labShipHist.TabIndex = 13;
+			this.labShipHist.Text = "Shipment History";
+			// 
+			// labOrderHist
+			// 
+			this.labOrderHist.AutoSize = true;
+			this.labOrderHist.Font = new System.Drawing.Font("Lucida Console", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labOrderHist.Location = new System.Drawing.Point(653, 28);
+			this.labOrderHist.Name = "labOrderHist";
+			this.labOrderHist.Size = new System.Drawing.Size(179, 21);
+			this.labOrderHist.TabIndex = 14;
+			this.labOrderHist.Text = "Order History";
 			// 
 			// History
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(944, 501);
+			this.ClientSize = new System.Drawing.Size(1024, 531);
+			this.Controls.Add(this.labOrderHist);
+			this.Controls.Add(this.labShipHist);
 			this.Controls.Add(this.dgvOrders);
 			this.Controls.Add(this.toolHistory);
 			this.Controls.Add(this.dgvShipments);
@@ -262,5 +295,8 @@
 		private System.Windows.Forms.ToolStripMenuItem receivingToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem shippingToolStripMenuItem;
 		private System.Windows.Forms.DataGridView dgvOrders;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.Label labShipHist;
+		private System.Windows.Forms.Label labOrderHist;
 	}
 }

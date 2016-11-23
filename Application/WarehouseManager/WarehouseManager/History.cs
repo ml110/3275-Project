@@ -61,7 +61,10 @@ namespace WarehouseManager
 				_dgvData.Fill(ds);
 				dgvShipments.DataSource = ds.Tables[0];
 
-				_dgvData = new MySqlDataAdapter();
+				_dgvData = new MySqlDataAdapter("SELECT O.order_id AS ID, S.supplier_name AS Supplier, S.supplier_rep AS Contact, S.supplier_email AS Email, P.phone_number AS Phone, O.order_date AS 'Date' FROM `order` AS O INNER JOIN supplier AS S ON O.supplier_id = S.supplier_id INNER JOIN phone AS P ON S.phone_id = P.phone_id ORDER BY O.order_date",_connection);
+				var ds1 = new DataSet();
+				_dgvData.Fill(ds1);
+				dgvOrders.DataSource = ds1.Tables[0];
 			}
 		}
 
@@ -143,6 +146,13 @@ namespace WarehouseManager
 			dgvShipments.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 			dgvShipments.ReadOnly = true;
 			dgvShipments.RowHeadersVisible = false;
+		}
+
+		private void dgvOrders_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvOrders.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+			dgvOrders.ReadOnly = true;
+			dgvOrders.RowHeadersVisible = false;
 		}
 	}
 }
