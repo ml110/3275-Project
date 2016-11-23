@@ -41,11 +41,16 @@
 			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.panControls = new System.Windows.Forms.Panel();
 			this.dgvLogs = new System.Windows.Forms.DataGridView();
+			this.toolHistory = new System.Windows.Forms.ToolStrip();
+			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.receivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.shippingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.staHistory.SuspendLayout();
 			this.menHistory.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
+			this.toolHistory.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// staHistory
@@ -103,14 +108,14 @@
 			// connectToolStripMenuItem
 			// 
 			this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-			this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.connectToolStripMenuItem.Text = "Connect";
 			this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
 			// 
 			// disconnectToolStripMenuItem
 			// 
 			this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
 			this.disconnectToolStripMenuItem.Text = "Disconnect";
 			this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
 			// 
@@ -125,7 +130,7 @@
 			// logOutToolStripMenuItem
 			// 
 			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
 			this.logOutToolStripMenuItem.Text = "Log Out";
 			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
 			// 
@@ -140,32 +145,71 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-			// 
-			// panControls
-			// 
-			this.panControls.Location = new System.Drawing.Point(0, 27);
-			this.panControls.Name = "panControls";
-			this.panControls.Size = new System.Drawing.Size(239, 449);
-			this.panControls.TabIndex = 11;
 			// 
 			// dgvLogs
 			// 
 			this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvLogs.Location = new System.Drawing.Point(245, 27);
+			this.dgvLogs.Location = new System.Drawing.Point(6, 52);
 			this.dgvLogs.Name = "dgvLogs";
-			this.dgvLogs.Size = new System.Drawing.Size(693, 449);
+			this.dgvLogs.Size = new System.Drawing.Size(932, 424);
 			this.dgvLogs.TabIndex = 0;
+			// 
+			// toolHistory
+			// 
+			this.toolHistory.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.toolHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1});
+			this.toolHistory.Location = new System.Drawing.Point(0, 24);
+			this.toolHistory.Name = "toolHistory";
+			this.toolHistory.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			this.toolHistory.Size = new System.Drawing.Size(944, 25);
+			this.toolHistory.TabIndex = 11;
+			this.toolHistory.Text = "toolStrip1";
+			// 
+			// toolStripDropDownButton1
+			// 
+			this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inventoryToolStripMenuItem,
+            this.receivingToolStripMenuItem,
+            this.shippingToolStripMenuItem});
+			this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+			this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+			this.toolStripDropDownButton1.Size = new System.Drawing.Size(91, 22);
+			this.toolStripDropDownButton1.Text = "Choose Form";
+			// 
+			// inventoryToolStripMenuItem
+			// 
+			this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
+			this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.inventoryToolStripMenuItem.Text = "Inventory";
+			this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
+			// 
+			// receivingToolStripMenuItem
+			// 
+			this.receivingToolStripMenuItem.Name = "receivingToolStripMenuItem";
+			this.receivingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.receivingToolStripMenuItem.Text = "Receiving";
+			this.receivingToolStripMenuItem.Click += new System.EventHandler(this.receivingToolStripMenuItem_Click);
+			// 
+			// shippingToolStripMenuItem
+			// 
+			this.shippingToolStripMenuItem.Name = "shippingToolStripMenuItem";
+			this.shippingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.shippingToolStripMenuItem.Text = "Shipping";
+			this.shippingToolStripMenuItem.Click += new System.EventHandler(this.shippingToolStripMenuItem_Click);
 			// 
 			// History
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(944, 501);
+			this.Controls.Add(this.toolHistory);
 			this.Controls.Add(this.dgvLogs);
-			this.Controls.Add(this.panControls);
 			this.Controls.Add(this.menHistory);
 			this.Controls.Add(this.staHistory);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -176,6 +220,8 @@
 			this.menHistory.ResumeLayout(false);
 			this.menHistory.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
+			this.toolHistory.ResumeLayout(false);
+			this.toolHistory.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -195,7 +241,11 @@
 		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-		private System.Windows.Forms.Panel panControls;
 		private System.Windows.Forms.DataGridView dgvLogs;
+		private System.Windows.Forms.ToolStrip toolHistory;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+		private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem receivingToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem shippingToolStripMenuItem;
 	}
 }

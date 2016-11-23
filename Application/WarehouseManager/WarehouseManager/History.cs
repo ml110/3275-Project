@@ -51,6 +51,11 @@ namespace WarehouseManager
 			InitializeComponent();
 		}
 
+		private void dbCall()
+		{
+			
+		}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 		//Menu Control, User Information & Status Display Components
 
@@ -100,6 +105,27 @@ namespace WarehouseManager
 
 			connectToolStripMenuItem.Enabled = true;
 			disconnectToolStripMenuItem.Enabled = false;
+		}
+
+		private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var warehouse = new Inventory(_connection, _command, _empName, _pId);
+			warehouse.Closed += (s, args) => Close();
+			warehouse.Show();
+		}
+
+		private void receivingToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var receiving = new Receiving(_connection, _command, _empName);
+			receiving.Closed += (s, args) => Close();
+			receiving.Show();
+		}
+
+		private void shippingToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var shipping = new Shipping(_connection, _command, _empName);
+			shipping.Closed += (s, args) => Close();
+			shipping.Show();
 		}
 	}
 }

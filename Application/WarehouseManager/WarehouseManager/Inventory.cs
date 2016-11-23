@@ -164,5 +164,11 @@ namespace WarehouseManager
 			connectToolStripMenuItem.Enabled = true;
 			disconnectToolStripMenuItem.Enabled = false;
 		}
+
+		//Auto Resize Column Width after Data Binding is completed
+		private void dgvInvDisplay_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvInvDisplay.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+		}
 	}
 }
