@@ -1,6 +1,49 @@
 <?php
+/*$conn = mysqli_connect("173.180.133.176", "root", "superpassword", "hi-tec");
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connection_error);
+}*/
+
 include("include/connect.php");
 
+/*function getContent($sql) {
+  //$sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
+  $conn = mysqli_connect("173.180.133.176", "root", "superpassword", "hi-tec");
+  $result = $conn->query($sql);
+  $counter = 0;
+  $content = "<div id=\"row\">";
+  if($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $counter++;
+      $productname = $row["product_name"];
+      $path = $row["product_img_path"];
+      if(($counter % 4) == 0 ) {
+        $content .= "</div>";
+        $content .= "<div id=\"row\">";
+      }
+      $content .= "<div style=\"height:300px;width:200px;\" class=\"col-sm-6 col-md-4\"><div class=\"thumbnail\">";
+      //$content .= "<div class=\"col-sm-6 col-md-4\"><div class=\"thumbnail\">";
+      $content .= "<img src=\"images/".$path."\"></img>";
+      $content .= "<div class=\"caption\"><h3>";
+      if(strlen($productname) < 18) {
+        $content .= $productname . "</h3><br/></div></div>";
+      }else{
+        $content .= $productname . "</h3></div></div>";
+      }
+      $content .= "</div>";
+    }
+    if(($counter % 4) != 0 ) {
+      $content .= "</div>";
+    }
+  }else{
+    $content = "<div class=\"alert alert-danger\" role=\"alert\">
+  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>
+  <span class=\"sr-only\">Error:</span>
+  <strong>No Results Found</strong>
+  </div>";
+  }
+  return $content;
+}*/
 
 function getContent($sql) {
   //$sql = "SELECT product_name,product_img_path,product_stock,manufacturer_name,product_id,shelf_id from product inner join manufacturer on product.manufacturer_id = manufacturer.manufacturer_id where category_id = '1'";
@@ -153,7 +196,7 @@ if(isset($_GET["cat"])) {
       <!-- /.col-md-8 -->
       <div class=\"col-md-4\">
           <h1>HI-TEC Electronic Supply Ltd.</h1>
-          <p>HI-TEC is a supplier of electronics that delivers across the lower mainland. Our warehouse management system allows our employees to work at their highest potential.</p>
+          <p>Hi-Tec is a supplier of electronics that delivers across the lower mainland. Our warehouse management system allows our employees to work at their highest potential.</p>
       </div>
       <!-- /.col-md-4 -->
   </div>";
