@@ -196,7 +196,7 @@ if(isset($_GET["cat"])) {
       <!-- /.col-md-8 -->
       <div class=\"col-md-4\">
           <h1>HI-TEC Electronic Supply Ltd.</h1>
-          <p>Hi-Tec is a supplier of electronics that delivers across the lower mainland. Our warehouse management system allows our employees to work at their highest potential.</p>
+          <p>HI-TEC is a supplier of electronics that delivers across the lower mainland. Our warehouse management system allows our employees to work at their highest potential.</p>
       </div>
       <!-- /.col-md-4 -->
   </div>";
