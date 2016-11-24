@@ -212,6 +212,20 @@ namespace WarehouseManager
 				history.Closed += (s, args) => Close();
 				history.Show();
 			}
+			//Invoking Warehouse Manager Form's Constructor
+			if (formName == "Warehouse Manager")
+			{
+				var history = new History(_connection, _command, empName, pid);
+				history.Closed += (s, args) => Close();
+				history.Show();
+			}
+			//Invoking Administrator Form's Constructor
+			if (formName == "Administrator")
+			{
+				var history = new History(_connection, _command, empName, pid);
+				history.Closed += (s, args) => Close();
+				history.Show();
+			}
 		}
 
 		private void txtLoginPass_KeyPress(object sender, KeyPressEventArgs e)
