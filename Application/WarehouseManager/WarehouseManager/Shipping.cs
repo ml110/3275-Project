@@ -114,7 +114,7 @@ namespace WarehouseManager
 
         private void DisplayShipment(int sId)
         {
-            var query = " SELECT SP.product_id, SP.quantity, P.product_name," +
+            var query = " SELECT SP.product_id AS SKU, SP.quantity AS QUANTITY, P.product_name AS PRODUCTNAME," +
                         " round((SP.quantity * P.product_price), 2) AS TOTALPRICE" +
                         " FROM shipment_product AS SP";
             query += " INNER JOIN product AS P ON SP.product_id = P.product_id";
@@ -244,7 +244,7 @@ namespace WarehouseManager
         private void Shipping_Load(object sender, EventArgs e)
         {
             DisplayDesination();
-			labDate.Text = DateTime.Now.Date.ToString(CultureInfo.InvariantCulture).Substring(0, 10); //Note: either I'm really fucking tired and losing it, or the "1"s in the label look fucked
+			labDate.Text = DateTime.Now.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture).Substring(0, 10); //Note: either I'm really fucking tired and losing it, or the "1"s in the label look fucked
         }
 
 		//THIS THING
@@ -259,9 +259,9 @@ namespace WarehouseManager
 			{
 				MessageBox.Show(ex.Message, @"AIYAH", MessageBoxButtons.OK);
 			}
-			catch (MySqlException)
+			catch (MySqlException) //I'm assuming SQL errors will come from being unable to fulfil a shipment
 			{
-				MessageBox.Show(@"Error updating shipments. Please contact an Administrator.", @"OOPS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(@"ATTENTION: We are unable to fulfill the selected shipment. Please check the inventory stock.", @"OOPS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 
@@ -281,6 +281,8 @@ namespace WarehouseManager
 			var crap = dgvPendingShipment.SelectedRows[0].Cells[0].Value.ToString();
 			var sid = int.Parse(crap);
 
+			updateStock(sid);
+
 			//run the update query
 			var updateQuery = "UPDATE shipment SET hasShipped = '1' WHERE shipment_id = '" + sid + "';";
 			_command.CommandText = updateQuery;
@@ -288,8 +290,64 @@ namespace WarehouseManager
 			var mdr = _command.ExecuteReader();
 			mdr.Close();
 
+			MessageBox.Show("Shipment marked as shipped!", "SUCCESS");
 			//update the display
 			DisplayAllShipments();
+		}
+
+		//update the inventory stock
+		private void updateStock(int SID)
+		{
+			List<int> SKU = new List<int>();
+			List<int> AMT = new List<int>(); //these are the amounts to be subtracted
+
+			//This first query gets the list of things to update
+			string stageQuery = "SELECT product_id AS SKU, quantity AS AMT FROM shipment_product WHERE shipment_id = '" + SID + "';";
+			_command.CommandText = stageQuery;
+			_command.Connection = _connection;
+			MySqlDataReader MDR = _command.ExecuteReader();
+
+			while (MDR.Read())
+			{
+				SKU.Add(Convert.ToInt32(MDR["SKU"].ToString()));
+				AMT.Add(Convert.ToInt32(MDR["AMT"].ToString()));
+			}
+			MDR.Close();
+
+			//TIME FOR UPDATES
+			for (int i = 0; i < SKU.Count; i++)
+			{
+				validCheck(SKU.ElementAt(i), AMT.ElementAt(i)); //CHECK EM
+				
+				string updateQuery = "UPDATE product SET product_stock = (product_stock - '" + AMT.ElementAt(i) + "') WHERE product_id = '" + SKU.ElementAt(i) + "';";
+				_command.CommandText = updateQuery;
+				_command.Connection = _connection;
+				MDR = _command.ExecuteReader();
+			}
+			MDR.Close();
+
+		}
+
+		//checks to see if I can actually do this shit
+		private void validCheck(int ID, int subAmt)
+		{
+			int currentVal = 0;
+
+			string QUERY = "SELECT product_stock AS AMT FROM product WHERE product_id = '" + ID + "';";
+			_command.CommandText = QUERY;
+			_command.Connection = _connection;
+			MySqlDataReader MDR = _command.ExecuteReader();
+
+			while (MDR.Read())
+			{
+				currentVal = Convert.ToInt32(MDR["AMT"].ToString());
+			}
+			MDR.Close();
+
+			if ((currentVal - subAmt) < 0)
+			{
+				throw new ArgumentException("We don't have enough products to fulfill the shipment!");
+			}
 		}
 
 		//prepares a new shipment to be created
@@ -364,7 +422,7 @@ namespace WarehouseManager
 
 				if (confirm != DialogResult.Yes) return;
 				var locationId = Convert.ToInt32(cboDestination.Text.Split(']')[0].Trim('['));
-				var shipDate = labDate.Text;
+				string shipDate = labDate.Text;
 				CreateShipment(_newId, locationId, shipDate);
 
 				//if we've gotten this far, then it's a success and I gotta reset everything and shit
@@ -401,8 +459,11 @@ namespace WarehouseManager
 		private void CreateShipment(int id, int loc, string date)
 		{
 			//prep the date for proper format in the DB
-			var dateFormat = DateTime.Parse(date);
+			Debug.WriteLine(date);
+			DateTime dateFormat = DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+			Debug.WriteLine(dateFormat);
 			date = dateFormat.ToString("yyyy-MM-dd");
+			Debug.WriteLine(date);
 
 			var shipmentQuery = "INSERT INTO shipment VALUES ('" + id + "', '" + loc + "', '" + date + "', '0');";
 			_command.CommandText = shipmentQuery;
